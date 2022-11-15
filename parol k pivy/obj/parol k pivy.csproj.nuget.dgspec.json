@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\home-work\\net\\net.csproj": {}
+    "C:\\Users\\user\\source\\repos\\net\\parol k pivy\\parol k pivy.csproj": {}
   },
   "projects": {
-    "D:\\home-work\\net\\net.csproj": {
+    "C:\\Users\\user\\source\\repos\\net\\parol k pivy\\parol k pivy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\home-work\\net\\net.csproj",
-        "projectName": "net",
-        "projectPath": "D:\\home-work\\net\\net.csproj",
+        "projectUniqueName": "C:\\Users\\user\\source\\repos\\net\\parol k pivy\\parol k pivy.csproj",
+        "projectName": "parol k pivy",
+        "projectPath": "C:\\Users\\user\\source\\repos\\net\\parol k pivy\\parol k pivy.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\home-work\\net\\obj\\",
+        "outputPath": "C:\\Users\\user\\source\\repos\\net\\parol k pivy\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

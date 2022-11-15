@@ -1,0 +1,15 @@
+C:\Users\user\source\repos\net\parol k pivy\bin\Debug\net6.0\parol k pivy.exe
+C:\Users\user\source\repos\net\parol k pivy\bin\Debug\net6.0\parol k pivy.deps.json
+C:\Users\user\source\repos\net\parol k pivy\bin\Debug\net6.0\parol k pivy.runtimeconfig.json
+C:\Users\user\source\repos\net\parol k pivy\bin\Debug\net6.0\parol k pivy.dll
+C:\Users\user\source\repos\net\parol k pivy\bin\Debug\net6.0\parol k pivy.pdb
+C:\Users\user\source\repos\net\parol k pivy\obj\Debug\net6.0\parol k pivy.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\net\parol k pivy\obj\Debug\net6.0\parol k pivy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\net\parol k pivy\obj\Debug\net6.0\parol k pivy.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\net\parol k pivy\obj\Debug\net6.0\parol k pivy.AssemblyInfo.cs
+C:\Users\user\source\repos\net\parol k pivy\obj\Debug\net6.0\parol k pivy.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\net\parol k pivy\obj\Debug\net6.0\parol k pivy.dll
+C:\Users\user\source\repos\net\parol k pivy\obj\Debug\net6.0\refint\parol k pivy.dll
+C:\Users\user\source\repos\net\parol k pivy\obj\Debug\net6.0\parol k pivy.pdb
+C:\Users\user\source\repos\net\parol k pivy\obj\Debug\net6.0\parol k pivy.genruntimeconfig.cache
+C:\Users\user\source\repos\net\parol k pivy\obj\Debug\net6.0\ref\parol k pivy.dll
