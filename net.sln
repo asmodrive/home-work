@@ -5,7 +5,11 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net", "net\net.csproj", "{49892990-4D33-4A39-B168-9A0074DB850D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "operator", "operator\operator.csproj", "{5C6D9349-278C-41F9-A8B6-3C382CAFFC91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "operator", "operator\operator.csproj", "{5C6D9349-278C-41F9-A8B6-3C382CAFFC91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "parol k pivy", "parol k pivy\parol k pivy.csproj", "{F9B44C0E-674C-44AA-8FC3-63380705BFE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proekt", "proekt\proekt.csproj", "{245781CE-CE05-4E38-8F05-12B72EF17F39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{5C6D9349-278C-41F9-A8B6-3C382CAFFC91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C6D9349-278C-41F9-A8B6-3C382CAFFC91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C6D9349-278C-41F9-A8B6-3C382CAFFC91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9B44C0E-674C-44AA-8FC3-63380705BFE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9B44C0E-674C-44AA-8FC3-63380705BFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9B44C0E-674C-44AA-8FC3-63380705BFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9B44C0E-674C-44AA-8FC3-63380705BFE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{245781CE-CE05-4E38-8F05-12B72EF17F39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{245781CE-CE05-4E38-8F05-12B72EF17F39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{245781CE-CE05-4E38-8F05-12B72EF17F39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{245781CE-CE05-4E38-8F05-12B72EF17F39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
