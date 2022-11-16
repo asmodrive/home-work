@@ -12,7 +12,11 @@ for (int i = 0; i < nameLenght + 2; i++)
 {
     Console.Write(symbol);
 }
+<<<<<<< HEAD
 Console.WriteLine($"\n{symbol} {name} {symbol}");
+=======
+Console.WriteLine("\n" + symbol + name + symbol);
+>>>>>>> main
 
 for (int i = 0; i < nameLenght + 2; i++)
 {

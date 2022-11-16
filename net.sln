@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "parol k pivy", "parol k piv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "proekt", "proekt\proekt.csproj", "{245781CE-CE05-4E38-8F05-12B72EF17F39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "give me your password", "give me your password\give me your password.csproj", "{B1C5C0F7-9896-4621-8B4C-A9D0A1C6F040}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "give me your password", "give me your password\give me your password.csproj", "{B1C5C0F7-9896-4621-8B4C-A9D0A1C6F040}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

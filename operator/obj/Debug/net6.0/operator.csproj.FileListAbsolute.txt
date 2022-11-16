@@ -13,6 +13,7 @@ C:\Users\user\source\repos\net\operator\obj\Debug\net6.0\refint\operator.dll
 C:\Users\user\source\repos\net\operator\obj\Debug\net6.0\operator.pdb
 C:\Users\user\source\repos\net\operator\obj\Debug\net6.0\operator.genruntimeconfig.cache
 C:\Users\user\source\repos\net\operator\obj\Debug\net6.0\ref\operator.dll
+<<<<<<< HEAD
 D:\home-work\operator\bin\Debug\net6.0\operator.exe
 D:\home-work\operator\bin\Debug\net6.0\operator.deps.json
 D:\home-work\operator\bin\Debug\net6.0\operator.runtimeconfig.json
@@ -28,3 +29,5 @@ D:\home-work\operator\obj\Debug\net6.0\refint\operator.dll
 D:\home-work\operator\obj\Debug\net6.0\operator.pdb
 D:\home-work\operator\obj\Debug\net6.0\operator.genruntimeconfig.cache
 D:\home-work\operator\obj\Debug\net6.0\ref\operator.dll
+=======
+>>>>>>> main
