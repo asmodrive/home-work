@@ -1,10 +1,14 @@
-﻿Random rand = new Random();
-int randomNumber = rand.Next(1, 28);
+﻿Random random = new Random();
+int firstNumber = 1;
+int secondNumber = 28;
+int randomNumber = random.Next(firstNumber, secondNumber);
 int numbers = 0;
+int largerNumber = 1000;
+int smallerNumber = 100;
 
-for (int currentNumber = 0; currentNumber < 1000; currentNumber += randomNumber)
+for (int currentNumber = 0; currentNumber < largerNumber; currentNumber += randomNumber)
 {
-    if (currentNumber >= 100)
+    if (currentNumber >= smallerNumber)
     {
         numbers++;
     }

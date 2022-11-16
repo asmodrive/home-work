@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "proekt", "proekt\proekt.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "give me your password", "give me your password\give me your password.csproj", "{B1C5C0F7-9896-4621-8B4C-A9D0A1C6F040}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "char symbol", "char symbol\char symbol.csproj", "{37324A17-2A33-4781-B06E-ED139B692FD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B1C5C0F7-9896-4621-8B4C-A9D0A1C6F040}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1C5C0F7-9896-4621-8B4C-A9D0A1C6F040}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1C5C0F7-9896-4621-8B4C-A9D0A1C6F040}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37324A17-2A33-4781-B06E-ED139B692FD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37324A17-2A33-4781-B06E-ED139B692FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37324A17-2A33-4781-B06E-ED139B692FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37324A17-2A33-4781-B06E-ED139B692FD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
