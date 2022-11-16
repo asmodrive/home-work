@@ -1,10 +1,12 @@
-﻿namespace proekt
+﻿Random rand = new Random();
+int randomNumber = rand.Next(1, 28);
+int numbers = 0;
+
+for (int currentNumber = 0; currentNumber < 1000; currentNumber += randomNumber)
 {
-    internal class Program
+    if (currentNumber >= 100)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-        }
+        numbers++;
     }
 }
+Console.WriteLine($"Количество трехзначных натуральных чисел, кратных {randomNumber},будет:{numbers}");
