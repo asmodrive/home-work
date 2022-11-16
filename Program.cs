@@ -1,12 +1,19 @@
-﻿Random rand = new Random();
-int randomNumber = rand.Next(1, 28);
-int numbers = 0;
+﻿string password = "doka2";
+string userInput;
+int tryCount = 3;
 
-for (int currentNumber = 0; currentNumber < 1000; currentNumber += randomNumber)
+while (tryCount-- > 0)
 {
-    if (currentNumber >= 100)
+    Console.WriteLine("Введите пароль:");
+    userInput = Console.ReadLine();
+
+    if (userInput == password)
     {
-        numbers++;
+        Console.WriteLine("Вы удачно ввели пароль, можете запустить доку2.");
+        break;
+    }
+    else
+    {
+        Console.WriteLine($"Неверный пароль, попробуйте еще раз, у вас осталось {tryCount} попыток.");
     }
 }
-Console.WriteLine($"Количество трехзначных натуральных чисел, кратных {randomNumber},будет:{numbers}");
