@@ -2,10 +2,11 @@
 string userInput;
 int tryCount = 3;
 
-for (int i = 0; i < tryCount; i++)
+while (tryCount-- > 0)
 {
     Console.WriteLine("Введите пароль:");
     userInput = Console.ReadLine();
+
     if (userInput == password)
     {
         Console.WriteLine("Вы удачно ввели пароль, можете запустить доку2.");
@@ -13,6 +14,6 @@ for (int i = 0; i < tryCount; i++)
     }
     else
     {
-        Console.WriteLine($"Неверный пароль, попробуйте еще раз, у вас осталось {tryCount - i - 1} попыток.");
+        Console.WriteLine($"Неверный пароль, попробуйте еще раз, у вас осталось {tryCount} попыток.");
     }
 }
