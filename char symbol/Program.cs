@@ -8,10 +8,13 @@ Console.Write("Введите символ: ");
 symbol = Convert.ToChar(Console.ReadLine());
 Console.WriteLine("\n");
 
-for (int i = 1; i < nameLenght + 5; i++)
+for (int initialNumber = 1; initialNumber < nameLenght + 5; initialNumber++)
 {
     Console.Write(symbol);
 }
 
 Console.WriteLine($"\n{symbol} {name} {symbol}");
-
+for (int initialNumber = 0; initialNumber < nameLenght + 5; initialNumber++)
+{
+    Console.Write(symbol);
+}

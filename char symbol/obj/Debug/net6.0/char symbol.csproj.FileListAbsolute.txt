@@ -1,0 +1,15 @@
+D:\home-work\char symbol\bin\Debug\net6.0\char symbol.exe
+D:\home-work\char symbol\bin\Debug\net6.0\char symbol.deps.json
+D:\home-work\char symbol\bin\Debug\net6.0\char symbol.runtimeconfig.json
+D:\home-work\char symbol\bin\Debug\net6.0\char symbol.dll
+D:\home-work\char symbol\bin\Debug\net6.0\char symbol.pdb
+D:\home-work\char symbol\obj\Debug\net6.0\char symbol.csproj.AssemblyReference.cache
+D:\home-work\char symbol\obj\Debug\net6.0\char symbol.GeneratedMSBuildEditorConfig.editorconfig
+D:\home-work\char symbol\obj\Debug\net6.0\char symbol.AssemblyInfoInputs.cache
+D:\home-work\char symbol\obj\Debug\net6.0\char symbol.AssemblyInfo.cs
+D:\home-work\char symbol\obj\Debug\net6.0\char symbol.csproj.CoreCompileInputs.cache
+D:\home-work\char symbol\obj\Debug\net6.0\char symbol.dll
+D:\home-work\char symbol\obj\Debug\net6.0\refint\char symbol.dll
+D:\home-work\char symbol\obj\Debug\net6.0\char symbol.pdb
+D:\home-work\char symbol\obj\Debug\net6.0\char symbol.genruntimeconfig.cache
+D:\home-work\char symbol\obj\Debug\net6.0\ref\char symbol.dll
