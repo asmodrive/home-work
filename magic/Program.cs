@@ -1,10 +1,10 @@
 ﻿int bossHealth = 1000;
 int magicianHealth = 100;
 string userInput = "";
-int damage1 = 250;
-int damage2 = 55;
-int damage3 = 100;
-int damage4 = 500;
+int damageOnslaught = 250;
+int damageDexterity = 55;
+int damageBravery = 100;
+int damageCounterattack = 500;
 int bossDamage = 25;
 
 
@@ -16,24 +16,24 @@ int bossDamage = 25;
     {
         case "1":
             Console.WriteLine("Вы использовали натиск.");
-            bossHealth -= damage1;
+            bossHealth -= damageOnslaught;
             magicianHealth -= bossDamage;
             Console.WriteLine($"У босса осталось {bossHealth} хп, у вас осталось {magicianHealth} хп.");
             break;
         case "2":
             Console.WriteLine("Вы использовали умение ловкости.");
-            bossHealth -= damage2;
+            bossHealth -= damageDexterity;
             Console.WriteLine($"У босса осталось {bossHealth} хп, у вас осталось {magicianHealth} хп.");
             break;
         case "3":
             Console.WriteLine("Вы использовали навык храбрости.");
-            bossHealth -= damage3;
+            bossHealth -= damageBravery;
             magicianHealth -= bossDamage;
             Console.WriteLine($"У босса осталось {bossHealth} хп, у вас осталось {magicianHealth} хп.");
             break;
         case "4":
             Console.WriteLine("Вы использовали контрудар.");
-            bossHealth -= damage4;
+            bossHealth -= damageCounterattack;
             magicianHealth -= bossDamage;
             Console.WriteLine($"У босса осталось {bossHealth} хп, у вас осталось {magicianHealth} хп.");
             break;
