@@ -5,16 +5,15 @@ Console.WriteLine("Введите имя:");
 name = Console.ReadLine();
 nameLenght = name.Length;
 Console.Write("Введите символ: ");
-symbol = Convert.ToChar(Console.ReadLine());
-Console.WriteLine("\n");
+symbol = Convert.ToChar(Console.Read());
+string frame = "";
+string secondLine = $"{symbol} {name} {symbol}";
 
-for (int initialNumber = 1; initialNumber < nameLenght + 5; initialNumber++)
+for (int i = 1; i < secondLine.Length; i++)
 {
-    Console.Write(symbol);
+    frame += symbol;
 }
 
-Console.WriteLine($"\n{symbol} {name} {symbol}");
-for (int initialNumber = 0; initialNumber < nameLenght + 5; initialNumber++)
-{
-    Console.Write(symbol);
-}
+Console.WriteLine(frame);
+Console.WriteLine(secondLine);
+Console.WriteLine(frame);

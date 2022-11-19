@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "give me your password", "gi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "char symbol", "char symbol\char symbol.csproj", "{37324A17-2A33-4781-B06E-ED139B692FD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "magic", "magic\magic.csproj", "{75145DBE-82B4-4741-B32A-C330CA61CAA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "magic", "magic\magic.csproj", "{75145DBE-82B4-4741-B32A-C330CA61CAA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "symbol-()", "symbol-()\symbol-().csproj", "{022028A6-F59E-42A2-A022-493EDBCE36AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{75145DBE-82B4-4741-B32A-C330CA61CAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75145DBE-82B4-4741-B32A-C330CA61CAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75145DBE-82B4-4741-B32A-C330CA61CAA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{022028A6-F59E-42A2-A022-493EDBCE36AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{022028A6-F59E-42A2-A022-493EDBCE36AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{022028A6-F59E-42A2-A022-493EDBCE36AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{022028A6-F59E-42A2-A022-493EDBCE36AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
