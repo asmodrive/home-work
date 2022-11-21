@@ -1,0 +1,15 @@
+D:\home-work\stepen\bin\Debug\net6.0\stepen.exe
+D:\home-work\stepen\bin\Debug\net6.0\stepen.deps.json
+D:\home-work\stepen\bin\Debug\net6.0\stepen.runtimeconfig.json
+D:\home-work\stepen\bin\Debug\net6.0\stepen.dll
+D:\home-work\stepen\bin\Debug\net6.0\stepen.pdb
+D:\home-work\stepen\obj\Debug\net6.0\stepen.csproj.AssemblyReference.cache
+D:\home-work\stepen\obj\Debug\net6.0\stepen.GeneratedMSBuildEditorConfig.editorconfig
+D:\home-work\stepen\obj\Debug\net6.0\stepen.AssemblyInfoInputs.cache
+D:\home-work\stepen\obj\Debug\net6.0\stepen.AssemblyInfo.cs
+D:\home-work\stepen\obj\Debug\net6.0\stepen.csproj.CoreCompileInputs.cache
+D:\home-work\stepen\obj\Debug\net6.0\stepen.dll
+D:\home-work\stepen\obj\Debug\net6.0\refint\stepen.dll
+D:\home-work\stepen\obj\Debug\net6.0\stepen.pdb
+D:\home-work\stepen\obj\Debug\net6.0\stepen.genruntimeconfig.cache
+D:\home-work\stepen\obj\Debug\net6.0\ref\stepen.dll
