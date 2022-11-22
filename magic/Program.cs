@@ -10,6 +10,7 @@ int damageDexterity = 55;
 int damageBravery = 100;
 int damageCounterattack = 500;
 int bossDamage = 25;
+int powerChange = 2;
 string previousSpell = string.Empty;
 
  while (magicianHealth > 0 && bossHealth > 0)
@@ -32,7 +33,7 @@ string previousSpell = string.Empty;
             if (previousSpell == Dexterity)
             {
                 Console.WriteLine("Вы слишком часто используете ловкость, атака не удалась, вы споткнулись.");
-                magicianHealth -= bossDamage * 2;
+                magicianHealth -= bossDamage * powerChange;
             }
             else
             {
@@ -43,7 +44,7 @@ string previousSpell = string.Empty;
         case Bravery:
             Console.WriteLine("Вы использовали навык храбрости.");
             bossHealth -= damageBravery;
-            magicianHealth -= bossDamage / 2;
+            magicianHealth -= bossDamage / powerChange;
             break;
         case Counterattack:
             Console.WriteLine("Вы использовали контрудар.");
@@ -60,7 +61,7 @@ string previousSpell = string.Empty;
         Console.WriteLine("У вас не осталось здоровья, вы проиграли.");
         break;
     }
-    else if (magicianHealth <= 0 || bossHealth <= 0)
+    else
     {
         Console.WriteLine("Ничья, вы и босс пали.");
         break;
