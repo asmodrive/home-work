@@ -1,17 +1,16 @@
 ﻿int minBoarder = 2;
-int maxBoarder = 30000;
-int randomSeed = 1938;
+int maxBoarder = 3000;
 int degree = 0;
 int baseNumber = 2;
-var baseInDegree = MathF.Pow(baseNumber, degree);
-Random random = new Random(randomSeed);
-var number = random.Next(minBoarder, maxBoarder);
-Console.WriteLine(number);
+int foundNumber = 1;
+Random random = new Random();
+int randomNumber = random.Next(minBoarder, maxBoarder);
 
-while (number > baseInDegree)
+while (randomNumber >= foundNumber)
 {
-   degree++;
-   baseInDegree = MathF.Pow(baseNumber, degree);
+    Console.WriteLine($"{randomNumber} >= {foundNumber}");
+    foundNumber *= baseNumber;
+    degree++;
 }
 
-Console.WriteLine($"Число = {number},\nстепень основного числа {baseNumber} = {degree}, \nосновное число в степени = {baseInDegree}.");
+Console.WriteLine($"{foundNumber} > {randomNumber}, где {foundNumber} это {baseNumber} в степени {degree}");
