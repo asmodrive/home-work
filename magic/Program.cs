@@ -16,8 +16,7 @@ string previousSpell = string.Empty;
 
  while (magicianHealth > 0 && bossHealth > 0)
 {
-    Console.WriteLine($"У босса осталось {bossHealth} хп, у вас осталось {magicianHealth} хп.");
-    previousSpell = userInput;
+    
 
     if (previousSpell == CommandCounterattack)
     {
@@ -60,23 +59,20 @@ string previousSpell = string.Empty;
             break;
     }
 
-    if (magicianHealth <= 0 && bossHealth <= 0)
-    {
-        Console.WriteLine("Ничья, вы и босс пали.");
-        break;
-    }
-    else if (bossHealth <= 0)
-    {
-        Console.WriteLine("Босс пал, вы победили.");
-        break;
-    }
-    else if (magicianHealth <= 0)
-    {
-        Console.WriteLine("У вас не осталось здоровья, вы проиграли.");
-        break;
-    }
-    
     Console.WriteLine($"У босса осталось {bossHealth} хп, у вас осталось {magicianHealth} хп.");
     previousSpell = userInput;
 }
+
+if (magicianHealth <= 0 && bossHealth <= 0)
+    {
+        Console.WriteLine("Ничья, вы и босс пали.");
+    }
+else if (bossHealth <= 0)
+    {
+        Console.WriteLine("Вы выиграли, а я сдам дз с пятой попытки.");
+    }
+else if (magicianHealth <= 0)
+    {
+        Console.WriteLine("У вас не осталось здоровья, вы проиграли.");
+    }
 
