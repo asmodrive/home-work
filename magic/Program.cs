@@ -59,7 +59,13 @@ string previousSpell = string.Empty;
             magicianHealth -= bossDamage;
             break;
     }
-    if (bossHealth <= 0)
+
+    if (magicianHealth <= 0 && bossHealth <= 0)
+    {
+        Console.WriteLine("Ничья, вы и босс пали.");
+        break;
+    }
+    else if (bossHealth <= 0)
     {
         Console.WriteLine("Босс пал, вы победили.");
         break;
@@ -69,9 +75,8 @@ string previousSpell = string.Empty;
         Console.WriteLine("У вас не осталось здоровья, вы проиграли.");
         break;
     }
-    else
-    {
-        Console.WriteLine("Ничья, вы и босс пали.");
-        break;
-    }
+    
+    Console.WriteLine($"У босса осталось {bossHealth} хп, у вас осталось {magicianHealth} хп.");
+    previousSpell = userInput;
 }
+
