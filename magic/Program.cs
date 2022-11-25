@@ -1,7 +1,8 @@
-﻿const string Onslaught = "1";
-const string Dexterity = "2";
-const string Bravery = "3";
-const string Counterattack = "4";
+﻿const string CommandOnslaught = "1";
+const string CommandDexterity = "2";
+const string CommandBravery = "3";
+const string CommandCounterattack = "4";
+ 
 int bossHealth = 1000;
 int magicianHealth = 100;
 string userInput = string.Empty;
@@ -15,22 +16,27 @@ string previousSpell = string.Empty;
 
  while (magicianHealth > 0 && bossHealth > 0)
 {
-    if (previousSpell == Counterattack)
+    Console.WriteLine($"У босса осталось {bossHealth} хп, у вас осталось {magicianHealth} хп.");
+    previousSpell = userInput;
+
+    if (previousSpell == CommandCounterattack)
     {
         bossHealth -= damageCounterattack;
     }
     
-    Console.WriteLine($"Выберите ваше умение: \n{Onslaught}: Натиск - отнимает {damageOnslaught} хп. \n{Dexterity}: Ловкость - отнимает {damageDexterity} хп, в свою очередь вы ничего не теряете. \n{Bravery}: Храбрость - отнимает {damageBravery} хп. \n{Counterattack}: Контрудар - отнимает {damageCounterattack} хп.");
+    Console.WriteLine($"Выберите ваше умение: \n{CommandOnslaught}: Натиск - отнимает {damageOnslaught} хп. \n{CommandDexterity}: Ловкость - отнимает {damageDexterity} хп, в свою очередь вы ничего не теряете. \n{CommandBravery}: Храбрость - отнимает {damageBravery} хп. \n{CommandCounterattack}: Контрудар - отнимает {damageCounterattack} хп.");
     userInput = Console.ReadLine();
+
     switch (userInput)
     {
-        case Onslaught:
+        case CommandOnslaught:
             Console.WriteLine("Вы использовали натиск.");
             bossHealth -= damageOnslaught;
             magicianHealth -= bossDamage;
             break;
-        case Dexterity:
-            if (previousSpell == Dexterity)
+
+        case CommandDexterity:
+            if (previousSpell == CommandDexterity)
             {
                 Console.WriteLine("Вы слишком часто используете ловкость, атака не удалась, вы споткнулись.");
                 magicianHealth -= bossDamage * powerChange;
@@ -41,12 +47,14 @@ string previousSpell = string.Empty;
                 bossHealth -= damageDexterity;
             }
             break;
-        case Bravery:
+
+        case CommandBravery:
             Console.WriteLine("Вы использовали навык храбрости.");
             bossHealth -= damageBravery;
             magicianHealth -= bossDamage / powerChange;
             break;
-        case Counterattack:
+
+        case CommandCounterattack:
             Console.WriteLine("Вы использовали контрудар.");
             magicianHealth -= bossDamage;
             break;
@@ -66,7 +74,4 @@ string previousSpell = string.Empty;
         Console.WriteLine("Ничья, вы и босс пали.");
         break;
     }
-     
-    Console.WriteLine($"У босса осталось {bossHealth} хп, у вас осталось {magicianHealth} хп.");
-    previousSpell = userInput;
 }
