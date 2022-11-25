@@ -1,30 +1,32 @@
-﻿int symbol = 0;
-int count = 0;
+﻿int maxDepth = 0;
+int finalDepth = 0;
+char openBracket = '(';
+char closeBracket = ')';
 Console.WriteLine("Введите '(' и ')'.");
 string text = Console.ReadLine();
 
 for (int i = 0; i < text.Length; i++)
 {
-    if (text[i] == '(')
+    if (text[i] == openBracket)
     {
-        symbol++;
-        if (symbol > count)
-            count = symbol;
+        maxDepth++;
+        if (maxDepth > finalDepth)
+            finalDepth = maxDepth;
     }
-    else if (text[i] == ')')
+    else if (text[i] == closeBracket)
     {
-        symbol--;
+        maxDepth--;
     }
     
-    if (symbol < 0)
+    if (maxDepth < 0)
     {
         break;
     } 
 }
 
-if (symbol == 0)
+if (maxDepth == 0)
     {
-        Console.WriteLine($"Строка корректная {text} \nМаксимум глубина равняется: {count}");
+        Console.WriteLine($"Строка корректная {text} \nМаксимум глубина равняется: {finalDepth}");
     }
 else
     {
