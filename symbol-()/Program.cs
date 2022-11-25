@@ -2,7 +2,7 @@
 int finalDepth = 0;
 char openBracket = '(';
 char closeBracket = ')';
-Console.WriteLine("Введите '(' и ')'.");
+Console.WriteLine($"Введите {openBracket} и {closeBracket}.");
 string text = Console.ReadLine();
 
 for (int i = 0; i < text.Length; i++)
@@ -10,6 +10,7 @@ for (int i = 0; i < text.Length; i++)
     if (text[i] == openBracket)
     {
         maxDepth++;
+
         if (maxDepth > finalDepth)
             finalDepth = maxDepth;
     }
