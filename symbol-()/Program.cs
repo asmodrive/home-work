@@ -8,8 +8,8 @@ for (int i = 0; i < text.Length; i++)
     if (text[i] == '(')
     {
         symbol++;
-        if (symbol == count)
-        count++;
+        if (symbol > count)
+            count = symbol;
     }
     else if (text[i] == ')')
     {
@@ -27,6 +27,6 @@ if (symbol == 0)
         Console.WriteLine($"Строка корректная {text} \nМаксимум глубина равняется: {count}");
     }
 else
-{
-    Console.WriteLine($"Ошибка! Не верная строка {text}");
-}
+    {
+        Console.WriteLine($"Ошибка! Не верная строка {text}");
+    }
