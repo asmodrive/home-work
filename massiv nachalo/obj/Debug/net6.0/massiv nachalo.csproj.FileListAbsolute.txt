@@ -1,0 +1,15 @@
+D:\home-work\massiv nachalo\bin\Debug\net6.0\massiv nachalo.exe
+D:\home-work\massiv nachalo\bin\Debug\net6.0\massiv nachalo.deps.json
+D:\home-work\massiv nachalo\bin\Debug\net6.0\massiv nachalo.runtimeconfig.json
+D:\home-work\massiv nachalo\bin\Debug\net6.0\massiv nachalo.dll
+D:\home-work\massiv nachalo\bin\Debug\net6.0\massiv nachalo.pdb
+D:\home-work\massiv nachalo\obj\Debug\net6.0\massiv nachalo.csproj.AssemblyReference.cache
+D:\home-work\massiv nachalo\obj\Debug\net6.0\massiv nachalo.GeneratedMSBuildEditorConfig.editorconfig
+D:\home-work\massiv nachalo\obj\Debug\net6.0\massiv nachalo.AssemblyInfoInputs.cache
+D:\home-work\massiv nachalo\obj\Debug\net6.0\massiv nachalo.AssemblyInfo.cs
+D:\home-work\massiv nachalo\obj\Debug\net6.0\massiv nachalo.csproj.CoreCompileInputs.cache
+D:\home-work\massiv nachalo\obj\Debug\net6.0\massiv nachalo.dll
+D:\home-work\massiv nachalo\obj\Debug\net6.0\refint\massiv nachalo.dll
+D:\home-work\massiv nachalo\obj\Debug\net6.0\massiv nachalo.pdb
+D:\home-work\massiv nachalo\obj\Debug\net6.0\massiv nachalo.genruntimeconfig.cache
+D:\home-work\massiv nachalo\obj\Debug\net6.0\ref\massiv nachalo.dll
