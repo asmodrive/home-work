@@ -1,0 +1,15 @@
+D:\home-work\vvedenie chisel\bin\Debug\net6.0\vvedenie chisel.exe
+D:\home-work\vvedenie chisel\bin\Debug\net6.0\vvedenie chisel.deps.json
+D:\home-work\vvedenie chisel\bin\Debug\net6.0\vvedenie chisel.runtimeconfig.json
+D:\home-work\vvedenie chisel\bin\Debug\net6.0\vvedenie chisel.dll
+D:\home-work\vvedenie chisel\bin\Debug\net6.0\vvedenie chisel.pdb
+D:\home-work\vvedenie chisel\obj\Debug\net6.0\vvedenie chisel.csproj.AssemblyReference.cache
+D:\home-work\vvedenie chisel\obj\Debug\net6.0\vvedenie chisel.GeneratedMSBuildEditorConfig.editorconfig
+D:\home-work\vvedenie chisel\obj\Debug\net6.0\vvedenie chisel.AssemblyInfoInputs.cache
+D:\home-work\vvedenie chisel\obj\Debug\net6.0\vvedenie chisel.AssemblyInfo.cs
+D:\home-work\vvedenie chisel\obj\Debug\net6.0\vvedenie chisel.csproj.CoreCompileInputs.cache
+D:\home-work\vvedenie chisel\obj\Debug\net6.0\vvedenie chisel.dll
+D:\home-work\vvedenie chisel\obj\Debug\net6.0\refint\vvedenie chisel.dll
+D:\home-work\vvedenie chisel\obj\Debug\net6.0\vvedenie chisel.pdb
+D:\home-work\vvedenie chisel\obj\Debug\net6.0\vvedenie chisel.genruntimeconfig.cache
+D:\home-work\vvedenie chisel\obj\Debug\net6.0\ref\vvedenie chisel.dll
