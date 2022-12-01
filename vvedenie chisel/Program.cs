@@ -7,11 +7,11 @@ const string Amount = "Сумма";
 
 Console.WriteLine($"Добрый день, введите команду  для их дальнейших действий: \n{Amount} - суммирование ваших чисел;\n{Exit} - выход из программы.");
 string userInput = string.Empty;
-int sumNumbers = 0;
 int[] numbers = new int[0];
+bool isRunning = true;
 
 
-while (userInput != Exit)
+while (isRunning)
 {
     userInput = Console.ReadLine();
 
@@ -19,6 +19,8 @@ while (userInput != Exit)
     {
         case Amount:
             {
+                int sumNumbers = 0;
+
                 for (int i = 0; i < numbers.Length; i++)
                 {
                     sumNumbers += numbers[i];
@@ -31,6 +33,7 @@ while (userInput != Exit)
 
         case Exit:
             {
+                isRunning = false;
                 Console.WriteLine("Вы вышли из программы.");
             }
             break;
@@ -41,15 +44,15 @@ while (userInput != Exit)
                 {
                     Console.WriteLine($"{value} - это число");
 
-                    int[] tempNumbers = new int[numbers.Length+1];
+                    int[] temporaryNumbers = new int[numbers.Length+1];
 
                     for (int i = 0; i < numbers.Length; i++)
                     {
-                        tempNumbers[i] = numbers[i];
+                        temporaryNumbers[i] = numbers[i];
                     }
 
-                    tempNumbers[tempNumbers.Length-1] = value;
-                    numbers = tempNumbers;
+                    temporaryNumbers[temporaryNumbers.Length-1] = value;
+                    numbers = temporaryNumbers;
                 }
                 else
                 {
@@ -57,8 +60,5 @@ while (userInput != Exit)
                 }
             }
             break;
-            
     }
 }
-
-

@@ -1,0 +1,15 @@
+D:\home-work\massiv [30]\bin\Debug\net6.0\massiv [30].exe
+D:\home-work\massiv [30]\bin\Debug\net6.0\massiv [30].deps.json
+D:\home-work\massiv [30]\bin\Debug\net6.0\massiv [30].runtimeconfig.json
+D:\home-work\massiv [30]\bin\Debug\net6.0\massiv [30].dll
+D:\home-work\massiv [30]\bin\Debug\net6.0\massiv [30].pdb
+D:\home-work\massiv [30]\obj\Debug\net6.0\massiv [30].csproj.AssemblyReference.cache
+D:\home-work\massiv [30]\obj\Debug\net6.0\massiv [30].GeneratedMSBuildEditorConfig.editorconfig
+D:\home-work\massiv [30]\obj\Debug\net6.0\massiv [30].AssemblyInfoInputs.cache
+D:\home-work\massiv [30]\obj\Debug\net6.0\massiv [30].AssemblyInfo.cs
+D:\home-work\massiv [30]\obj\Debug\net6.0\massiv [30].csproj.CoreCompileInputs.cache
+D:\home-work\massiv [30]\obj\Debug\net6.0\massiv [30].dll
+D:\home-work\massiv [30]\obj\Debug\net6.0\refint\massiv [30].dll
+D:\home-work\massiv [30]\obj\Debug\net6.0\massiv [30].pdb
+D:\home-work\massiv [30]\obj\Debug\net6.0\massiv [30].genruntimeconfig.cache
+D:\home-work\massiv [30]\obj\Debug\net6.0\ref\massiv [30].dll
