@@ -2,6 +2,7 @@
 int[] numbers = new int[arrayLength];
 int minNumber = 0;
 int maxNumber = 30;
+int lastIndex = numbers.Length - 1;
 Random random = new Random();
 
 Console.WriteLine("Исходный массив.");
@@ -26,7 +27,7 @@ for (int i = 1; i < numbers.Length-1; i++)
     }
 }
 
-if (numbers[numbers.Length-1] > numbers[numbers.Length-2])
+if (numbers[numbers.Length-1] > numbers[lastIndex-1])
 {
     Console.Write($"{numbers[numbers.Length-1]}");
 }
