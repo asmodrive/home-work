@@ -19,7 +19,7 @@ if (numbers[0] > numbers[1] )
     Console.Write($"\n{ numbers[0]}");
 }
 
-for (int i = 1; i < numbers.Length-1; i++)
+for (int i = 1; i < lastIndex; i++)
 {
    if (numbers[i] > numbers[i-1] && numbers[i] > numbers[i+1])
     {
@@ -27,7 +27,7 @@ for (int i = 1; i < numbers.Length-1; i++)
     }
 }
 
-if (numbers[numbers.Length-1] > numbers[lastIndex-1])
+if (numbers[lastIndex] > numbers[lastIndex-1])
 {
-    Console.Write($"{numbers[numbers.Length-1]}");
+    Console.Write($"{numbers[lastIndex]}");
 }
