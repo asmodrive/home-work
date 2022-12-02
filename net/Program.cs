@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿int firstNaturalNumber = 100;
 int lastNaturalNumber = 999;
 int minNumber = 1;
@@ -19,7 +18,6 @@ for (int currentNumber = 0; currentNumber < lastNaturalNumber; currentNumber += 
 
 Console.WriteLine($"Количество трехзначных натуральных чисел, кратных {randomNumber},будет:{counterMultipleNumbers}");
 Console.ReadLine();
-=======
 ﻿Console.WriteLine("Введите ваш возраст:");
 int age = Convert.ToInt32(Console.ReadLine());
 int userInput;
@@ -48,4 +46,3 @@ else
 {
     Console.WriteLine("");
 }
->>>>>>> main

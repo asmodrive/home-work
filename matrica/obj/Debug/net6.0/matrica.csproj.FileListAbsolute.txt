@@ -1,0 +1,15 @@
+D:\home-work\matrica\bin\Debug\net6.0\matrica.exe
+D:\home-work\matrica\bin\Debug\net6.0\matrica.deps.json
+D:\home-work\matrica\bin\Debug\net6.0\matrica.runtimeconfig.json
+D:\home-work\matrica\bin\Debug\net6.0\matrica.dll
+D:\home-work\matrica\bin\Debug\net6.0\matrica.pdb
+D:\home-work\matrica\obj\Debug\net6.0\matrica.csproj.AssemblyReference.cache
+D:\home-work\matrica\obj\Debug\net6.0\matrica.GeneratedMSBuildEditorConfig.editorconfig
+D:\home-work\matrica\obj\Debug\net6.0\matrica.AssemblyInfoInputs.cache
+D:\home-work\matrica\obj\Debug\net6.0\matrica.AssemblyInfo.cs
+D:\home-work\matrica\obj\Debug\net6.0\matrica.csproj.CoreCompileInputs.cache
+D:\home-work\matrica\obj\Debug\net6.0\matrica.dll
+D:\home-work\matrica\obj\Debug\net6.0\refint\matrica.dll
+D:\home-work\matrica\obj\Debug\net6.0\matrica.pdb
+D:\home-work\matrica\obj\Debug\net6.0\matrica.genruntimeconfig.cache
+D:\home-work\matrica\obj\Debug\net6.0\ref\matrica.dll
