@@ -1,0 +1,15 @@
+D:\home-work\podmassiv\bin\Debug\net6.0\podmassiv.exe
+D:\home-work\podmassiv\bin\Debug\net6.0\podmassiv.deps.json
+D:\home-work\podmassiv\bin\Debug\net6.0\podmassiv.runtimeconfig.json
+D:\home-work\podmassiv\bin\Debug\net6.0\podmassiv.dll
+D:\home-work\podmassiv\bin\Debug\net6.0\podmassiv.pdb
+D:\home-work\podmassiv\obj\Debug\net6.0\podmassiv.csproj.AssemblyReference.cache
+D:\home-work\podmassiv\obj\Debug\net6.0\podmassiv.GeneratedMSBuildEditorConfig.editorconfig
+D:\home-work\podmassiv\obj\Debug\net6.0\podmassiv.AssemblyInfoInputs.cache
+D:\home-work\podmassiv\obj\Debug\net6.0\podmassiv.AssemblyInfo.cs
+D:\home-work\podmassiv\obj\Debug\net6.0\podmassiv.csproj.CoreCompileInputs.cache
+D:\home-work\podmassiv\obj\Debug\net6.0\podmassiv.dll
+D:\home-work\podmassiv\obj\Debug\net6.0\refint\podmassiv.dll
+D:\home-work\podmassiv\obj\Debug\net6.0\podmassiv.pdb
+D:\home-work\podmassiv\obj\Debug\net6.0\podmassiv.genruntimeconfig.cache
+D:\home-work\podmassiv\obj\Debug\net6.0\ref\podmassiv.dll
