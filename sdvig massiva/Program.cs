@@ -25,11 +25,9 @@ if (uint.TryParse(userInput, out uint value))
             {
                 numbers[i] = numbers[i + 1];
             }
-            else
-            {
-                numbers[i] = temporaryNumber;
-            }
         }
+
+        numbers[numbers.Length - 1] = temporaryNumber;
     }
 }
 else
