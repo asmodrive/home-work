@@ -1,0 +1,15 @@
+D:\home-work\sortirov0chka\bin\Debug\net6.0\sortirov0chka.exe
+D:\home-work\sortirov0chka\bin\Debug\net6.0\sortirov0chka.deps.json
+D:\home-work\sortirov0chka\bin\Debug\net6.0\sortirov0chka.runtimeconfig.json
+D:\home-work\sortirov0chka\bin\Debug\net6.0\sortirov0chka.dll
+D:\home-work\sortirov0chka\bin\Debug\net6.0\sortirov0chka.pdb
+D:\home-work\sortirov0chka\obj\Debug\net6.0\sortirov0chka.csproj.AssemblyReference.cache
+D:\home-work\sortirov0chka\obj\Debug\net6.0\sortirov0chka.GeneratedMSBuildEditorConfig.editorconfig
+D:\home-work\sortirov0chka\obj\Debug\net6.0\sortirov0chka.AssemblyInfoInputs.cache
+D:\home-work\sortirov0chka\obj\Debug\net6.0\sortirov0chka.AssemblyInfo.cs
+D:\home-work\sortirov0chka\obj\Debug\net6.0\sortirov0chka.csproj.CoreCompileInputs.cache
+D:\home-work\sortirov0chka\obj\Debug\net6.0\sortirov0chka.dll
+D:\home-work\sortirov0chka\obj\Debug\net6.0\refint\sortirov0chka.dll
+D:\home-work\sortirov0chka\obj\Debug\net6.0\sortirov0chka.pdb
+D:\home-work\sortirov0chka\obj\Debug\net6.0\sortirov0chka.genruntimeconfig.cache
+D:\home-work\sortirov0chka\obj\Debug\net6.0\ref\sortirov0chka.dll

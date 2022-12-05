@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "sortirov0chka/1.0.0": {
+        "runtime": {
+          "sortirov0chka.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "sortirov0chka/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
