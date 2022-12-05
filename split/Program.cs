@@ -3,5 +3,5 @@ string[] subString = textLine.Split(' ');
 
 foreach (string sub in subString)
 {
-    Console.WriteLine($"Substring: {subString}");
+    Console.WriteLine($"Substring: {sub}");
 }
