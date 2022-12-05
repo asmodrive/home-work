@@ -17,7 +17,7 @@ if (uint.TryParse(userInput, out uint value))
 {
     for (uint j = 0; j < value; j++)
     {
-        int boxHolodilnik = numbers[0];
+        int temporaryNumber = numbers[0];
 
         for (int i = 0; i < numbers.Length; i++)
         {
@@ -27,7 +27,7 @@ if (uint.TryParse(userInput, out uint value))
             }
             else
             {
-                numbers[i] = boxHolodilnik;
+                numbers[i] = temporaryNumber;
             }
         }
     }
