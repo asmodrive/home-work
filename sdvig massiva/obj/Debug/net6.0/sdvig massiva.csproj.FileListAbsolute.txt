@@ -1,0 +1,15 @@
+D:\home-work\sdvig massiva\bin\Debug\net6.0\sdvig massiva.exe
+D:\home-work\sdvig massiva\bin\Debug\net6.0\sdvig massiva.deps.json
+D:\home-work\sdvig massiva\bin\Debug\net6.0\sdvig massiva.runtimeconfig.json
+D:\home-work\sdvig massiva\bin\Debug\net6.0\sdvig massiva.dll
+D:\home-work\sdvig massiva\bin\Debug\net6.0\sdvig massiva.pdb
+D:\home-work\sdvig massiva\obj\Debug\net6.0\sdvig massiva.csproj.AssemblyReference.cache
+D:\home-work\sdvig massiva\obj\Debug\net6.0\sdvig massiva.GeneratedMSBuildEditorConfig.editorconfig
+D:\home-work\sdvig massiva\obj\Debug\net6.0\sdvig massiva.AssemblyInfoInputs.cache
+D:\home-work\sdvig massiva\obj\Debug\net6.0\sdvig massiva.AssemblyInfo.cs
+D:\home-work\sdvig massiva\obj\Debug\net6.0\sdvig massiva.csproj.CoreCompileInputs.cache
+D:\home-work\sdvig massiva\obj\Debug\net6.0\sdvig massiva.dll
+D:\home-work\sdvig massiva\obj\Debug\net6.0\refint\sdvig massiva.dll
+D:\home-work\sdvig massiva\obj\Debug\net6.0\sdvig massiva.pdb
+D:\home-work\sdvig massiva\obj\Debug\net6.0\sdvig massiva.genruntimeconfig.cache
+D:\home-work\sdvig massiva\obj\Debug\net6.0\ref\sdvig massiva.dll

@@ -31,7 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "matrica", "matrica\matrica.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "podmassiv", "podmassiv\podmassiv.csproj", "{A7ACC2D1-EFCA-439D-AB97-7E235BFFD4C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sortirov0chka", "sortirov0chka\sortirov0chka.csproj", "{224C7D2C-BEC0-43F3-8800-3EF7DFCA5746}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sortirov0chka", "sortirov0chka\sortirov0chka.csproj", "{224C7D2C-BEC0-43F3-8800-3EF7DFCA5746}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "split", "split\split.csproj", "{5086C48A-668C-4818-9225-1A69218B3595}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdvig massiva", "sdvig massiva\sdvig massiva.csproj", "{F5594608-18B1-41EF-B8DB-80CC573C84FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +103,14 @@ Global
 		{224C7D2C-BEC0-43F3-8800-3EF7DFCA5746}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{224C7D2C-BEC0-43F3-8800-3EF7DFCA5746}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{224C7D2C-BEC0-43F3-8800-3EF7DFCA5746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5086C48A-668C-4818-9225-1A69218B3595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5086C48A-668C-4818-9225-1A69218B3595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5086C48A-668C-4818-9225-1A69218B3595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5086C48A-668C-4818-9225-1A69218B3595}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5594608-18B1-41EF-B8DB-80CC573C84FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5594608-18B1-41EF-B8DB-80CC573C84FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5594608-18B1-41EF-B8DB-80CC573C84FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5594608-18B1-41EF-B8DB-80CC573C84FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

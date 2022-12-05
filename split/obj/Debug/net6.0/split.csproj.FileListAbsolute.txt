@@ -1,0 +1,15 @@
+D:\home-work\split\bin\Debug\net6.0\split.exe
+D:\home-work\split\bin\Debug\net6.0\split.deps.json
+D:\home-work\split\bin\Debug\net6.0\split.runtimeconfig.json
+D:\home-work\split\bin\Debug\net6.0\split.dll
+D:\home-work\split\bin\Debug\net6.0\split.pdb
+D:\home-work\split\obj\Debug\net6.0\split.csproj.AssemblyReference.cache
+D:\home-work\split\obj\Debug\net6.0\split.GeneratedMSBuildEditorConfig.editorconfig
+D:\home-work\split\obj\Debug\net6.0\split.AssemblyInfoInputs.cache
+D:\home-work\split\obj\Debug\net6.0\split.AssemblyInfo.cs
+D:\home-work\split\obj\Debug\net6.0\split.csproj.CoreCompileInputs.cache
+D:\home-work\split\obj\Debug\net6.0\split.dll
+D:\home-work\split\obj\Debug\net6.0\refint\split.dll
+D:\home-work\split\obj\Debug\net6.0\split.pdb
+D:\home-work\split\obj\Debug\net6.0\split.genruntimeconfig.cache
+D:\home-work\split\obj\Debug\net6.0\ref\split.dll
