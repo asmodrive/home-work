@@ -1,0 +1,15 @@
+D:\home-work\metodReadLine\bin\Debug\net6.0\metodReadLine.exe
+D:\home-work\metodReadLine\bin\Debug\net6.0\metodReadLine.deps.json
+D:\home-work\metodReadLine\bin\Debug\net6.0\metodReadLine.runtimeconfig.json
+D:\home-work\metodReadLine\bin\Debug\net6.0\metodReadLine.dll
+D:\home-work\metodReadLine\bin\Debug\net6.0\metodReadLine.pdb
+D:\home-work\metodReadLine\obj\Debug\net6.0\metodReadLine.csproj.AssemblyReference.cache
+D:\home-work\metodReadLine\obj\Debug\net6.0\metodReadLine.GeneratedMSBuildEditorConfig.editorconfig
+D:\home-work\metodReadLine\obj\Debug\net6.0\metodReadLine.AssemblyInfoInputs.cache
+D:\home-work\metodReadLine\obj\Debug\net6.0\metodReadLine.AssemblyInfo.cs
+D:\home-work\metodReadLine\obj\Debug\net6.0\metodReadLine.csproj.CoreCompileInputs.cache
+D:\home-work\metodReadLine\obj\Debug\net6.0\metodReadLine.dll
+D:\home-work\metodReadLine\obj\Debug\net6.0\refint\metodReadLine.dll
+D:\home-work\metodReadLine\obj\Debug\net6.0\metodReadLine.pdb
+D:\home-work\metodReadLine\obj\Debug\net6.0\metodReadLine.genruntimeconfig.cache
+D:\home-work\metodReadLine\obj\Debug\net6.0\ref\metodReadLine.dll
