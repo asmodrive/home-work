@@ -1,8 +1,8 @@
 ﻿using System.Transactions;
 
-Console.WriteLine($"Вы ввели: {EnteringNumber()}");
+Console.WriteLine($"Вы ввели: {ReadInt()}");
 
-static int EnteringNumber()
+static int ReadInt()
 {
     bool isRunning = true;
     int value = 0;

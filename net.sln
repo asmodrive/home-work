@@ -39,7 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sdvig massiva", "sdvig mass
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "function", "function\function.csproj", "{4CE86AA9-725D-4461-AA0D-54345381229D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "metodReadLine", "metodReadLine\metodReadLine.csproj", "{35A08B0C-A580-480B-83C1-4D3059665815}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "metodReadLine", "metodReadLine\metodReadLine.csproj", "{35A08B0C-A580-480B-83C1-4D3059665815}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuffle", "Shuffle\Shuffle.csproj", "{666C4FBC-AA7B-4051-97F5-6D5A5598A6D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,10 @@ Global
 		{35A08B0C-A580-480B-83C1-4D3059665815}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35A08B0C-A580-480B-83C1-4D3059665815}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35A08B0C-A580-480B-83C1-4D3059665815}.Release|Any CPU.Build.0 = Release|Any CPU
+		{666C4FBC-AA7B-4051-97F5-6D5A5598A6D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{666C4FBC-AA7B-4051-97F5-6D5A5598A6D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{666C4FBC-AA7B-4051-97F5-6D5A5598A6D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{666C4FBC-AA7B-4051-97F5-6D5A5598A6D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
