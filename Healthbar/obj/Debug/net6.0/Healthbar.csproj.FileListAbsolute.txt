@@ -1,0 +1,15 @@
+D:\home-work\Healthbar\bin\Debug\net6.0\Healthbar.exe
+D:\home-work\Healthbar\bin\Debug\net6.0\Healthbar.deps.json
+D:\home-work\Healthbar\bin\Debug\net6.0\Healthbar.runtimeconfig.json
+D:\home-work\Healthbar\bin\Debug\net6.0\Healthbar.dll
+D:\home-work\Healthbar\bin\Debug\net6.0\Healthbar.pdb
+D:\home-work\Healthbar\obj\Debug\net6.0\Healthbar.csproj.AssemblyReference.cache
+D:\home-work\Healthbar\obj\Debug\net6.0\Healthbar.GeneratedMSBuildEditorConfig.editorconfig
+D:\home-work\Healthbar\obj\Debug\net6.0\Healthbar.AssemblyInfoInputs.cache
+D:\home-work\Healthbar\obj\Debug\net6.0\Healthbar.AssemblyInfo.cs
+D:\home-work\Healthbar\obj\Debug\net6.0\Healthbar.csproj.CoreCompileInputs.cache
+D:\home-work\Healthbar\obj\Debug\net6.0\Healthbar.dll
+D:\home-work\Healthbar\obj\Debug\net6.0\refint\Healthbar.dll
+D:\home-work\Healthbar\obj\Debug\net6.0\Healthbar.pdb
+D:\home-work\Healthbar\obj\Debug\net6.0\Healthbar.genruntimeconfig.cache
+D:\home-work\Healthbar\obj\Debug\net6.0\ref\Healthbar.dll
