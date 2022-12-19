@@ -12,23 +12,21 @@ for (int i = 0; i < numbers.Length; i++)
 
 PrintNumbers(numbers);
 Console.WriteLine();
-numbers = Shuffle(numbers);
+Shuffle(numbers);
 Console.WriteLine();
 PrintNumbers(numbers);
 
-static int[] Shuffle(int[] numbers)
+static void Shuffle(int[] numbers)
 {
     Random random = new Random(123412);
 
     for (int i = numbers.Length-1; i >= 1; i--)
     {
-        int j = random.Next(i + 1);
-        int temporaryNumber = numbers[j];
-        numbers[j] = numbers[i];
+        int temporaryIndex = random.Next(i + 1);
+        int temporaryNumber = numbers[temporaryIndex];
+        numbers[temporaryIndex] = numbers[i];
         numbers[i] = temporaryNumber;
     }
-
-    return numbers;
 }
 
 static void PrintNumbers(int[] numbers)

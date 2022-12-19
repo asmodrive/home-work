@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Добрый день, введите сколько % предложенной строки вы хотит закрасить: ");
+﻿using System.Numerics;
+
+Console.WriteLine("Добрый день, введите сколько % предложенной строки вы хотит закрасить: ");
 int healph = Convert.ToInt32(Console.ReadLine());
 int maxHealph = 100;
 
@@ -9,6 +11,8 @@ Console.WriteLine($"\nВы закрасили {healph} %.");
 
 static void DrawBar (int value, int maxValue, ConsoleColor color)
 {
+    int barPositionX = 0;
+    int barPositionY = 0;
     ConsoleColor defauleColor = Console.BackgroundColor;
     string bar = "";
 
@@ -17,7 +21,7 @@ static void DrawBar (int value, int maxValue, ConsoleColor color)
         bar += ' ';
     }
 
-    Console.SetCursorPosition(0, 0);
+    Console.SetCursorPosition(barPositionX, barPositionY);
     Console.Write('[');
     Console.BackgroundColor = color;
     Console.Write(bar);

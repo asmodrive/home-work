@@ -45,6 +45,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shuffle", "Shuffle\Shuffle.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Healthbar", "Healthbar\Healthbar.csproj", "{38419224-6E93-40C2-9EF6-79E35F68C813}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "map", "map\map.csproj", "{FF6181A2-6EE9-4A95-9210-B40571C43BA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{38419224-6E93-40C2-9EF6-79E35F68C813}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38419224-6E93-40C2-9EF6-79E35F68C813}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38419224-6E93-40C2-9EF6-79E35F68C813}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF6181A2-6EE9-4A95-9210-B40571C43BA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF6181A2-6EE9-4A95-9210-B40571C43BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF6181A2-6EE9-4A95-9210-B40571C43BA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF6181A2-6EE9-4A95-9210-B40571C43BA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
