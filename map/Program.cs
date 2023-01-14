@@ -1,23 +1,42 @@
 ﻿using System.IO;
+using System.Linq.Expressions;
+
+const ConsoleKey MoveUpCommand = ConsoleKey.UpArrow;
+const ConsoleKey MoveDownCommand = ConsoleKey.DownArrow;
+const ConsoleKey MoveLeftCommand = ConsoleKey.LeftArrow;
+const ConsoleKey MoveRightCommand = ConsoleKey.RightArrow;
+const ConsoleKey AlternativeMoveUpCommand = ConsoleKey.W;
+const ConsoleKey AlternativeMoveDownCommand = ConsoleKey.S;
+const ConsoleKey AlternativeMoveLeftCommand = ConsoleKey.A;
+const ConsoleKey AlternativeMoveRightCommand = ConsoleKey.D;
 
 bool isPlaying = true;
 Console.CursorVisible = false;
 string mapOne = "map.txt";
-int positionX;
-int positionY;
+int positionX = 1;
+int positionY = 1;
 int directionX = 0;
 int directionY = 1;
 int mapHeight = CalculateMapHeight(mapOne);
 string endGameMessage = string.Empty;
 
-char[,] map = ReadMap(mapOne, out positionX, out positionY);
 
+char[,] map = ReadMap(mapOne, out positionX, out positionY);
 DrawMap(map);
 
-do
+while (isPlaying)
 {
+    MovementManager(ref positionY, ref positionX, directionY, directionX);
+    PlayerWithdrawal(map, positionY, positionX, directionY, directionX);
+    OutputResult(map, positionY, positionX, isPlaying, endGameMessage);
+    Console.ReadKey(true);
+}
+
+static void MovementManager(ref int positionY, ref int positionX, int directionY, int directionX, char symbol = '@')
+{
+    symbol = '@';
     Console.SetCursorPosition(positionY, positionX);
-    Console.Write('@');
+    Console.Write(symbol);
 
     if (Console.KeyAvailable)
     {
@@ -25,19 +44,23 @@ do
 
         switch (key.Key)
         {
-            case var consoleKey when consoleKey == ConsoleKey.UpArrow || consoleKey == ConsoleKey.W:
+            case AlternativeMoveUpCommand:
+            case MoveUpCommand:
                 directionX = -1;
                 directionY = 0;
                 break;
-            case var consoleKey when consoleKey == ConsoleKey.DownArrow || consoleKey == ConsoleKey.S:
+            case AlternativeMoveDownCommand:
+            case MoveDownCommand:
                 directionX = 1;
                 directionY = 0;
                 break;
-            case var consoleKey when consoleKey == ConsoleKey.LeftArrow || consoleKey == ConsoleKey.A:
+            case AlternativeMoveLeftCommand:
+            case MoveLeftCommand:
                 directionX = 0;
                 directionY = -1;
                 break;
-            case var consoleKey when consoleKey == ConsoleKey.RightArrow || consoleKey == ConsoleKey.D:
+            case AlternativeMoveRightCommand:
+            case MoveRightCommand:
                 directionX = 0;
                 directionY = 1;
                 break;
@@ -46,38 +69,47 @@ do
                 directionX = 0;
                 break;
         }
-
-        if (map[directionX + positionX, directionY + positionY] != '#')
-        {
-            Console.SetCursorPosition(positionY, positionX);
-            Console.Write(" ");
-
-            positionX += directionX;
-            positionY += directionY;
-
-            Console.SetCursorPosition(positionY, positionX);
-            Console.Write('@');
-        }
-
-        if (map[positionX, positionY] == '$')
-        {
-            Console.SetCursorPosition(positionY, positionX);
-            Console.Write("Y");
-            endGameMessage = "Вы прошли игру!";
-            isPlaying = false;
-
-        }
-
-        if (map[positionX, positionY] == 'X')
-        {
-            Console.SetCursorPosition(positionY, positionX);
-            Console.Write("+");
-            endGameMessage = "Вы проиграли!";
-            isPlaying = false;
-        }
     }
 }
-while (isPlaying);
+
+static void PlayerWithdrawal (char[,] map, int positionY, int positionX, int directionY, int directionX)
+{
+    char symbol = '@';
+
+    if (map[directionX + positionX, directionY + positionY] != '#')
+    {
+        Console.SetCursorPosition(positionY, positionX);
+        Console.Write(" ");
+
+        positionX += directionX;
+        positionY += directionY;
+
+        Console.SetCursorPosition(positionY, positionX);
+        Console.Write(symbol);
+    }
+}
+
+static bool OutputResult(char[,] map, int positionY, int positionX, bool isPlaying, string endGameMessage)
+{
+
+    if (map[positionX, positionY] == '$')
+    {
+        Console.SetCursorPosition(positionY, positionX);
+        Console.Write("Y");
+        endGameMessage = "Вы прошли игру!";
+        isPlaying = false;
+    }
+
+
+    if (map[positionX, positionY] == 'X')
+    {
+        Console.SetCursorPosition(positionY, positionX);
+        Console.Write("+");
+        endGameMessage = "Вы проиграли!";
+        isPlaying = false;
+    }
+    return isPlaying;
+}
 
 Console.SetCursorPosition(positionY = 0, mapHeight + 1);
 Console.WriteLine(endGameMessage);
@@ -99,7 +131,7 @@ static char[,] ReadMap(string mapName, out int positionX, out int positionY)
     positionX = 0;
     positionY = 0;
     string mapsPath = "Maps/";
-    string[] newFile = File.ReadAllLines(Path.Combine(mapsPath, mapName));  
+    string[] newFile = File.ReadAllLines(Path.Combine(mapsPath, mapName));
     char[,] map = new char[newFile.Length, newFile[0].Length];
 
     for (int i = 0; i < map.GetLength(0); i++)
@@ -116,10 +148,10 @@ static char[,] ReadMap(string mapName, out int positionX, out int positionY)
         }
     }
 
-    return map; 
+    return map;
 }
 
-static int CalculateMapHeight (string mapName)
+static int CalculateMapHeight(string mapName)
 {
     string mapsPath = "Maps/";
     string[] newFile = File.ReadAllLines(Path.Combine(mapsPath, mapName));

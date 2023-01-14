@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Collections;
+using System.Globalization;
 
 const string Add = "Добавить досье";
 const string Conclusion = "Вывести досье";
@@ -9,8 +10,8 @@ const string Exit = "Выход";
 Console.WriteLine($"Введите, что вы хотите сделать: \n{Add} - добавить досье; \n{Conclusion} - вывод информации; \n{Delete} - удаление досье; \n{Search} - поиск досье; \n{Exit} - выход из программы.");
 string userInput = string.Empty;
 bool isRunning = true;
-string[] name = { };
-string[] post = { };
+string[] names = { };
+string[] posts = { };
 
 while (isRunning)
 {
@@ -20,25 +21,25 @@ while (isRunning)
     {
             case Add:
             {
-                AddName(name, post);
+                AddName(names, posts);
             }
             break;
 
             case Conclusion:
             {
-                Finding(name, post);
+                Finding(names, posts);
             }   
             break;
 
             case Delete:
             {
-                DeleteName(name, post);
+                DeleteName(names, posts);
             }
             break;
 
             case Search:
             {
-                FindByName(name, post);
+                FindByName(names, posts);
             }
             break;
 
@@ -51,44 +52,37 @@ while (isRunning)
     }
 }
 
-static string[] Finding(string[] name, string[] post)
+static string[] Finding(string[] names, string[] posts)
 {
-    for (int i = 0; i < name.Length; i++)
+    for (int i = 0; i < names.Length; i++)
     {
        
     }
-    return name;
+    return names;
 }
 
-static string FindByName(string[] name, string[] post)
+static void FindByName(string[] names, string[] posts)
 {
-    for (int i = 0; i < name.Length; i++)
-    {
-        for (int j = 0; j < post.Length; j++)
-        {
+    Console.WriteLine("Введите фамилию:");
+    string name = Console.ReadLine();
+    ArrayList al = new ArrayList();
+    al.AddRange(names);
 
-        }
+    foreach (string sub in names)
+    {
+        Console.WriteLine($"Substring: {sub}");
     }
-    return null;
 }
 
-static void AddName(string[] name, string[] post)
+static void AddName(string[] names, string[] posts)
 {
-    string[] nameArray = new string[name.Length+1];
-    string[] postArray = new string[post.Length+1];
-
-    for (int i = 0; i < nameArray.Length; i++)
-    {
-        nameArray[i] = post[i];
-        postArray[i] = post[i];
-    }
-
-    post = postArray;
-    name = nameArray;
     Console.WriteLine("Добрый день, введите ФИО сотрудника которого вы хотите добавить:");
-    name[name.Length-1] = Console.ReadLine();
+    string name = Console.ReadLine();
     Console.WriteLine("Введите должность сотрудника которого вы хотите добавить:");
-    post[post.Length-1] = Console.ReadLine();
+    string post = Console.ReadLine();
+
+    IncriseArray(ref names, name);
+    IncriseArray(ref posts, post);
 }
 
 static void DeleteName(string[] name, string[] post)
@@ -104,4 +98,17 @@ static void DeleteName(string[] name, string[] post)
     }
 
     Console.WriteLine("Информация удалена.");
+}
+
+static void IncriseArray(ref string[] array, string text)
+{
+    string[] temporaryArray = new string[array.Length+1];
+
+    for (int i = 0; i < array.Length; i++)
+    {
+        temporaryArray[i] = array[i];
+    }
+
+    temporaryArray[temporaryArray.Length-1] = text; 
+    array = temporaryArray;
 }

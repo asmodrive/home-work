@@ -1,0 +1,15 @@
+D:\home-work\map2\bin\Debug\net6.0\map2.exe
+D:\home-work\map2\bin\Debug\net6.0\map2.deps.json
+D:\home-work\map2\bin\Debug\net6.0\map2.runtimeconfig.json
+D:\home-work\map2\bin\Debug\net6.0\map2.dll
+D:\home-work\map2\bin\Debug\net6.0\map2.pdb
+D:\home-work\map2\obj\Debug\net6.0\map2.csproj.AssemblyReference.cache
+D:\home-work\map2\obj\Debug\net6.0\map2.GeneratedMSBuildEditorConfig.editorconfig
+D:\home-work\map2\obj\Debug\net6.0\map2.AssemblyInfoInputs.cache
+D:\home-work\map2\obj\Debug\net6.0\map2.AssemblyInfo.cs
+D:\home-work\map2\obj\Debug\net6.0\map2.csproj.CoreCompileInputs.cache
+D:\home-work\map2\obj\Debug\net6.0\map2.dll
+D:\home-work\map2\obj\Debug\net6.0\refint\map2.dll
+D:\home-work\map2\obj\Debug\net6.0\map2.pdb
+D:\home-work\map2\obj\Debug\net6.0\map2.genruntimeconfig.cache
+D:\home-work\map2\obj\Debug\net6.0\ref\map2.dll

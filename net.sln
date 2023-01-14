@@ -43,9 +43,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "metodReadLine", "metodReadL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shuffle", "Shuffle\Shuffle.csproj", "{666C4FBC-AA7B-4051-97F5-6D5A5598A6D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Healthbar", "Healthbar\Healthbar.csproj", "{38419224-6E93-40C2-9EF6-79E35F68C813}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Healthbar", "Healthbar\Healthbar.csproj", "{38419224-6E93-40C2-9EF6-79E35F68C813}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "map", "map\map.csproj", "{FF6181A2-6EE9-4A95-9210-B40571C43BA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "map", "map\map.csproj", "{FF6181A2-6EE9-4A95-9210-B40571C43BA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "map2", "map2\map2.csproj", "{58D20CD9-6C91-4BCA-8A0D-70C6B20812FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -141,6 +143,10 @@ Global
 		{FF6181A2-6EE9-4A95-9210-B40571C43BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF6181A2-6EE9-4A95-9210-B40571C43BA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF6181A2-6EE9-4A95-9210-B40571C43BA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58D20CD9-6C91-4BCA-8A0D-70C6B20812FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58D20CD9-6C91-4BCA-8A0D-70C6B20812FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58D20CD9-6C91-4BCA-8A0D-70C6B20812FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58D20CD9-6C91-4BCA-8A0D-70C6B20812FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
