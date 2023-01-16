@@ -24,7 +24,8 @@ while (isPlaying)
             OutputAllDossier(posts, fullNames);
             break;
         case DeleteDossier:
-            DisposeDossier(ref posts, ref fullNames, index);
+            DisposeDossier(ref posts, index);
+            DisposeDossier(ref fullNames, index);
             break;
         case SearchLastName:
             FindLastName(fullNames, posts);
@@ -35,13 +36,13 @@ while (isPlaying)
     }
 }
 
-static void CreateDossier (ref string[] posts, ref string[] fullNames)
+static void CreateDossier(ref string[] posts, ref string[] fullNames)
 {
     string[] temporaryPost = new string[posts.Length + 1];
 
     for (int i = 0; i < posts.Length; i++)
     {
-            temporaryPost[i] = posts[i];
+        temporaryPost[i] = posts[i];
     }
 
     Console.WriteLine("Введите должность:");
@@ -52,7 +53,7 @@ static void CreateDossier (ref string[] posts, ref string[] fullNames)
 
     for (int i = 0; i < fullNames.Length; i++)
     {
-            temporaryFullName[i] = fullNames[i];
+        temporaryFullName[i] = fullNames[i];
     }
 
     Console.WriteLine("Введите фамилию и имя:");
@@ -61,28 +62,40 @@ static void CreateDossier (ref string[] posts, ref string[] fullNames)
     Console.WriteLine("Досье успешно добавлено.");
 }
 
-static void OutputAllDossier (string[] posts, string[] fullNames)
+static void OutputAllDossier(string[] posts, string[] fullNames)
 {
+    Console.WriteLine("Досье найдено:");
     for (int i = 0; i < posts.Length; i++)
     {
         ShowDossier(posts[i], fullNames[i]);
     }
+
 }
 
-static void DisposeDossier (ref string[] array, int index)
+static void DisposeDossier(ref string[] array, int index)
 {
+    Console.WriteLine("Введите номер досье для удаления:");
+    string userInput = Console.ReadLine();
+
     string[] temporaryArray = new string[array.Length - 1];
 
-    for (int i = 0; i < index; i++)
+    for (int i = 0; i < temporaryArray.Length; i++)
     {
-        temporaryArray[i] = array[i];
+        if (i < index)
+        {
+            temporaryArray[i] = array[i];
+        }
+        else
+        {
+            temporaryArray[i] = array[i - 1];
+        }
     }
 
-    temporaryArray[temporaryArray.Length - 1] = Console.ReadLine();
     array = temporaryArray;
+    Console.WriteLine("Досье удалено.");
 }
 
-static void FindLastName (string[] fullNames, string[] posts)
+static void FindLastName(string[] fullNames, string[] posts)
 {
     Console.WriteLine("Введите фамилию сотрудника:");
     string userInput = Console.ReadLine();
@@ -91,16 +104,17 @@ static void FindLastName (string[] fullNames, string[] posts)
     {
         string post = posts[i];
         string fullName = fullNames[i];
-        var names = fullName.Split (' ');
+        var names = fullName.Split(' ');
 
         if (names[0] == userInput)
         {
             ShowDossier(post, fullName);
         }
     }
+    Console.WriteLine("Досье найдено:");
 }
 
-static void ShowDossier (string post, string fullName)
+static void ShowDossier(string post, string fullName)
 {
     Console.WriteLine($"Должность: {post} | Фамилия Имя: {fullName}|");
 }
