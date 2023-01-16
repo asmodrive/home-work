@@ -1,0 +1,15 @@
+D:\home-work\PostandSurName\bin\Debug\net6.0\PostandSurName.exe
+D:\home-work\PostandSurName\bin\Debug\net6.0\PostandSurName.deps.json
+D:\home-work\PostandSurName\bin\Debug\net6.0\PostandSurName.runtimeconfig.json
+D:\home-work\PostandSurName\bin\Debug\net6.0\PostandSurName.dll
+D:\home-work\PostandSurName\bin\Debug\net6.0\PostandSurName.pdb
+D:\home-work\PostandSurName\obj\Debug\net6.0\PostandSurName.csproj.AssemblyReference.cache
+D:\home-work\PostandSurName\obj\Debug\net6.0\PostandSurName.GeneratedMSBuildEditorConfig.editorconfig
+D:\home-work\PostandSurName\obj\Debug\net6.0\PostandSurName.AssemblyInfoInputs.cache
+D:\home-work\PostandSurName\obj\Debug\net6.0\PostandSurName.AssemblyInfo.cs
+D:\home-work\PostandSurName\obj\Debug\net6.0\PostandSurName.csproj.CoreCompileInputs.cache
+D:\home-work\PostandSurName\obj\Debug\net6.0\PostandSurName.dll
+D:\home-work\PostandSurName\obj\Debug\net6.0\refint\PostandSurName.dll
+D:\home-work\PostandSurName\obj\Debug\net6.0\PostandSurName.pdb
+D:\home-work\PostandSurName\obj\Debug\net6.0\PostandSurName.genruntimeconfig.cache
+D:\home-work\PostandSurName\obj\Debug\net6.0\ref\PostandSurName.dll

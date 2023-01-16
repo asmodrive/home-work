@@ -12,9 +12,8 @@ const ConsoleKey AlternativeMoveRightCommand = ConsoleKey.D;
 bool isPlaying = true;
 Console.CursorVisible = false;
 string mapOne = "map.txt";
-int positionX = 1;
-int positionY = 1;
-int mapHeight = CalculateMapHeight(mapOne);
+int positionX;
+int positionY;
 int directionX = 0;
 int directionY = 0;
 string endGameMessage = string.Empty;
@@ -25,15 +24,12 @@ DrawMap(map);
 
 while (isPlaying)
 {
-    Console.SetCursorPosition(positionX, positionY);
-    Console.Write('@');
-    GetDirection(ref directionX, ref directionY);
-    OutputResult(ref positionX, ref positionY, ref map, endGameMessage, isPlaying, directionX, directionY);
-    WinGame(map, positionY, positionX, ref isPlaying, endGameMessage);
-    LoseGame(map, positionY, positionX, ref isPlaying, endGameMessage);
+    PlayerDirection(ref directionX, ref directionY);
+    OutputPlayer(ref positionX, ref positionY, ref map, isPlaying, directionX, directionY);
+    CheckPassage(map, positionY, positionX, ref isPlaying, endGameMessage);
 }
 
-static void GetDirection(ref int directionX, ref int directionY)
+static void PlayerDirection(ref int directionX, ref int directionY)
 {
     ConsoleKeyInfo key = Console.ReadKey(true);
 
@@ -61,10 +57,8 @@ static void GetDirection(ref int directionX, ref int directionY)
     }
 }
 
-static void OutputResult(ref int positionX, ref int positionY, ref char[,] map, string endGameMessage, bool isPlaying, int directionX, int directionY)
+static void OutputPlayer(ref int positionX, ref int positionY, ref char[,] map, bool isPlaying, int directionX, int directionY)
 {
-    string mapOne = "map.txt";
-    int mapHeight = CalculateMapHeight(mapOne);
     int temporaryPositionX = positionX + directionX;
     int temporaryPositionY = positionY + directionY;
 
@@ -91,21 +85,11 @@ static void OutputResult(ref int positionX, ref int positionY, ref char[,] map, 
     }
 }
 
-static void WinGame(char[,] map, int positionY, int positionX, ref bool isPlaying, string endGameMessage)
+static void CheckPassage(char[,] map, int positionY, int positionX, ref bool isPlaying, string endGameMessage)
 {
-    if (map[positionY, positionX] == '$')
-    {
-        Console.SetCursorPosition(positionX, positionY);
-        Console.Write("Y");
-        endGameMessage = "Вы прошли игру!";
-        isPlaying = false;
-    }
-    Console.SetCursorPosition(2, 15);
-    Console.WriteLine(endGameMessage);
-}
+    int horizontalPosition = 0;
+    int verticalPosition = 15;
 
-static void LoseGame(char[,] map, int positionY, int positionX, ref bool isPlaying, string endGameMessage)
-{
     if (map[positionY, positionX] == 'X')
     {
         Console.SetCursorPosition(positionX, positionY);
@@ -113,7 +97,16 @@ static void LoseGame(char[,] map, int positionY, int positionX, ref bool isPlayi
         endGameMessage = "Вы проиграли!";
         isPlaying = false;
     }
-    Console.SetCursorPosition(2, 15);
+
+    else if (map[positionY, positionX] == '$')
+    {
+        Console.SetCursorPosition(positionX, positionY);
+        Console.Write("Y");
+        endGameMessage = "Вы прошли игру!";
+        isPlaying = false;
+    }
+
+    Console.SetCursorPosition(horizontalPosition, verticalPosition);
     Console.WriteLine(endGameMessage);
 }
 
@@ -129,10 +122,11 @@ static void DrawMap(char[,] map)
     }
 }
 
-static char[,] ReadMap(string mapName, out int positionX, out int positionY)
+static char[,] ReadMap(string mapName, out int positionPlayerX, out int positionPlayerY)
 {
-    positionX = 0;
-    positionY = 0;
+    positionPlayerX = 0;
+    positionPlayerY = 0;
+    char symbol = '@';
     string mapsPath = "Maps/";
     string[] newFile = File.ReadAllLines(Path.Combine(mapsPath, mapName));
     char[,] map = new char[newFile.Length, newFile[0].Length];
@@ -143,21 +137,12 @@ static char[,] ReadMap(string mapName, out int positionX, out int positionY)
         {
             map[i, j] = newFile[i][j];
 
-            if (map[i, j] == '@')
+            if (map[i, j] == symbol)
             {
-                positionX = j;
-                positionY = i;
+                positionPlayerX = j;
+                positionPlayerY = i;
             }
         }
     }
-
     return map;
-}
-
-static int CalculateMapHeight(string mapName)
-{
-    string mapsPath = "Maps/";
-    string[] newFile = File.ReadAllLines(Path.Combine(mapsPath, mapName));
-
-    return newFile.Length;
 }
