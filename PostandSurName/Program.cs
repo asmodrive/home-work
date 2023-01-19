@@ -7,8 +7,8 @@ const string SearchLastName = "Поиск по фамилии.";
 const string Exit = "Выйти из программы.";
 
 bool isPlaying = true;
-string userInput = string.Empty;
 int index = 0;
+string userInput = string.Empty;
 string[] posts = { };
 string[] fullNames = { };
 
@@ -58,8 +58,10 @@ static void OutputAllDossier(string[] posts, string[] fullNames)
 
 static void DisposeDossier(ref string[] posts, ref string[] fullNames, int index)
 {
-    ReduceArray(ref posts, index);
-    ReduceArray(ref fullNames, index);
+    Console.WriteLine("Введите номер досье для удаления:");
+    index = Convert.ToInt32(Console.ReadLine());
+    ReduceArray(ref posts);
+    ReduceArray(ref fullNames);
 }
 
 static void FindLastName(string[] fullNames, string[] posts)
@@ -69,11 +71,11 @@ static void FindLastName(string[] fullNames, string[] posts)
 
     for (int i = 0; i < fullNames.Length; i++)
     {
-        string post = posts[i];
-        string fullName = fullNames[i];
-        var names = fullName.Split(' ');
+       string post = posts[i];
+       string fullName = fullNames[i];
+        var surname = fullName.Split(' ');
 
-        if (names[0] == userInput)
+        if (surname[0] == userInput)
         {
             ShowDossier(post, fullName);
         }
@@ -100,12 +102,12 @@ static void IncreaseArray(ref string[] array, string message)
     array = temporaryArray;
 }
 
-static void ReduceArray(ref string[] array, int index)
-{ 
-Console.WriteLine("Введите номер досье для удаления:");
-string userInput = Console.ReadLine();
+static void ReduceArray(ref string[] array)
+{
+    Console.WriteLine("Введите номер досье для удаления:");
+    int index = Convert.ToInt32(Console.ReadLine());
 
-string[] temporaryArray = new string[array.Length - 1];
+    string[] temporaryArray = new string[array.Length - 1];
 
 for (int i = 0; i < temporaryArray.Length; i++)
 {
