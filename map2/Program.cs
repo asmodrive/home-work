@@ -25,7 +25,7 @@ DrawMap(map);
 while (isPlaying)
 {
     MovePlayer(ref directionX, ref directionY);
-    CheckBarrier(ref positionX, ref positionY, ref map, isPlaying, directionX, directionY);
+    DrawPlayer(ref positionX, ref positionY, ref map, isPlaying, directionX, directionY);
     CheckSymbol(map, positionY, positionX, ref isPlaying, endGameMessage);
 }
 
@@ -57,7 +57,7 @@ static void MovePlayer(ref int directionX, ref int directionY)
     }
 }
 
-static void CheckBarrier(ref int positionX, ref int positionY, ref char[,] map, bool isPlaying, int directionX, int directionY)
+static void DrawPlayer(ref int positionX, ref int positionY, ref char[,] map, bool isPlaying, int directionX, int directionY)
 {
     int temporaryPositionX = positionX + directionX;
     int temporaryPositionY = positionY + directionY;

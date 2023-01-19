@@ -8,7 +8,6 @@ const string Exit = "Выйти из программы.";
 
 bool isPlaying = true;
 int index = 0;
-string userInput = string.Empty;
 string[] posts = { };
 string[] fullNames = { };
 
@@ -16,8 +15,9 @@ Console.WriteLine($"Доброго времени суток, введите, ч
 
 while (isPlaying)
 {
+    string userInput = Console.ReadLine();
 
-    switch (userInput = Console.ReadLine())
+    switch (userInput)
     {
         case AddDossier:
             CreateDossier(ref posts, ref fullNames);
@@ -29,7 +29,7 @@ while (isPlaying)
             DisposeDossier(ref posts, ref fullNames, index);
             break;
         case SearchLastName:
-            FindLastName(fullNames, posts);
+            ShowByName(fullNames, posts);
             break;
         case Exit:
             isPlaying = false;
@@ -60,26 +60,25 @@ static void DisposeDossier(ref string[] posts, ref string[] fullNames, int index
 {
     Console.WriteLine("Введите номер досье для удаления:");
     index = Convert.ToInt32(Console.ReadLine());
-    ReduceArray(ref posts);
-    ReduceArray(ref fullNames);
+    ReduceArray(ref posts, index);
+    ReduceArray(ref fullNames, index);
 }
 
-static void FindLastName(string[] fullNames, string[] posts)
+static void ShowByName(string[] fullNames, string[] posts)
 {
     Console.WriteLine("Введите фамилию сотрудника:");
     string userInput = Console.ReadLine();
 
     for (int i = 0; i < fullNames.Length; i++)
     {
-       string post = posts[i];
-       string fullName = fullNames[i];
-        var surname = fullName.Split(' ');
+        string[] splittedWords = fullNames[i].Split(' ');
 
-        if (surname[0] == userInput)
+        if (splittedWords[0] == userInput)
         {
-            ShowDossier(post, fullName);
+            ShowDossier(posts[i], fullNames[i]);
         }
     }
+    
     Console.WriteLine("Досье найдено:");
 }
 
@@ -90,37 +89,36 @@ static void ShowDossier(string post, string fullName)
 
 static void IncreaseArray(ref string[] array, string message)
 {
-    string[] temporaryArray = new string[array.Length + 1];
+    Console.WriteLine(message);
+    string text = Console.ReadLine();
 
+    string[] temporaryArray = new string[array.Length + 1];
+    
     for (int i = 0; i < array.Length; i++)
     {
         temporaryArray[i] = array[i];
     }
 
-    Console.WriteLine(message);
-    temporaryArray[temporaryArray.Length - 1] = Console.ReadLine();
+    temporaryArray[temporaryArray.Length - 1] = text;
     array = temporaryArray;
 }
 
-static void ReduceArray(ref string[] array)
+static void ReduceArray(ref string[] array, int index)
 {
-    Console.WriteLine("Введите номер досье для удаления:");
-    int index = Convert.ToInt32(Console.ReadLine());
-
     string[] temporaryArray = new string[array.Length - 1];
 
-for (int i = 0; i < temporaryArray.Length; i++)
-{
-    if (i < index)
+    for (int i = 0; i < temporaryArray.Length; i++)
     {
-        temporaryArray[i] = array[i];
+        if (i < index)
+        {
+            temporaryArray[i] = array[i];
+        }
+        else
+        {
+            temporaryArray[i] = array[i - 1];
+        }
     }
-    else
-    {
-        temporaryArray[i] = array[i - 1];
-    }
-}
 
-array = temporaryArray;
-Console.WriteLine("Досье удалено.");
+    array = temporaryArray;
+    Console.WriteLine("Досье удалено.");
 }
