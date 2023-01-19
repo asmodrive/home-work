@@ -10,6 +10,16 @@ namespace dabydi
     {
         static void Main(string[] args)
         {
+            List<string> value  = new List<string>();
+
+            value.AddRange(new string[] { "1", "2", "1" });
+            value.AddRange(new string[] { "3", "2" });
+            value.Remove("2");
+
+            for (int i = 0; i < value.Count; i++)
+            {
+                Console.WriteLine(value[i]);
+            }
         }
     }
 }

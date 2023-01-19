@@ -1,0 +1,8 @@
+D:\home-work\dabydi\bin\Debug\dabydi.exe.config
+D:\home-work\dabydi\bin\Debug\dabydi.exe
+D:\home-work\dabydi\bin\Debug\dabydi.pdb
+D:\home-work\dabydi\obj\Debug\dabydi.csproj.AssemblyReference.cache
+D:\home-work\dabydi\obj\Debug\dabydi.csproj.SuggestedBindingRedirects.cache
+D:\home-work\dabydi\obj\Debug\dabydi.csproj.CoreCompileInputs.cache
+D:\home-work\dabydi\obj\Debug\dabydi.exe
+D:\home-work\dabydi\obj\Debug\dabydi.pdb
