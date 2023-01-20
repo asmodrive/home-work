@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,24 +11,46 @@ namespace dabydi
     {
         static void Main(string[] args)
         {
-            List<string> numbers  = new List<string>();
+            string[] firstArray = new string[5];
+            string[] secondArray = new string[7];
+            FillArray(firstArray);
+            Console.WriteLine();
+            FillArray(secondArray);
+            Console.WriteLine();
 
-            numbers.AddRange(new string[] { "1", "2", "1" });
-            numbers.AddRange(new string[] { "3", "2" });
+            List<string> numbers = new List<string>();
+
+            SumCollection(numbers, firstArray);
+            SumCollection(numbers, secondArray);
 
             for (int i = 0; i < numbers.Count; i++)
             {
                 Console.Write($"{numbers[i]} ");
             }
+        }
 
-            Console.WriteLine("Введите число для удаления:");
-            string userInput = Console.ReadLine();
-            numbers.Remove(userInput);
-
-            for(int i = 0; i < numbers.Count; i++)
+        static void SumCollection(List<string> numbers, string[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
             {
-                Console.Write($"{numbers[i]} ");
+                if (numbers.Contains(array[i]) == false)
+                {
+                    numbers.Add(array[i]);
+                }
             }
+        }
+
+        static string[] FillArray (string[] array)
+        {
+            int minValue = 0;
+            int maxValue = 10;
+            Random random = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Convert.ToString(random.Next(minValue, maxValue));
+                Console.Write($"{array[i]}");
+            }
+            return array;
         }
     }
 }
