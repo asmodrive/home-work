@@ -23,7 +23,8 @@ namespace queue
 
             while (money.Count > 0)
             {
-                Console.WriteLine($"Текущий баланс счета: {sumMoney += money.Dequeue()}");
+                sumMoney += money.Dequeue();
+                Console.WriteLine($"Текущий баланс счета: {sumMoney}");
                 Console.ReadKey();
                 Console.Clear();
             }
