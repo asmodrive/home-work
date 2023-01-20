@@ -1,161 +1,126 @@
-﻿using System.IO;
-using System.Linq.Expressions;
+﻿using System;
 
-const ConsoleKey MoveUpCommand = ConsoleKey.UpArrow;
-const ConsoleKey MoveDownCommand = ConsoleKey.DownArrow;
-const ConsoleKey MoveLeftCommand = ConsoleKey.LeftArrow;
-const ConsoleKey MoveRightCommand = ConsoleKey.RightArrow;
-const ConsoleKey AlternativeMoveUpCommand = ConsoleKey.W;
-const ConsoleKey AlternativeMoveDownCommand = ConsoleKey.S;
-const ConsoleKey AlternativeMoveLeftCommand = ConsoleKey.A;
-const ConsoleKey AlternativeMoveRightCommand = ConsoleKey.D;
+const string AddDossier = "Добавить досье.";
+const string OutputDossier = "Вывести все досье.";
+const string DeleteDossier = "Удалить досье.";
+const string SearchLastName = "Поиск по фамилии.";
+const string Exit = "Выйти из программы.";
 
 bool isPlaying = true;
-Console.CursorVisible = false;
-string mapOne = "map.txt";
-int positionX = 1;
-int positionY = 1;
-int directionX = 0;
-int directionY = 1;
-int mapHeight = CalculateMapHeight(mapOne);
-string endGameMessage = string.Empty;
+int index = 0;
+string[] posts = { };
+string[] fullNames = { };
 
-
-char[,] map = ReadMap(mapOne, out positionX, out positionY);
-DrawMap(map);
+Console.WriteLine($"Доброго времени суток, введите, что вы хотите сделать:\n {AddDossier} \n {OutputDossier} \n {DeleteDossier} \n {SearchLastName}\n {Exit}");
 
 while (isPlaying)
 {
-    MovementManager(ref positionY, ref positionX, directionY, directionX);
-    PlayerWithdrawal(map, positionY, positionX, directionY, directionX);
-    OutputResult(map, positionY, positionX, isPlaying, endGameMessage);
-    Console.ReadKey(true);
+    string userInput = Console.ReadLine();
+
+    switch (userInput)
+    {
+        case AddDossier:
+            CreateDossier(ref posts, ref fullNames);
+            break;
+        case OutputDossier:
+            OutputAllDossier(posts, fullNames);
+            break;
+        case DeleteDossier:
+            DisposeDossier(ref posts, ref fullNames);
+            break;
+        case SearchLastName:
+            ShowByName(fullNames, posts);
+            break;
+        case Exit:
+            isPlaying = false;
+            break;
+    }
 }
 
-static void MovementManager(ref int positionY, ref int positionX, int directionY, int directionX, char symbol = '@')
+static void CreateDossier(ref string[] posts, ref string[] fullNames)
 {
-    symbol = '@';
-    Console.SetCursorPosition(positionY, positionX);
-    Console.Write(symbol);
+    string postMessage = "Введите должность:";
+    IncreaseArray(posts, postMessage);
+    string fullNamesMessage = "Введите Фамилию и Имя:";
+    IncreaseArray(fullNames, fullNamesMessage);
+    Console.WriteLine("Досье успешно добавлено.");
+}
 
-    if (Console.KeyAvailable)
+static void OutputAllDossier(string[] posts, string[] fullNames)
+{
+    Console.WriteLine("Досье найдено:");
+
+    for (int i = 0; i < posts.Length; i++)
     {
-        ConsoleKeyInfo key = Console.ReadKey(true);
+        ShowDossier(posts[i], fullNames[i]);
+    }
+}
 
-        switch (key.Key)
+static void DisposeDossier(ref string[] posts, ref string[] fullNames)
+{
+    Console.WriteLine("Введите номер досье для удаления:");
+    int index = Convert.ToInt32(Console.ReadLine());
+    ReduceArray(posts, index);
+    ReduceArray(fullNames, index);
+}
+
+static void ShowByName(string[] fullNames, string[] posts)
+{
+    Console.WriteLine("Введите фамилию сотрудника:");
+    string userInput = Console.ReadLine();
+
+    for (int i = 0; i < fullNames.Length; i++)
+    {
+        string[] splittedWords = fullNames[i].Split(' ');
+
+        if (splittedWords[0] == userInput)
         {
-            case AlternativeMoveUpCommand:
-            case MoveUpCommand:
-                directionX = -1;
-                directionY = 0;
-                break;
-            case AlternativeMoveDownCommand:
-            case MoveDownCommand:
-                directionX = 1;
-                directionY = 0;
-                break;
-            case AlternativeMoveLeftCommand:
-            case MoveLeftCommand:
-                directionX = 0;
-                directionY = -1;
-                break;
-            case AlternativeMoveRightCommand:
-            case MoveRightCommand:
-                directionX = 0;
-                directionY = 1;
-                break;
-            default:
-                directionY = 0;
-                directionX = 0;
-                break;
-        }
-    }
-}
-
-static void PlayerWithdrawal (char[,] map, int positionY, int positionX, int directionY, int directionX)
-{
-    char symbol = '@';
-
-    if (map[directionX + positionX, directionY + positionY] != '#')
-    {
-        Console.SetCursorPosition(positionY, positionX);
-        Console.Write(" ");
-
-        positionX += directionX;
-        positionY += directionY;
-
-        Console.SetCursorPosition(positionY, positionX);
-        Console.Write(symbol);
-    }
-}
-
-static bool OutputResult(char[,] map, int positionY, int positionX, bool isPlaying, string endGameMessage)
-{
-
-    if (map[positionX, positionY] == '$')
-    {
-        Console.SetCursorPosition(positionY, positionX);
-        Console.Write("Y");
-        endGameMessage = "Вы прошли игру!";
-        isPlaying = false;
-    }
-
-
-    if (map[positionX, positionY] == 'X')
-    {
-        Console.SetCursorPosition(positionY, positionX);
-        Console.Write("+");
-        endGameMessage = "Вы проиграли!";
-        isPlaying = false;
-    }
-    return isPlaying;
-}
-
-Console.SetCursorPosition(positionY = 0, mapHeight + 1);
-Console.WriteLine(endGameMessage);
-
-static void DrawMap(char[,] map)
-{
-    for (int i = 0; i < map.GetLength(0); i++)
-    {
-        for (int j = 0; j < map.GetLength(1); j++)
-        {
-            Console.Write(map[i, j]);
-        }
-        Console.WriteLine();
-    }
-}
-
-static char[,] ReadMap(string mapName, out int positionX, out int positionY)
-{
-    positionX = 0;
-    positionY = 0;
-    string mapsPath = "Maps/";
-    string[] newFile = File.ReadAllLines(Path.Combine(mapsPath, mapName));
-    char[,] map = new char[newFile.Length, newFile[0].Length];
-
-    for (int i = 0; i < map.GetLength(0); i++)
-    {
-        for (int j = 0; j < map.GetLength(1); j++)
-        {
-            map[i, j] = newFile[i][j];
-
-            if (map[i, j] == '@')
-            {
-                positionX = i;
-                positionY = j;
-            }
+            ShowDossier(posts[i], fullNames[i]);
         }
     }
 
-    return map;
+    Console.WriteLine("Досье найдено:");
 }
 
-static int CalculateMapHeight(string mapName)
+static void ShowDossier(string post, string fullName)
 {
-    string mapsPath = "Maps/";
-    string[] newFile = File.ReadAllLines(Path.Combine(mapsPath, mapName));
-
-    return newFile.Length;
+    Console.WriteLine($"Должность: {post} | Фамилия Имя: {fullName}|");
 }
 
+static string[] IncreaseArray(string [] array, string message)
+{
+    Console.WriteLine(message); ;
+    string text = Console.ReadLine();
+
+    string[] temporaryArray = new string[array.Length + 1];
+
+    for (int i = 0; i < array.Length; i++)
+    {
+        temporaryArray[i] = array[i];
+    }
+
+    temporaryArray[temporaryArray.Length - 1] = text;
+    array = temporaryArray;
+    return array;
+}
+
+static string[] ReduceArray(string[] array, int index)
+{
+    string[] temporaryArray = new string[array.Length - 1];
+
+    for (int i = 0; i < temporaryArray.Length; i++)
+    {
+        if (i < index)
+        {
+            temporaryArray[i] = array[i];
+        }
+        else
+        {
+            temporaryArray[i] = array[i - 1];
+        }
+    }
+
+    array = temporaryArray;
+    Console.WriteLine("Досье удалено.");
+    return array;
+}
