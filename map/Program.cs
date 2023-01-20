@@ -7,7 +7,6 @@ const string SearchLastName = "Поиск по фамилии.";
 const string Exit = "Выйти из программы.";
 
 bool isPlaying = true;
-int index = 0;
 string[] posts = { };
 string[] fullNames = { };
 
