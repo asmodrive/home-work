@@ -20,8 +20,8 @@ namespace dabydi
 
             List<string> numbers = new List<string>();
 
-            SumCollection(numbers, firstArray);
-            SumCollection(numbers, secondArray);
+            CheckUniqueness(numbers, firstArray);
+            CheckUniqueness(numbers, secondArray);
 
             for (int i = 0; i < numbers.Count; i++)
             {
@@ -29,7 +29,7 @@ namespace dabydi
             }
         }
 
-        static void SumCollection(List<string> numbers, string[] array)
+        static void CheckUniqueness(List<string> numbers, string[] array)
         {
             for (int i = 0; i < array.Length; i++)
             {
