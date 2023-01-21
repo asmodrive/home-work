@@ -10,7 +10,6 @@ bool isPlaying = true;
 string[] posts = { };
 string[] fullNames = { };
 
-//Console.WriteLine($"Доброго времени суток, введите, что вы хотите сделать:\n {AddDossier} \n {OutputDossier} \n {DeleteDossier} \n {SearchLastName}\n {Exit}");
 Console.WriteLine($"{AddDossier} - добавить досье.");
 Console.WriteLine($"{OutputDossier} - вывести все досье.");
 Console.WriteLine($"{DeleteDossier} - удалить досье.");
