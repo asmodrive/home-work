@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dabydi", "dabydi\dabydi.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "queue", "queue\queue.csproj", "{952F728B-17C2-404D-B68F-3EC60255C562}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "slovo", "slovo\slovo.csproj", "{FA5F4916-E204-4CD8-AC49-020E0F6AC2EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +161,10 @@ Global
 		{952F728B-17C2-404D-B68F-3EC60255C562}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{952F728B-17C2-404D-B68F-3EC60255C562}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{952F728B-17C2-404D-B68F-3EC60255C562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA5F4916-E204-4CD8-AC49-020E0F6AC2EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA5F4916-E204-4CD8-AC49-020E0F6AC2EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA5F4916-E204-4CD8-AC49-020E0F6AC2EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA5F4916-E204-4CD8-AC49-020E0F6AC2EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

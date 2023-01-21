@@ -1,16 +1,21 @@
 ﻿using System;
 
-const string AddDossier = "Добавить досье.";
-const string OutputDossier = "Вывести все досье.";
-const string DeleteDossier = "Удалить досье.";
-const string SearchLastName = "Поиск по фамилии.";
-const string Exit = "Выйти из программы.";
+const string AddDossier = "1";
+const string OutputDossier = "2";
+const string DeleteDossier = "3";
+const string SearchLastName = "4";
+const string Exit = "5";
 
 bool isPlaying = true;
 string[] posts = { };
 string[] fullNames = { };
 
-Console.WriteLine($"Доброго времени суток, введите, что вы хотите сделать:\n {AddDossier} \n {OutputDossier} \n {DeleteDossier} \n {SearchLastName}\n {Exit}");
+//Console.WriteLine($"Доброго времени суток, введите, что вы хотите сделать:\n {AddDossier} \n {OutputDossier} \n {DeleteDossier} \n {SearchLastName}\n {Exit}");
+Console.WriteLine($"{AddDossier} - добавить досье.");
+Console.WriteLine($"{OutputDossier} - вывести все досье.");
+Console.WriteLine($"{DeleteDossier} - удалить досье.");
+Console.WriteLine($"{SearchLastName} - поиск по фамилии.");
+Console.WriteLine($"{Exit} - выход.");
 
 while (isPlaying)
 {
@@ -21,15 +26,19 @@ while (isPlaying)
         case AddDossier:
             CreateDossier(ref posts, ref fullNames);
             break;
+
         case OutputDossier:
             OutputAllDossier(posts, fullNames);
             break;
+
         case DeleteDossier:
             DisposeDossier(ref posts, ref fullNames);
             break;
+
         case SearchLastName:
             ShowByName(fullNames, posts);
             break;
+
         case Exit:
             isPlaying = false;
             break;
@@ -39,9 +48,9 @@ while (isPlaying)
 static void CreateDossier(ref string[] posts, ref string[] fullNames)
 {
     string postMessage = "Введите должность:";
-    IncreaseArray(posts, postMessage);
+    posts = IncreaseArray(posts, postMessage);
     string fullNamesMessage = "Введите Фамилию и Имя:";
-    IncreaseArray(fullNames, fullNamesMessage);
+    fullNames = IncreaseArray(fullNames, fullNamesMessage);
     Console.WriteLine("Досье успешно добавлено.");
 }
 
