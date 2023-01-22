@@ -55,8 +55,6 @@ static void CreateDossier(ref string[] posts, ref string[] fullNames)
 
 static void OutputAllDossier(string[] posts, string[] fullNames)
 {
-    Console.WriteLine("Досье найдено:");
-
     for (int i = 0; i < posts.Length; i++)
     {
         ShowDossier(posts[i], fullNames[i]);
@@ -67,8 +65,9 @@ static void DisposeDossier(ref string[] posts, ref string[] fullNames)
 {
     Console.WriteLine("Введите номер досье для удаления:");
     int index = Convert.ToInt32(Console.ReadLine());
-    ReduceArray(posts, index);
-    ReduceArray(fullNames, index);
+    posts = ReduceArray(posts, index);
+    fullNames = ReduceArray(fullNames, index);
+    Console.WriteLine("Досье удалено.");
 }
 
 static void ShowBySurname(string[] fullNames, string[] posts)
@@ -85,8 +84,6 @@ static void ShowBySurname(string[] fullNames, string[] posts)
             ShowDossier(posts[i], fullNames[i]);
         }
     }
-
-    Console.WriteLine("Досье найдено:");
 }
 
 static void ShowDossier(string post, string fullName)
@@ -96,7 +93,7 @@ static void ShowDossier(string post, string fullName)
 
 static string[] IncreaseArray(string [] array, string message)
 {
-    Console.WriteLine(message); ;
+    Console.WriteLine(message);
     string text = Console.ReadLine();
 
     string[] temporaryArray = new string[array.Length + 1];
@@ -128,6 +125,5 @@ static string[] ReduceArray(string[] array, int index)
     }
 
     array = temporaryArray;
-    Console.WriteLine("Досье удалено.");
     return array;
 }
