@@ -35,7 +35,7 @@ while (isPlaying)
             break;
 
         case SearchLastName:
-            ShowByName(fullNames, posts);
+            ShowBySurname(fullNames, posts);
             break;
 
         case Exit:
@@ -71,7 +71,7 @@ static void DisposeDossier(ref string[] posts, ref string[] fullNames)
     ReduceArray(fullNames, index);
 }
 
-static void ShowByName(string[] fullNames, string[] posts)
+static void ShowBySurname(string[] fullNames, string[] posts)
 {
     Console.WriteLine("Введите фамилию сотрудника:");
     string userInput = Console.ReadLine();
