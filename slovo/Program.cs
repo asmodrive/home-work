@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
@@ -11,27 +12,41 @@ namespace slovo
     {
         static void Main(string[] args)
         {
-           Dictionary<string, string> words = new Dictionary<string, string>();
+            Dictionary<string, string> words = FillWords();
 
-            words.Add("Собака", "Такое слово есть.");
-            words.Add("Пиво", "Такое слово есть.");
-            words.Add("Дорога", "Такое слово есть.");
-            words.Add("Дом", "Такое слово есть.");
-            words.Add("Парк", "Такое слово есть.");
-            Console.WriteLine("Введите слово:");
-            string userInput = Console.ReadLine();
+            bool isWorking = true;
 
-            if (words.ContainsKey(userInput))
+            while (isWorking)
             {
-                Console.WriteLine(words[userInput]);
-            }
-            else
-            {
-                Console.WriteLine("Такого слова нет.");
+                Console.WriteLine("Введите слово для проверки, либо для выхода из программы введите: выход.");
+                string userInput = Console.ReadLine();
+
+                if (words.ContainsKey(userInput))
+                {
+                    Console.WriteLine(words[userInput]);
+                }
+                else
+                {
+                    Console.WriteLine("Такого слова нет.");
+                }
+
+                if (userInput == "Выход.")
+                {
+                    isWorking = false;
+                }
             }
         }
-            
-    }
 
-    
+        static Dictionary<string, string> FillWords()
+        {
+            return new Dictionary<string, string>()
+            {
+                ["Собака"] = "Такое слово есть.",
+                ["Пиво"] = "Такое слово есть.",
+                ["Дорога"] = "Такое слово есть.",
+                ["Дом"] = "Такое слово есть.",
+                ["Парк"] = "Такое слово есть.",
+            };
+        }
+    }
 }
