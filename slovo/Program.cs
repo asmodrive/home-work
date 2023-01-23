@@ -22,7 +22,7 @@ namespace slovo
                 Console.WriteLine($"Введите слово для проверки, либо для выхода из программы введите: {exit}");
                 string userInput = Console.ReadLine();
 
-                if (userInput == "Выход.")
+                if (userInput == exit)
                 {
                     isWorking = false;
                 }
