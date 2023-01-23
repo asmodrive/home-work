@@ -15,13 +15,18 @@ namespace slovo
             Dictionary<string, string> words = FillWords();
 
             bool isWorking = true;
+            string exit = "Выход.";
 
             while (isWorking)
             {
-                Console.WriteLine("Введите слово для проверки, либо для выхода из программы введите: выход.");
+                Console.WriteLine($"Введите слово для проверки, либо для выхода из программы введите: {exit}");
                 string userInput = Console.ReadLine();
 
-                if (words.ContainsKey(userInput))
+                if (userInput == "Выход.")
+                {
+                    isWorking = false;
+                }
+                else if (words.ContainsKey(userInput))
                 {
                     Console.WriteLine(words[userInput]);
                 }
@@ -30,10 +35,6 @@ namespace slovo
                     Console.WriteLine("Такого слова нет.");
                 }
 
-                if (userInput == "Выход.")
-                {
-                    isWorking = false;
-                }
             }
         }
 
