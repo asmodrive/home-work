@@ -22,8 +22,9 @@ namespace queue
 
             while (money.Count > 0)
             {
-                Console.WriteLine($"Сумма корзины клиента: {money.Peek()}");
-                sumMoney += money.Dequeue();
+                int basketAmount = money.Dequeue();
+                sumMoney += basketAmount;
+                Console.WriteLine($"Сумма корзины клиента: {basketAmount}");
                 Console.WriteLine($"Текущий баланс счета: {sumMoney}");
                 Console.ReadKey();
                 Console.Clear();
