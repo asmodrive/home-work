@@ -1,0 +1,8 @@
+D:\home-work\slovo\bin\Debug\slovo.exe.config
+D:\home-work\slovo\bin\Debug\slovo.exe
+D:\home-work\slovo\bin\Debug\slovo.pdb
+D:\home-work\slovo\obj\Debug\slovo.csproj.AssemblyReference.cache
+D:\home-work\slovo\obj\Debug\slovo.csproj.SuggestedBindingRedirects.cache
+D:\home-work\slovo\obj\Debug\slovo.csproj.CoreCompileInputs.cache
+D:\home-work\slovo\obj\Debug\slovo.exe
+D:\home-work\slovo\obj\Debug\slovo.pdb
