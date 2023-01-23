@@ -22,8 +22,8 @@ namespace dabydi
 
             List<string> numbers = new List<string>();
 
-            CheckArray(numbers, firstArray);
-            CheckArray(numbers, secondArray);
+            AddUniquenessNumbers(numbers, firstArray);
+            AddUniquenessNumbers(numbers, secondArray);
 
             for (int i = 0; i < numbers.Count; i++)
             {
@@ -31,7 +31,7 @@ namespace dabydi
             }
         }
 
-        static void CheckArray(List<string> numbers, string[] array)
+        static void AddUniquenessNumbers(List<string> numbers, string[] array)
         {
             for (int i = 0; i < array.Length; i++)
             {
