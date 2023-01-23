@@ -17,7 +17,6 @@ int positionY;
 int directionX = 0;
 int directionY = 0;
 string endGameMessage = string.Empty;
-
 char[,] map = ReadMap(mapOne, out positionX, out positionY);
 
 DrawMap(map);
@@ -25,14 +24,13 @@ DrawMap(map);
 while (isPlaying)
 {
     MovePlayer(ref directionX, ref directionY);
-    DrawPlayer(ref positionX, ref positionY, ref map, isPlaying, directionX, directionY);
+    CheckBarrier(ref positionX, ref positionY, ref map, isPlaying, directionX, directionY);
     CheckSymbol(map, positionY, positionX, ref isPlaying, endGameMessage);
 }
 
 static void MovePlayer(ref int directionX, ref int directionY)
 {
     ConsoleKeyInfo key = Console.ReadKey(true);
-
     directionY = 0;
     directionX = 0;
 
@@ -57,7 +55,7 @@ static void MovePlayer(ref int directionX, ref int directionY)
     }
 }
 
-static void DrawPlayer(ref int positionX, ref int positionY, ref char[,] map, bool isPlaying, int directionX, int directionY)
+static void CheckBarrier(ref int positionX, ref int positionY, ref char[,] map, bool isPlaying, int directionX, int directionY)
 {
     int temporaryPositionX = positionX + directionX;
     int temporaryPositionY = positionY + directionY;
@@ -111,6 +109,7 @@ static void CheckSymbol(char[,] map, int positionY, int positionX, ref bool isPl
         endGameMessage = "Вы прошли игру!";
         isPlaying = false;
     }
+
     Console.SetCursorPosition(horizontalPosition, verticalPosition);
     Console.WriteLine(endGameMessage);
 }
@@ -149,5 +148,6 @@ static char[,] ReadMap(string mapName, out int positionPlayerX, out int position
             }
         }
     }
+
     return map;
 }
