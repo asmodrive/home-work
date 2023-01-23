@@ -13,17 +13,17 @@ namespace dabydi
         {
             string[] firstArray = new string[5];
             string[] secondArray = new string[7];
-            firstArray = FillArray(firstArray);
+            FillArray(firstArray);
             ShowArray(firstArray);
             Console.WriteLine();
-            secondArray = FillArray(secondArray);
+            FillArray(secondArray);
             ShowArray(secondArray);
             Console.WriteLine();
 
             List<string> numbers = new List<string>();
 
-            SelectUniqueNumber(numbers, firstArray);
-            SelectUniqueNumber(numbers, secondArray);
+            CheckArray(numbers, firstArray);
+            CheckArray(numbers, secondArray);
 
             for (int i = 0; i < numbers.Count; i++)
             {
@@ -31,7 +31,7 @@ namespace dabydi
             }
         }
 
-        static void SelectUniqueNumber(List<string> numbers, string[] array)
+        static void CheckArray(List<string> numbers, string[] array)
         {
             for (int i = 0; i < array.Length; i++)
             {
@@ -42,7 +42,7 @@ namespace dabydi
             }
         }
 
-        static string[] FillArray (string[] array)
+        static void FillArray (string[] array)
         {
             int minValue = 0;
             int maxValue = 10;
@@ -51,7 +51,6 @@ namespace dabydi
             {
                 array[i] = Convert.ToString(random.Next(minValue, maxValue));
             }
-            return array;
         }
 
         static void ShowArray (string[] array)

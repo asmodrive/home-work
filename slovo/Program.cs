@@ -18,6 +18,7 @@ namespace slovo
             words.Add("Дорога", "Такое слово есть.");
             words.Add("Дом", "Такое слово есть.");
             words.Add("Парк", "Такое слово есть.");
+            Console.WriteLine("Введите слово:");
             string userInput = Console.ReadLine();
 
             if (words.ContainsKey(userInput))
