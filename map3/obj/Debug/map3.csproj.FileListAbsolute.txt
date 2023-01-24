@@ -1,0 +1,8 @@
+D:\home-work\map3\bin\Debug\map3.exe.config
+D:\home-work\map3\bin\Debug\map3.exe
+D:\home-work\map3\bin\Debug\map3.pdb
+D:\home-work\map3\obj\Debug\map3.csproj.AssemblyReference.cache
+D:\home-work\map3\obj\Debug\map3.csproj.SuggestedBindingRedirects.cache
+D:\home-work\map3\obj\Debug\map3.csproj.CoreCompileInputs.cache
+D:\home-work\map3\obj\Debug\map3.exe
+D:\home-work\map3\obj\Debug\map3.pdb
