@@ -1,0 +1,8 @@
+D:\home-work\dinamicCollection\bin\Debug\dinamicCollection.exe.config
+D:\home-work\dinamicCollection\bin\Debug\dinamicCollection.exe
+D:\home-work\dinamicCollection\bin\Debug\dinamicCollection.pdb
+D:\home-work\dinamicCollection\obj\Debug\dinamicCollection.csproj.AssemblyReference.cache
+D:\home-work\dinamicCollection\obj\Debug\dinamicCollection.csproj.SuggestedBindingRedirects.cache
+D:\home-work\dinamicCollection\obj\Debug\dinamicCollection.csproj.CoreCompileInputs.cache
+D:\home-work\dinamicCollection\obj\Debug\dinamicCollection.exe
+D:\home-work\dinamicCollection\obj\Debug\dinamicCollection.pdb

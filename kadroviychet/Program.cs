@@ -53,9 +53,17 @@ namespace kadroviychet
         {
             Console.WriteLine("Введите фамилию и имя:");
             string fullName = Console.ReadLine();
-            Console.WriteLine("Введите должность: ");
-            string post = Console.ReadLine();
-            postAndFullNames.Add(fullName, post);
+
+            if (postAndFullNames.ContainsKey(fullName) == false)
+            {
+                Console.WriteLine("Введите должность: ");
+                string post = Console.ReadLine();
+                postAndFullNames.Add(fullName, post);
+            }
+            else
+            {
+                Console.WriteLine("Такой сотрудник уже существует.");
+            }
         }
 
         static void OutputAllDossier(Dictionary<string, string> postAndFullNames)
@@ -71,7 +79,16 @@ namespace kadroviychet
             Console.WriteLine("Введите фамилию и имя сотрудника для удаления:");
             string userInput = Console.ReadLine();
 
-            postAndFullNames.Remove(userInput);
+            if (postAndFullNames.ContainsKey(userInput) == true)
+            {
+                postAndFullNames.Remove(userInput);
+                Console.WriteLine("Сотрудник удален.");
+            }
+            else
+            {
+                Console.WriteLine("Такого сотрудника нет.");
+            }
+
         }
     }
 }
