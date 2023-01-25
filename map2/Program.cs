@@ -12,12 +12,16 @@ const ConsoleKey AlternativeMoveLeftCommand = ConsoleKey.A;
 const ConsoleKey AlternativeMoveRightCommand = ConsoleKey.D;
 
 bool isPlaying = true;
+bool isWin = true;
+bool isLose = true;
 Console.CursorVisible = false;
 string mapOne = "map.txt";
 int positionX;
 int positionY;
 int directionX = 0;
 int directionY = 0;
+int horizontalPosition = 0;
+int verticalPosition = 16;
 string endGameMessage = string.Empty;
 char[,] map = ReadMap(mapOne, out positionX, out positionY);
 
@@ -25,15 +29,28 @@ DrawMap(map);
 
 while (isPlaying)
 {
-    MovePlayer(map, positionY, positionX, ref directionX, ref directionY);
-    CheckPlayer(ref positionX, ref positionY, ref map, directionX, directionY);
-    isPlaying = CheckWin(map, positionY, positionX, endGameMessage);
-    isPlaying = CheckLose(map, positionY, positionX, endGameMessage);
+    GetPlayerDirection(map, positionY, positionX, ref directionX, ref directionY);
+    MovePlayer(ref positionX, ref positionY, ref map, directionX, directionY);
+    isWin = CheckWin(map, positionY, positionX);
+    isLose = CheckLose(map, positionY, positionX, endGameMessage);
+
+    if (isWin == true || isLose == true)
+    {
+        isPlaying = false;
+    }
 }
 
-static void MovePlayer(char[,] map, int positionY, int positionX, ref int directionX, ref int directionY)
+if (isWin)
 {
-    CheckBarrier(map, positionY, positionX, directionX, directionY);
+    DrawText("Вы победили", verticalPosition, horizontalPosition);
+}
+else if (isLose)
+{
+    DrawText("Вы проиграли", verticalPosition, horizontalPosition);
+}
+
+static void GetPlayerDirection(char[,] map, int positionY, int positionX, ref int directionX, ref int directionY)
+{
     ConsoleKeyInfo key = Console.ReadKey(true);
     directionY = 0;
     directionX = 0;
@@ -59,12 +76,12 @@ static void MovePlayer(char[,] map, int positionY, int positionX, ref int direct
     }
 }
 
-static void CheckPlayer(ref int positionX, ref int positionY, ref char[,] map, int directionX, int directionY)
+static void MovePlayer(ref int positionX, ref int positionY, ref char[,] map, int directionX, int directionY)
 {
+    string clearSymbol = " ";
+    string symbolPlayer = "@";
     int temporaryPositionX = positionX + directionX;
     int temporaryPositionY = positionY + directionY;
-    char player = '@';
-    char barrier = '#';
 
     if (temporaryPositionX < 0 || temporaryPositionX > map.GetLength(1) - 1)
     {
@@ -76,86 +93,55 @@ static void CheckPlayer(ref int positionX, ref int positionY, ref char[,] map, i
         return;
     }
 
-    if (map[temporaryPositionY, temporaryPositionX] != barrier)
+    if (CheckBarrier(map, positionY, positionX, directionX, directionY))
     {
-        Console.SetCursorPosition(positionX, positionY);
-        Console.Write(" ");
-
-        positionX = temporaryPositionX;
-        positionY = temporaryPositionY;
-
+        return;
     }
 
-    Console.SetCursorPosition(positionX, positionY);
-    Console.Write(player);
+    DrawText(clearSymbol, positionY, positionX);
+
+    positionX = temporaryPositionX;
+    positionY = temporaryPositionY;
+
+    DrawText(symbolPlayer, positionY, positionX);
 }
 
 static bool CheckBarrier(char[,] map, int positionY, int positionX, int directionX, int directionY)
 {
     int temporaryPositionX = positionX + directionX;
     int temporaryPositionY = positionY + directionY;
-    char player = '@';
     char barrier = '#';
-    bool isPlaying = true;
 
-    if (map[temporaryPositionY, temporaryPositionX] != barrier)
+    if (map[temporaryPositionY, temporaryPositionX] == barrier)
     {
-        Console.SetCursorPosition(positionX, positionY);
-        Console.Write(" ");
-
-        positionX = temporaryPositionX;
-        positionY = temporaryPositionY;
-
+        return true;
     }
 
-    Console.SetCursorPosition(positionX, positionY);
-    Console.Write(player);
-
-    return isPlaying;
+    return false;
 }
 
 static bool CheckLose(char[,] map, int positionY, int positionX, string endGameMessage)
 {
-    bool isPlaying = true;
-    int horizontalPosition = 0;
-    int verticalPosition = 15;
     char symbolExpression = 'X';
-    char playerDied = '+';
 
     if (map[positionY, positionX] == symbolExpression)
     {
-        Console.SetCursorPosition(positionX, positionY);
-        Console.Write(playerDied);
-        endGameMessage = "Вы проиграли!";
-        isPlaying = false;
+        return true;
     }
 
-    Console.SetCursorPosition(horizontalPosition, verticalPosition);
-    Console.WriteLine(endGameMessage);
-
-    return isPlaying;
+    return false;
 }
 
-static bool CheckWin(char[,] map, int positionY, int positionX, string endGameMessage)
+static bool CheckWin(char[,] map, int positionY, int positionX)
 {
-    bool isPlaying = true;
-    int horizontalPosition = 0;
-    int verticalPosition = 15;
-    char playerWon = 'Y';
     char symbolVictory = '$';
 
     if (map[positionY, positionX] == symbolVictory)
     {
-        Console.SetCursorPosition(positionX, positionY);
-        Console.Write(playerWon);
-        endGameMessage = "Вы прошли игру!";
-        isPlaying = false;
+        return true;
     }
 
-    Console.SetCursorPosition(horizontalPosition, verticalPosition);
-    Console.WriteLine(endGameMessage);
-
-    return isPlaying;
+    return false;
 }
 
 static void DrawMap(char[,] map)
@@ -195,3 +181,10 @@ static char[,] ReadMap(string mapName, out int positionPlayerX, out int position
 
     return map;
 }
+
+static void DrawText(string text, int positionY, int positionX)
+{
+    Console.SetCursorPosition(positionX, positionY);
+    Console.Write(text);
+}
+
