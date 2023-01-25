@@ -31,7 +31,7 @@ namespace kadroviychet
                 switch (userInput)
                 {
                     case AddDossier:
-                        CreateDossier(ref postAndFullnames);
+                        CreateDossier(postAndFullnames);
                         break;
 
                     case OutputDossier:
@@ -49,7 +49,7 @@ namespace kadroviychet
             }
         }
 
-        static void CreateDossier(ref Dictionary<string, string> postAndFullNames)
+        static void CreateDossier(Dictionary<string, string> postAndFullNames)
         {
             Console.WriteLine("Введите фамилию и имя:");
             string fullName = Console.ReadLine();
@@ -79,7 +79,7 @@ namespace kadroviychet
             Console.WriteLine("Введите фамилию и имя сотрудника для удаления:");
             string userInput = Console.ReadLine();
 
-            if (postAndFullNames.ContainsKey(userInput) == true)
+            if (postAndFullNames.Remove(userInput) == true)
             {
                 postAndFullNames.Remove(userInput);
                 Console.WriteLine("Сотрудник удален.");

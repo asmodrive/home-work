@@ -10,13 +10,13 @@ namespace dinamicCollection
     {
         static void Main(string[] args)
         {
-            const string AmountCommand = "сумма";
+            const string SumCommand = "сумма";
             const string ExitCommand = "выход";
 
             List<int> numbers = new List<int>();
             bool isWorking = true;
 
-            Console.WriteLine($"Вводите числа, когда будете готовы просуммировать их введите : {AmountCommand}, для выхода из программы введите {ExitCommand}.");
+            Console.WriteLine($"Вводите числа, когда будете готовы просуммировать их введите : {SumCommand}, для выхода из программы введите {ExitCommand}.");
 
             while (isWorking)
             {
@@ -24,7 +24,7 @@ namespace dinamicCollection
 
                 switch (userInput)
                 {
-                    case AmountCommand:
+                    case SumCommand:
                         SumNumbers(numbers);
                         break;
 
@@ -33,7 +33,7 @@ namespace dinamicCollection
                         break;
 
                     default:
-                        AddNumbers(numbers, userInput);
+                        CheckNumber(numbers, userInput);
                        break;
                 }
             }
@@ -51,7 +51,7 @@ namespace dinamicCollection
             Console.WriteLine($"Сумма введёных чисел: {sumNumbers}.");
         }
 
-        static void AddNumbers(List <int> numbers, string userInput)
+        static void CheckNumber(List <int> numbers, string userInput)
         {
             bool isNumber = (int.TryParse(userInput, out int value));
 
