@@ -10,66 +10,58 @@ namespace dinamicCollection
     {
         static void Main(string[] args)
         {
-            const string Exit = "Выход";
-            const string Amount = "Сумма";
+            const string AmountCommand = "сумма";
+            const string ExitCommand = "выход";
 
-            Console.WriteLine($"Добрый день, введите команду  для их дальнейших действий: \n{Amount} - суммирование ваших чисел;\n{Exit} - выход из программы.");
-            string userInput = string.Empty;
-            List<string> array = new List<string>();
-            int[] numbers = new int[0];
-            bool isRunning = true;
+            List<int> numbers = new List<int>();
+            bool isWorking = true;
 
+            Console.WriteLine($"Вводите числа, когда будете готовы просуммировать их введите : {AmountCommand}, для выхода из программы введите {ExitCommand}.");
 
-            while (isRunning)
+            while (isWorking)
             {
-                userInput = Console.ReadLine();
+                string userInput = Console.ReadLine();
 
                 switch (userInput)
                 {
-                    case Amount:
-                        {
-                            int sumNumbers = 0;
-
-                            for (int i = 0; i < numbers.Length; i++)
-                            {
-                                sumNumbers += numbers[i];
-                            }
-
-                            Console.WriteLine($"Сумма строки равна - {sumNumbers}");
-
-                        }
+                    case AmountCommand:
+                        SumNumbers(numbers);
                         break;
 
-                    case Exit:
-                        {
-                            isRunning = false;
-                            Console.WriteLine("Вы вышли из программы.");
-                        }
+                    case ExitCommand:
+                        isWorking = false;
                         break;
 
                     default:
-                        {
-                            if (int.TryParse(userInput, out int value))
-                            {
-                                Console.WriteLine($"{value} - это число");
-
-                                int[] temporaryNumbers = new int[numbers.Length + 1];
-
-                                for (int i = 0; i < numbers.Length; i++)
-                                {
-                                    temporaryNumbers[i] = numbers[i];
-                                }
-
-                                temporaryNumbers[temporaryNumbers.Length - 1] = value;
-                                numbers = temporaryNumbers;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Это не число.");
-                            }
-                        }
-                        break;
+                        AddNumbers(numbers, userInput);
+                       break;
                 }
+            }
+        }
+
+        static void SumNumbers(List<int> numbers)
+        {
+            int sumNumbers = 0;
+
+            foreach (var number in numbers)
+            {
+                sumNumbers += number;
+            }
+
+            Console.WriteLine($"Сумма введёных чисел: {sumNumbers}.");
+        }
+
+        static void AddNumbers(List <int> numbers, string userInput)
+        {
+            bool isNumber = (int.TryParse(userInput, out int value));
+
+            if (isNumber == true)
+            {
+                numbers.Add(value);
+            }
+            else
+            {
+                Console.WriteLine("Это не число.");
             }
         }
     }
