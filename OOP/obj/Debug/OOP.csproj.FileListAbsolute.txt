@@ -1,0 +1,8 @@
+D:\home-work\OOP\bin\Debug\OOP.exe.config
+D:\home-work\OOP\bin\Debug\OOP.exe
+D:\home-work\OOP\bin\Debug\OOP.pdb
+D:\home-work\OOP\obj\Debug\OOP.csproj.AssemblyReference.cache
+D:\home-work\OOP\obj\Debug\OOP.csproj.SuggestedBindingRedirects.cache
+D:\home-work\OOP\obj\Debug\OOP.csproj.CoreCompileInputs.cache
+D:\home-work\OOP\obj\Debug\OOP.exe
+D:\home-work\OOP\obj\Debug\OOP.pdb
