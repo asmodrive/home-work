@@ -16,26 +16,26 @@ namespace OOP
         }
     }
 
-    class Player
-    {
-        public string Name;
-        public int Health;
-        public int Armor;
-        public float Experience;
-        public int Endurance;
+    class Player 
+    { 
+        private string _name;
+        private int _health;
+        private int _armor;
+        private float _experience;
+        private int _endurance;
 
-        public Player (string name, int health, int armor, float experience, int energy)
-        {
-            Name = name;
-            Health = health;
-            Armor = armor;
-            Experience = experience;
-            Endurance = energy;
+        public Player (string name, int health, int armor, float experience, int energy) 
+        {   
+            _name = name;
+            _health = health;
+            _armor = armor;
+            _experience = experience;
+            _endurance = energy;
         }
 
         public void ShowCharacteristics()
         {
-            Console.WriteLine($"Имя игрока: {Name}.\nЗдоровье игрока: {Health}.\nБроня игрока: {Armor}.\nОчки опыта игрока: {Experience}.\nОстаток выносливости: {Endurance}.");
+            Console.WriteLine($"Имя игрока: {_name}.\nЗдоровье игрока: {_health}.\nБроня игрока: {_armor}.\nОчки опыта игрока: {_experience}.\nОстаток выносливости: {_endurance}.");
         }
     }
 }
