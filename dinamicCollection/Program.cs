@@ -33,7 +33,7 @@ namespace dinamicCollection
                         break;
 
                     default:
-                        CheckNumber(numbers, userInput);
+                        TryAddNumber(numbers, userInput);
                        break;
                 }
             }
@@ -51,7 +51,7 @@ namespace dinamicCollection
             Console.WriteLine($"Сумма введёных чисел: {sumNumbers}.");
         }
 
-        static void CheckNumber(List <int> numbers, string userInput)
+        static void TryAddNumber(List <int> numbers, string userInput)
         {
             bool isNumber = (int.TryParse(userInput, out int value));
 
