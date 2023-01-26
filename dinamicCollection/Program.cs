@@ -25,7 +25,7 @@ namespace dinamicCollection
                 switch (userInput)
                 {
                     case SumCommand:
-                        SumNumbers(numbers);
+                        ShowNumbers(numbers);
                         break;
 
                     case ExitCommand:
@@ -39,7 +39,7 @@ namespace dinamicCollection
             }
         }
 
-        static void SumNumbers(List<int> numbers)
+        static void ShowNumbers(List<int> numbers)
         {
             int sumNumbers = 0;
 
