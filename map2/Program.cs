@@ -29,7 +29,7 @@ DrawMap(map);
 
 while (isPlaying)
 {
-    GetPlayerDirection(map, positionY, positionX, ref directionX, ref directionY);
+    GetPlayerDirection(ref directionX, ref directionY);
     MovePlayer(ref positionX, ref positionY, ref map, directionX, directionY);
     isWin = CheckWin(map, positionY, positionX);
     isLose = CheckLose(map, positionY, positionX, endGameMessage);
@@ -49,7 +49,7 @@ else if (isLose)
     DrawText("Вы проиграли", verticalPosition, horizontalPosition);
 }
 
-static void GetPlayerDirection(char[,] map, int positionY, int positionX, ref int directionX, ref int directionY)
+static void GetPlayerDirection(ref int directionX, ref int directionY)
 {
     ConsoleKeyInfo key = Console.ReadKey(true);
     directionY = 0;
@@ -112,36 +112,21 @@ static bool CheckBarrier(char[,] map, int positionY, int positionX, int directio
     int temporaryPositionY = positionY + directionY;
     char barrier = '#';
 
-    if (map[temporaryPositionY, temporaryPositionX] == barrier)
-    {
-        return true;
-    }
-
-    return false;
+    return map[temporaryPositionY, temporaryPositionX] == barrier;
 }
 
 static bool CheckLose(char[,] map, int positionY, int positionX, string endGameMessage)
 {
     char symbolExpression = 'X';
 
-    if (map[positionY, positionX] == symbolExpression)
-    {
-        return true;
-    }
-
-    return false;
+    return map[positionY, positionX] == symbolExpression;
 }
 
 static bool CheckWin(char[,] map, int positionY, int positionX)
 {
     char symbolVictory = '$';
 
-    if (map[positionY, positionX] == symbolVictory)
-    {
-        return true;
-    }
-
-    return false;
+    return map[positionY, positionX] == symbolVictory;
 }
 
 static void DrawMap(char[,] map)

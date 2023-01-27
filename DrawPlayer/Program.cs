@@ -12,15 +12,15 @@ namespace DrawPlayer
         {
             Player player = new Player('@', 5, 5);
             Renderr renderr = new Renderr();
-            Renderr.ShowInfo(player.SymbolPlayer, );
+           // Renderr.ShowInfo(player.SymbolPlayer, player.PositionX, player.PositionY);
         }
     }
 
     class Player
     {
-        public char SymbolPlayer;
-        private int PositionX;
-        private int PositionY;
+        public char SymbolPlayer { get; private set; }
+        public int PositionX { get; private set; }
+        public int PositionY { get; private set; }
 
         public Player (char symbolPlayer, int positionX, int positionY)
         {
