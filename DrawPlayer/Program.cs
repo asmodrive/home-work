@@ -10,9 +10,14 @@ namespace DrawPlayer
     {
         static void Main(string[] args)
         {
-            Player player = new Player('@', 5, 5);
+            char hero = '@';
+            int horizontalPosition = 25;
+            int verticalPosition = 5;
+
+            Player player = new Player(hero, horizontalPosition, verticalPosition);
             Renderr renderr = new Renderr();
-           // Renderr.ShowInfo(player.SymbolPlayer, player.PositionX, player.PositionY);
+            renderr.ShowInfo(player.SymbolPlayer, player.PositionX, player.PositionY);
+            Console.ReadKey(true);
         }
     }
 

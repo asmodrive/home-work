@@ -1,0 +1,8 @@
+D:\home-work\DrawPlayer\bin\Debug\DrawPlayer.exe.config
+D:\home-work\DrawPlayer\bin\Debug\DrawPlayer.exe
+D:\home-work\DrawPlayer\bin\Debug\DrawPlayer.pdb
+D:\home-work\DrawPlayer\obj\Debug\DrawPlayer.csproj.AssemblyReference.cache
+D:\home-work\DrawPlayer\obj\Debug\DrawPlayer.csproj.SuggestedBindingRedirects.cache
+D:\home-work\DrawPlayer\obj\Debug\DrawPlayer.csproj.CoreCompileInputs.cache
+D:\home-work\DrawPlayer\obj\Debug\DrawPlayer.exe
+D:\home-work\DrawPlayer\obj\Debug\DrawPlayer.pdb
