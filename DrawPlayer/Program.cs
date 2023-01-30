@@ -16,28 +16,28 @@ namespace DrawPlayer
 
             Player player = new Player(hero, horizontalPosition, verticalPosition);
             Renderr renderr = new Renderr();
-            renderr.ShowInfo(player.SymbolPlayer, player.PositionX, player.PositionY);
+            renderr.DrawPlayer(player.Hero, player.PositionX, player.PositionY);
             Console.ReadKey(true);
         }
     }
 
     class Player
     {
-        public char SymbolPlayer { get; private set; }
-        public int PositionX { get; private set; }
-        public int PositionY { get; private set; }
-
-        public Player (char symbolPlayer, int positionX, int positionY)
+        public Player (char hero, int positionX, int positionY)
         {
-            SymbolPlayer = symbolPlayer;
+            Hero = hero;
             PositionX = positionX;
             PositionY = positionY;
         }
+
+        public char Hero { get; private set; }
+        public int PositionX { get; private set; }
+        public int PositionY { get; private set; }
     }
 
     class Renderr
     {
-        public void ShowInfo (char symbolPlayer, int positionX, int positionY)
+        public void DrawPlayer (char symbolPlayer, int positionX, int positionY)
         {
             Console.SetCursorPosition(positionX , positionY);
             Console.Write(symbolPlayer);
