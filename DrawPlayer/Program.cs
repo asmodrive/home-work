@@ -43,6 +43,4 @@ namespace DrawPlayer
             Console.Write(symbolPlayer);
         }
     }
-
-
 }

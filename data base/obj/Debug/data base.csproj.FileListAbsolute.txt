@@ -1,0 +1,8 @@
+D:\home-work\data base\bin\Debug\data base.exe.config
+D:\home-work\data base\bin\Debug\data base.exe
+D:\home-work\data base\bin\Debug\data base.pdb
+D:\home-work\data base\obj\Debug\data base.csproj.AssemblyReference.cache
+D:\home-work\data base\obj\Debug\data base.csproj.SuggestedBindingRedirects.cache
+D:\home-work\data base\obj\Debug\data base.csproj.CoreCompileInputs.cache
+D:\home-work\data base\obj\Debug\data base.exe
+D:\home-work\data base\obj\Debug\data base.pdb
