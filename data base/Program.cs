@@ -30,18 +30,23 @@ namespace data_base
                     case AddPlayerCommand:
                         database.AddPlayer();
                         break;
+
                     case RemovePlayerCommand:
                         database.DeletePlayer();
                         break;
+
                     case BanPlayerCommand:
                         database.BanPlayer();
                         break;
+
                     case UnbanPlayerCommand:
                         database.UnbanPlayer();
                         break;
+
                     case ShowInfoPlayerCommand:
                         database.ShowPlayers();
                         break;
+
                     case ExitCommand:
                         isWorking = false;
                         break;
@@ -74,7 +79,7 @@ namespace data_base
         {
             IsBanned = true;
         }
-
+        
         public void Unban()
         {
             IsBanned = false;
@@ -89,9 +94,7 @@ namespace data_base
             new Player("ty", 2, 12, false),
             new Player("tt", 3, 12, false),
             new Player("net", 4, 12, false),
-
         };
-
 
         public void AddPlayer()
         {
@@ -99,23 +102,22 @@ namespace data_base
             Console.WriteLine("Введите никнейм игрока:");
             string name = Console.ReadLine();
             Console.WriteLine("Введите айди игрока начиная с единицы:");
-            bool isCorrect = int.TryParse(Console.ReadLine(), out int id);
+            bool isCorrect = int.TryParse(Console.ReadLine(), out int idInput);
 
             Random random = new Random();
             int minLevel = 0;
             int maxLevel = 100;
             int level = random.Next(minLevel, maxLevel);
-
-            if (isCorrect == true)
+            
+            if (isCorrect == true && IsIdFree(idInput) == true)
             {
-                _players.Add(new Player(name, id, level, isBanned));
+                _players.Add(new Player(name, idInput, level, isBanned));
                 Console.WriteLine("Игрок добавлен.");
             }
             else
             {
                 Console.WriteLine("Попробуйте еще раз.");
             }
-
         }
 
         public void DeletePlayer()
@@ -159,6 +161,13 @@ namespace data_base
             }
         }
 
+        public void ShowPlayers()
+        {
+            for (int i = 0; i < _players.Count; i++)
+            {
+                _players[i].ShowInfo();
+            }
+        }
 
         private bool TryGetPlayer(out Player player)
         {
@@ -182,12 +191,17 @@ namespace data_base
             return false;
         }
 
-        public void ShowPlayers()
+        private bool IsIdFree(int id)
         {
             for (int i = 0; i < _players.Count; i++)
             {
-                _players[i].ShowInfo();
+                if (_players[i].Id == id)
+                {
+                    return false;
+                }
             }
+
+            return true;
         }
     }
 }
