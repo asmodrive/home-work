@@ -1,0 +1,8 @@
+D:\home-work\coloda cart\bin\Debug\coloda cart.exe.config
+D:\home-work\coloda cart\bin\Debug\coloda cart.exe
+D:\home-work\coloda cart\bin\Debug\coloda cart.pdb
+D:\home-work\coloda cart\obj\Debug\coloda cart.csproj.AssemblyReference.cache
+D:\home-work\coloda cart\obj\Debug\coloda cart.csproj.SuggestedBindingRedirects.cache
+D:\home-work\coloda cart\obj\Debug\coloda cart.csproj.CoreCompileInputs.cache
+D:\home-work\coloda cart\obj\Debug\coloda cart.exe
+D:\home-work\coloda cart\obj\Debug\coloda cart.pdb
