@@ -8,12 +8,11 @@ namespace coloda_cart
     {
         static void Main(string[] args)
         {
-            const string TakeNamePlayerCommand = "1";
-            const string TakeCardCommand = "2";
-            const string ShofCardHandsCommand = "3";
-            const string ShowCarPackCommand = "4";
-            const string ResetPack = "5";
-            const string ExitCommand = "6";
+            const string TakeCardCommand = "1";
+            const string ShofCardHandsCommand = "2";
+            const string ShowCarPackCommand = "3";
+            const string ResetPack = "4";
+            const string ExitCommand = "5";
 
             string name = string.Empty;
             string mast = string.Empty;
@@ -25,7 +24,7 @@ namespace coloda_cart
 
             Console.OutputEncoding = Encoding.UTF8;
             bool isWorking = true;
-            Console.WriteLine($"Введите операцию:\n {TakeNamePlayerCommand} - установить имя вашему персонажу, \n {TakeCardCommand} - взять карту," +
+            Console.WriteLine($"Введите операцию:\n {TakeCardCommand} - взять карту," +
                 $"\n {ShofCardHandsCommand} - показать имеющиеся карты на руках,\n {ShowCarPackCommand} - показать инфо об имеющихся картах в колоде,\n {ResetPack} - сдать заново колоду, " +
                 $"\n {ExitCommand} - выйти из программы.");
 
@@ -60,6 +59,7 @@ namespace coloda_cart
                         break;
 
                     case ResetPack:
+                        player.ResetPlayerCards();
                         pack.ResetDeck();
                         break;
 
@@ -126,12 +126,10 @@ namespace coloda_cart
 
     class Pack
     {
-        Player _player;
         private List<Card> _cards = new List<Card>();
 
         public void ResetDeck()
         {
-            _player.ResetPlayerCards();
             _cards = FillDeck();
         }
 
