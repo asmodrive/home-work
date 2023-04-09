@@ -9,24 +9,23 @@ namespace coloda_cart
         static void Main(string[] args)
         {
             const string TakeNamePlayerCommand = "1";
-            const string ShofNamePlayer = "2";
-            const string TakeCardCommand = "3";
-            const string ShofCardHandsCommand = "4";
-            const string ShowCarPackCommand = "5";
-            const string ResetPack = "6";
-            const string ExitCommand = "7";
+            const string TakeCardCommand = "2";
+            const string ShofCardHandsCommand = "3";
+            const string ShowCarPackCommand = "4";
+            const string ResetPack = "5";
+            const string ExitCommand = "6";
 
             string name = string.Empty;
             string mast = string.Empty;
             string advantage = string.Empty;
 
-            Player player = new Player(name);
+            Player player = new Player();
             Pack pack = new Pack();
-            pack.ResetPack();
+            pack.ResetDeck();
 
             Console.OutputEncoding = Encoding.UTF8;
             bool isWorking = true;
-            Console.WriteLine($"Введите операцию:\n {TakeNamePlayerCommand} - установить имя вашему персонажу,\n {ShofNamePlayer} - показать имя персонажа, \n {TakeCardCommand} - взять карту," +
+            Console.WriteLine($"Введите операцию:\n {TakeNamePlayerCommand} - установить имя вашему персонажу, \n {TakeCardCommand} - взять карту," +
                 $"\n {ShofCardHandsCommand} - показать имеющиеся карты на руках,\n {ShowCarPackCommand} - показать инфо об имеющихся картах в колоде,\n {ResetPack} - сдать заново колоду, " +
                 $"\n {ExitCommand} - выйти из программы.");
 
@@ -40,12 +39,8 @@ namespace coloda_cart
                         player.SetName();
                         break;
 
-                    case ShofNamePlayer:
-                        player.ShowName();
-                        break;
-
                     case TakeCardCommand:
-                        if (pack.CurrentPackCount() > 0)
+                        if (pack.CurrentDeckCount() > 0)
                         {
                             var card = pack.TakeCard();
                             player.AddCardToHand(card);
@@ -65,8 +60,7 @@ namespace coloda_cart
                         break;
 
                     case ResetPack:
-                        pack.ResetPack();
-                        player.ResetPlayerCards();
+                        pack.ResetDeck();
                         break;
 
                     case ExitCommand:
@@ -79,14 +73,15 @@ namespace coloda_cart
 
     class Player
     {
-        public Player(string name)
+        private List<Card> _playerCards = new List<Card>();
+
+        public Player()
         {
-            Name = name;
+            SetName();
         }
 
         public string Name { get; private set; }
 
-        private List<Card> _playerCards = new List<Card>();
 
         public void ShowInfoCardHand()
         {
@@ -105,15 +100,10 @@ namespace coloda_cart
             Name = userInput;
         }
 
-        public void ShowName()
-        {
-            Console.WriteLine(Name);
-        }
-
         public void AddCardToHand(Card card)
         {
             _playerCards.Add(card);
-            Console.WriteLine($"Вы взяли карту: {card.Mast} {card.Advantage}");
+            Console.WriteLine($"{Name} взял карту: {card.Mast} {card.Advantage}");
         }
 
         public void ResetPlayerCards()
@@ -136,7 +126,18 @@ namespace coloda_cart
 
     class Pack
     {
-        private List<string> _mast = new List<string>()
+        Player _player;
+        private List<Card> _cards = new List<Card>();
+
+        public void ResetDeck()
+        {
+            _player.ResetPlayerCards();
+            _cards = FillDeck();
+        }
+
+        public List<Card> FillDeck()
+        {
+            List<string> mast = new List<string>()
         {
              ("♦️"),
              ("♥️"),
@@ -144,7 +145,7 @@ namespace coloda_cart
              ("♤")
         };
 
-        private List<string> _advantage = new List<string>()
+            List<string> advantage = new List<string>()
         {
             ("6"),
             ("7"),
@@ -157,22 +158,15 @@ namespace coloda_cart
             ("A")
         };
 
-        private List<Card> _cards;
+            _cards.Clear();
 
-        public void ResetPack()
-        {
-            _cards = FullPack();
-        }
-
-        public List<Card> FullPack()
-        {
             List<Card> cards = new List<Card>();
 
-            for (int i = 0; i < _mast.Count; i++)
+            for (int i = 0; i < mast.Count; i++)
             {
-                for (int j = 0; j < _advantage.Count; j++)
+                for (int j = 0; j < advantage.Count; j++)
                 {
-                    cards.Add(new Card(_mast[i], _advantage[j]));
+                    cards.Add(new Card(mast[i], advantage[j]));
                 }
             }
 
@@ -197,7 +191,7 @@ namespace coloda_cart
             return card;
         }
 
-        public int CurrentPackCount()
+        public int CurrentDeckCount()
         {
             return _cards.Count;
         }
