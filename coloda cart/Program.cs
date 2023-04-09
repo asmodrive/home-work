@@ -14,13 +14,9 @@ namespace coloda_cart
             const string ResetPack = "4";
             const string ExitCommand = "5";
 
-            string name = string.Empty;
-            string mast = string.Empty;
-            string advantage = string.Empty;
-
             Player player = new Player();
             Pack pack = new Pack();
-            pack.ResetDeck();
+            pack.Reset();
 
             Console.OutputEncoding = Encoding.UTF8;
             bool isWorking = true;
@@ -34,20 +30,8 @@ namespace coloda_cart
 
                 switch (userInput)
                 {
-                    case TakeNamePlayerCommand:
-                        player.SetName();
-                        break;
-
                     case TakeCardCommand:
-                        if (pack.CurrentDeckCount() > 0)
-                        {
-                            var card = pack.TakeCard();
-                            player.AddCardToHand(card);
-                        }
-                        else
-                        {
-                            Console.WriteLine("В колоде больше нет карт.");
-                        }
+                        CheckAvailabilityCard();
                         break;
 
                     case ShofCardHandsCommand:
@@ -60,12 +44,25 @@ namespace coloda_cart
 
                     case ResetPack:
                         player.ResetPlayerCards();
-                        pack.ResetDeck();
+                        pack.Reset();
                         break;
 
                     case ExitCommand:
                         isWorking = false;
                         break;
+                }
+            }
+
+            void CheckAvailabilityCard()
+            {
+                if (pack.CurrentCount() > 0)
+                {
+                    var card = pack.TakeCard();
+                    player.AddCardToHand(card);
+                }
+                else
+                {
+                    Console.WriteLine("В колоде больше нет карт.");
                 }
             }
         }
@@ -120,20 +117,20 @@ namespace coloda_cart
             Advantage = advantage;
         }
 
-        public string Mast;
-        public string Advantage;
+        public string Mast { get; private set; }
+        public string Advantage { get; private set; }
     }
 
     class Pack
     {
         private List<Card> _cards = new List<Card>();
 
-        public void ResetDeck()
+        public void Reset()
         {
-            _cards = FillDeck();
+            _cards = Fill();
         }
 
-        public List<Card> FillDeck()
+        private List<Card> Fill()
         {
             List<string> mast = new List<string>()
         {
@@ -189,7 +186,7 @@ namespace coloda_cart
             return card;
         }
 
-        public int CurrentDeckCount()
+        public int CurrentCount()
         {
             return _cards.Count;
         }
