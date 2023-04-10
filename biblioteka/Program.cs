@@ -87,7 +87,7 @@ namespace biblioteka
             Console.WriteLine("Введите номер книги для удаления:");
             bool isCorrect = int.TryParse(Console.ReadLine(), out int bookNumber);
 
-            if (isCorrect == true && bookNumber < _books.Count)
+            if (isCorrect == true && bookNumber < _books.Count && bookNumber > 0)
             {
                 _books.RemoveAt(bookNumber);
                 Console.WriteLine("Книга удалена.");
@@ -108,29 +108,29 @@ namespace biblioteka
 
         public void ShowBooksFilter()
         {
-            const string bookName = "1";
-            const string authorName = "2";
-            const string yearReleaseName = "3";
-            const string number = "4";
+            const string BookName = "1";
+            const string AuthorName = "2";
+            const string YearReleaseName = "3";
+            const string Number = "4";
 
-            Console.WriteLine($"Выберите номер операции:\n{bookName} - поиск по названию,\n{authorName} - поиск по автору,\n{yearReleaseName} - поиск по году выпуска,\n{number} - поиск по индексу.");
+            Console.WriteLine($"Выберите номер операции:\n{BookName} - поиск по названию,\n{AuthorName} - поиск по автору,\n{YearReleaseName} - поиск по году выпуска,\n{Number} - поиск по индексу.");
             string userInput = Console.ReadLine();
 
             switch (userInput)
             {
-                case bookName:
+                case BookName:
                     ShowByTitle();
                     break;
 
-                case authorName:
+                case AuthorName:
                     ShowByAuthor();
                     break;
 
-                case yearReleaseName:
+                case YearReleaseName:
                     ShowInfoBook();
                     break;
 
-                case number:
+                case Number:
                     ShowNumberBook();
                     break;
             }
@@ -143,7 +143,6 @@ namespace biblioteka
 
             for (int i = 0; i < _books.Count; i++)
             {
-
                 if (_books[i].Name.ToLower().Contains(userInput))
                 {
                     _books[i].ShowInfo();
@@ -154,7 +153,6 @@ namespace biblioteka
                     Console.WriteLine("Такой книги нет.");
                 }
             }
-
         }
 
         private void ShowByAuthor()
@@ -239,5 +237,3 @@ namespace biblioteka
         }
     }
 }
-
-
