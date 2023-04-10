@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace biblioteka
 {
@@ -44,7 +39,7 @@ namespace biblioteka
                         break;
 
                     case ShowBooksFilter:
-
+                        library.ShowBooksFilter();
                         break;
 
                     case Exit:
@@ -124,45 +119,104 @@ namespace biblioteka
             switch (userInput)
             {
                 case bookName:
-                    SearchBookName();
+                    ShowByTitle();
                     break;
 
                 case authorName:
-
+                    ShowByAuthor();
                     break;
 
                 case yearReleaseName:
-
+                    ShowInfoBook();
                     break;
 
                 case number:
-
+                    ShowNumberBook();
                     break;
             }
-
-
         }
 
-        private void SearchBookName()
+        private void ShowByTitle()
         {
             Console.WriteLine("Введите название книги:");
-            string userInput = Console.ReadLine();
+            string userInput = Console.ReadLine().ToLower();
 
-            for (int i = 0; i <= _books.Count; i++)
+            for (int i = 0; i < _books.Count; i++)
             {
-               // var containsBook = _books.Contains; 
-               // if (containsBook == userInput)
-               // {
-               //     _books.Contains(containsBook);
-               // }
-               // else
-               // {
-               //     Console.WriteLine("Такой книги нет.");
-               // }
+
+                if (_books[i].Name.ToLower().Contains(userInput))
+                {
+                    _books[i].ShowInfo();
+                     break;
+                }
+                else
+                {
+                    Console.WriteLine("Такой книги нет.");
+                }
             }
 
         }
-    }
+
+        private void ShowByAuthor()
+        {
+            Console.WriteLine("Введите автора:");
+            string userInput = Console.ReadLine().ToLower();
+
+            for (int i = 0; i < _books.Count; i++)
+            {
+
+                if (_books[i].Author.ToLower().Contains(userInput))
+                {
+                    _books[i].ShowInfo();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Такой книги нет.");
+                }
+            }
+        }
+
+        private void ShowInfoBook()
+        {
+            Console.WriteLine("Введите год выпуска:");
+            bool isCorrect = int.TryParse(Console.ReadLine(), out int year);
+
+            for (int i = 0; i < _books.Count; i++)
+            {
+
+                if (_books[i].YearRelease == year)
+                {
+                    _books[i].ShowInfo();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Такой книги нет.");
+                }
+            }
+        }
+
+        private void ShowNumberBook()
+        {
+            Console.WriteLine("Введите номер книги:");
+            bool isCorrect = int.TryParse(Console.ReadLine(), out int number);
+
+            for (int i = 0; i < _books.Count; i++)
+            {
+
+                if (_books[i].Number == number)
+                {
+                    _books[i].ShowInfo();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Такой книги нет.");
+                }
+            }
+        }
+    } 
 
     class Book
     {
@@ -184,5 +238,6 @@ namespace biblioteka
             Console.WriteLine($"Название: {Name}, автор: {Author}, год выпуска: {YearRelease}, номер книги: {Number}.");
         }
     }
-
 }
+
+
