@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace biblioteka
 {
@@ -7,18 +8,18 @@ namespace biblioteka
     {
         static void Main(string[] args)
         {
-            const string AddBook = "1";
-            const string RemoveBook = "2";
-            const string ShowBooks = "3";
-            const string ShowBooksFilter = "4";
-            const string Exit = "5";
+            const string CommandAddBook = "1";
+            const string CommandRemoveBook = "2";
+            const string CommandShowBooks = "3";
+            const string CommandShowBooksFilter = "4";
+            const string CommandExit = "5";
 
             bool isWorking = true;
 
             Library library = new Library();
 
-            Console.WriteLine($"Введите номер операции:\n{AddBook} - добавить книгу,\n{RemoveBook} - удалить книгу,\n{ShowBooks} - показать все книги,\n{ShowBooksFilter} - показать книги по фильтру" +
-                $"\n{Exit} - выйти из программы.");
+            Console.WriteLine($"Введите номер операции:\n{CommandAddBook} - добавить книгу,\n{CommandRemoveBook} - удалить книгу,\n{CommandShowBooks} - показать все книги,\n{CommandShowBooksFilter} - показать книги по фильтру" +
+                $"\n{CommandExit} - выйти из программы.");
 
             while (isWorking)
             {
@@ -26,23 +27,23 @@ namespace biblioteka
 
                 switch (userInput)
                 {
-                    case AddBook:
+                    case CommandAddBook:
                         library.AddBook();
                         break;
 
-                    case RemoveBook:
+                    case CommandRemoveBook:
                         library.RemoveBook();
                         break;
 
-                    case ShowBooks:
+                    case CommandShowBooks:
                         library.ShowBooks();
                         break;
 
-                    case ShowBooksFilter:
+                    case CommandShowBooksFilter:
                         library.ShowBooksFilter();
                         break;
 
-                    case Exit:
+                    case CommandExit:
                         isWorking = false;
                         break;
                 }
@@ -89,8 +90,14 @@ namespace biblioteka
 
             if (isCorrect == true && bookNumber < _books.Count && bookNumber > 0)
             {
-                _books.RemoveAt(bookNumber);
-                Console.WriteLine("Книга удалена.");
+                for (int i = _books.Count - 1; i >= 0; i--)
+                {
+                    if (_books[i].Number == bookNumber)
+                    {
+                        _books.Remove(_books[i]);
+                        Console.WriteLine("Книга удалена.");
+                    }
+                }
             }
             else
             {
@@ -108,29 +115,30 @@ namespace biblioteka
 
         public void ShowBooksFilter()
         {
-            const string BookName = "1";
-            const string AuthorName = "2";
-            const string YearReleaseName = "3";
-            const string Number = "4";
+            const string CommandBookName = "1";
+            const string CommandAuthorName = "2";
+            const string CommandYearReleaseName = "3";
+            const string CommandNumber = "4";
 
-            Console.WriteLine($"Выберите номер операции:\n{BookName} - поиск по названию,\n{AuthorName} - поиск по автору,\n{YearReleaseName} - поиск по году выпуска,\n{Number} - поиск по индексу.");
+            Console.WriteLine($"Выберите номер операции:\n{CommandBookName} - поиск по названию,\n{CommandAuthorName} - поиск по автору," +
+                $"\n{CommandYearReleaseName} - поиск по году выпуска,\n{CommandNumber} - поиск по индексу.");
             string userInput = Console.ReadLine();
 
             switch (userInput)
             {
-                case BookName:
+                case CommandBookName:
                     ShowByTitle();
                     break;
 
-                case AuthorName:
+                case CommandAuthorName:
                     ShowByAuthor();
                     break;
 
-                case YearReleaseName:
+                case CommandYearReleaseName:
                     ShowInfoBook();
                     break;
 
-                case Number:
+                case CommandNumber:
                     ShowNumberBook();
                     break;
             }
@@ -146,7 +154,7 @@ namespace biblioteka
                 if (_books[i].Name.ToLower().Contains(userInput))
                 {
                     _books[i].ShowInfo();
-                     break;
+                    break;
                 }
                 else
                 {
@@ -157,6 +165,8 @@ namespace biblioteka
 
         private void ShowByAuthor()
         {
+            List<Book> books = new List<Book>();
+
             Console.WriteLine("Введите автора:");
             string userInput = Console.ReadLine().ToLower();
 
@@ -165,6 +175,7 @@ namespace biblioteka
 
                 if (_books[i].Author.ToLower().Contains(userInput))
                 {
+
                     _books[i].ShowInfo();
                     break;
                 }
@@ -177,44 +188,68 @@ namespace biblioteka
 
         private void ShowInfoBook()
         {
+            List<Book> books = new List<Book>();
+
             Console.WriteLine("Введите год выпуска:");
             bool isCorrect = int.TryParse(Console.ReadLine(), out int year);
 
-            for (int i = 0; i < _books.Count; i++)
+            if (isCorrect)
             {
-
-                if (_books[i].YearRelease == year)
+                for (int i = 0; i < _books.Count; i++)
                 {
-                    _books[i].ShowInfo();
-                    break;
+
+                    if (_books[i].YearRelease == year)
+                    {
+                        books.Add(_books[i]);
+                        _books[i].ShowInfo();
+                    }
                 }
-                else
+
+                if (books.Count == 0)
                 {
                     Console.WriteLine("Такой книги нет.");
                 }
+            }
+            else
+            {
+                Console.WriteLine("Попробуйте еще раз.");
             }
         }
 
         private void ShowNumberBook()
         {
+            List<Book> books = new List<Book>();
+
             Console.WriteLine("Введите номер книги:");
             bool isCorrect = int.TryParse(Console.ReadLine(), out int number);
 
-            for (int i = 0; i < _books.Count; i++)
+            if (isCorrect == true)
             {
-
-                if (_books[i].Number == number)
+                for (int i = 0; i < _books.Count; i++)
                 {
-                    _books[i].ShowInfo();
-                    break;
+                    if (_books[i].Number == number)
+                    {
+                        books.Add(_books[i]);
+                        _books[i].ShowInfo();
+                    }
                 }
-                else
+
+                if (books.Count == 0)
                 {
                     Console.WriteLine("Такой книги нет.");
                 }
             }
+            else
+            {
+                Console.WriteLine("Попробуйте еще раз.");
+            }
         }
-    } 
+
+        private void Metod()
+        {
+
+        }
+    }
 
     class Book
     {
