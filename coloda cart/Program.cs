@@ -31,7 +31,7 @@ namespace coloda_cart
                 switch (userInput)
                 {
                     case TakeCardCommand:
-                        CheckAvailabilityCard();
+                        player.TakeCardToHand(pack.GetCard());
                         break;
 
                     case ShofCardHandsCommand:
@@ -50,19 +50,6 @@ namespace coloda_cart
                     case ExitCommand:
                         isWorking = false;
                         break;
-                }
-            }
-
-            void CheckAvailabilityCard()
-            {
-                if (pack.CurrentCount() > 0)
-                {
-                    var card = pack.TakeCard();
-                    player.AddCardToHand(card);
-                }
-                else
-                {
-                    Console.WriteLine("В колоде больше нет карт.");
                 }
             }
         }
@@ -97,7 +84,7 @@ namespace coloda_cart
             Name = userInput;
         }
 
-        public void AddCardToHand(Card card)
+        public void TakeCardToHand(Card card)
         {
             _playerCards.Add(card);
             Console.WriteLine($"{Name} взял карту: {card.Mast} {card.Advantage}");
@@ -176,7 +163,7 @@ namespace coloda_cart
             }
         }
 
-        public Card TakeCard()
+        public Card GetCard()
         {
             int maxValue = _cards.Count;
             int minValue = 0;
