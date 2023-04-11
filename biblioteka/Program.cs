@@ -244,11 +244,6 @@ namespace biblioteka
                 Console.WriteLine("Попробуйте еще раз.");
             }
         }
-
-        private void Metod()
-        {
-
-        }
     }
 
     class Book

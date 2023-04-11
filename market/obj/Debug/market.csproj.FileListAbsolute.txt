@@ -1,0 +1,8 @@
+D:\home-work\market\bin\Debug\market.exe.config
+D:\home-work\market\bin\Debug\market.exe
+D:\home-work\market\bin\Debug\market.pdb
+D:\home-work\market\obj\Debug\market.csproj.AssemblyReference.cache
+D:\home-work\market\obj\Debug\market.csproj.SuggestedBindingRedirects.cache
+D:\home-work\market\obj\Debug\market.csproj.CoreCompileInputs.cache
+D:\home-work\market\obj\Debug\market.exe
+D:\home-work\market\obj\Debug\market.pdb
