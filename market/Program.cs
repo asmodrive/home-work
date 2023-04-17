@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Runtime.InteropServices;
 
 namespace market
 {
@@ -34,7 +36,7 @@ namespace market
                         break;
 
                     case CommandShowMyProduct:
-                        buyer.ShowMyProduct();
+                        buyer.ShowProduct();
                         break;
 
                     case CommandBuyProduct:
@@ -55,62 +57,63 @@ namespace market
 
     class MarketPlace
     {
+        private string _currentSeller { get; set; }
+
         private Dictionary<string, Seller> _sellers = new Dictionary<string, Seller>()
         {
 
             ["Ыван"] = new Seller("продукты", new List<Product>()
             {
 
-                new Product("хлеб", 1, new DateTime(2023, 07, 15), 1, 150),
-                new Product("Молоко", 2, new DateTime(2023, 04, 07), 3, 70),
-                new Product("пиво", 3, new DateTime(2023, 09, 12), 5, 25),
-                new Product("сыр", 4, new DateTime(2023, 02, 05), 3, 450),
-                new Product("йогурт", 5, new DateTime(2023, 01, 30), 7, 75),
-                new Product("масло", 6, new DateTime(2023, 09, 28), 9, 125)
+                new Product("хлеб", new DateTime(2023, 07, 15), 1, 150),
+                new Product("Молоко", new DateTime(2023, 04, 07), 3, 70),
+                new Product("пиво", new DateTime(2023, 09, 12), 5, 25),
+                new Product("сыр", new DateTime(2023, 02, 05), 3, 450),
+                new Product("йогурт", new DateTime(2023, 01, 30), 7, 75),
+                new Product("масло", new DateTime(2023, 09, 28), 9, 125)
                 }),
 
             ["НеЫван"] = new Seller("электроника", new List<Product>
             {
-                new Product("Телефон", 7, new DateTime(2030, 01, 01), 4, 2500),
-                new Product("Планшет", 8, new DateTime(2020, 12, 05), 7, 3400),
-                new Product("Компьютер", 9, new DateTime(2004, 01, 21), 15, 12110),
-                new Product("Наушники", 10, new DateTime(2029, 09, 01), 1, 250),
-                new Product("Монитор", 11, new DateTime(2034, 05, 11), 8, 5000)
+                new Product("Телефон", new DateTime(2030, 01, 01), 4, 2500),
+                new Product("Планшет", new DateTime(2020, 12, 05), 7, 3400),
+                new Product("Компьютер", new DateTime(2004, 01, 21), 15, 12110),
+                new Product("Наушники", new DateTime(2029, 09, 01), 1, 250),
+                new Product("Монитор", new DateTime(2034, 05, 11), 8, 5000)
                 }),
 
             ["Ывандва"] = new Seller("Обувь", new List<Product>
             {
-                new Product("Кроссовки", 12, new DateTime(2030, 01, 01), 3, 1500),
-                new Product("Сандали", 13, new DateTime(2020, 12, 05), 2, 560),
-                new Product("Сапоги", 14, new DateTime(2004, 01, 21), 5, 1200),
-                new Product("Валенки", 15, new DateTime(2029, 09, 01), 1, 50),
-                new Product("Подкрадуля", 16, new DateTime(2034, 05, 11), 50, 99999)
+                new Product("Кроссовки", new DateTime(2030, 01, 01), 3, 1500),
+                new Product("Сандали", new DateTime(2020, 12, 05), 2, 560),
+                new Product("Сапоги", new DateTime(2004, 01, 21), 5, 1200),
+                new Product("Валенки", new DateTime(2029, 09, 01), 1, 50),
+                new Product("Подкрадуля", new DateTime(2034, 05, 11), 50, 99999)
             })
 
         };
 
-        private string _currentSeller { get; set; }
-        public Seller CurrentSeller => (!string.IsNullOrEmpty(_currentSeller) && _sellers.Count > 0) ? _sellers[_currentSeller] : null;
+        public Seller CurrentSeller => (string.IsNullOrEmpty(_currentSeller) == false && _sellers.Count > 0) ? _sellers[_currentSeller] : null;
 
         public void BuyProduct(Buyer buyer)
         {
             Console.WriteLine("Выберите продукт который хотите купить:");
             string userInput = Console.ReadLine();
-            var internalProduct = CurrentSeller.GetProduct(userInput);
+            var internalProduct = CurrentSeller.TryGetProduct(userInput);
 
             if (internalProduct != null)
             {
-                if (buyer.CheckBuyProduct(internalProduct))
+                if (buyer.CanBuyProduct(internalProduct))
                 {
                     buyer.BuyProduct(internalProduct);
                     CurrentSeller.RemoveProduct(internalProduct);
-                    Console.WriteLine($"Вы купили:{internalProduct.NameProduct}");                    
+                    Console.WriteLine($"Вы купили:{internalProduct.NameProduct}");
                 }
             }
             else
             {
                 Console.WriteLine($"Нет такого продукта, {userInput}");
-            }          
+            }
         }
 
         public void ShowSellers()
@@ -138,7 +141,7 @@ namespace market
         }
     }
 
-    class Buyer
+    class Buyer : Character
     {
         public Buyer()
         {
@@ -148,11 +151,7 @@ namespace market
             _products = new List<Product>();
         }
 
-        private List<Product> _products;
-
-        public string Name { get; private set; }
         public int Bag { get; private set; }
-        public int Money { get; private set; }
 
         public void SetName()
         {
@@ -183,29 +182,14 @@ namespace market
             Console.WriteLine($"У вас в кошельке: {Money} американских рублей.");
         }
 
-        public void ShowMyProduct()
-        {
-            if (_products.Count == 0)
-            {
-                Console.WriteLine("Ваша котомка совсем пуста");
-            }
-            else
-            {
-                foreach (Product product in _products)
-                {
-                    Console.WriteLine($"{Name} имеет в корзине: {product.NameProduct}");
-                }
-            }
-        }
-
-        public bool CheckBuyProduct(Product product)
+        public bool CanBuyProduct(Product product)
         {
             if (Bag < product.Weight)
             {
                 Console.WriteLine("В вашей сумке совсем нет места");
                 return false;
             }
-            
+
             if (Money < product.Price)
             {
                 Console.WriteLine("В вашем кошельке совсем нет грошей");
@@ -227,14 +211,15 @@ namespace market
 
             _products.Add(product);
         }
+
+        public void GetMoney(Product product)
+        {
+            ChangeMoneyQuantity(product.Price);
+        }
     }
 
-    class Seller
+    class Seller : Character
     {
-        private List<Product> _products = new List<Product>()
-        {
-        };
-
         public Seller(string productsType, List<Product> products)
         {
             ProductsType = productsType;
@@ -242,6 +227,56 @@ namespace market
         }
 
         public string ProductsType { get; private set; }
+
+        public Product TryGetProduct(string userInput)
+        {
+            foreach (Product product in _products)
+            {
+                if (product.NameProduct == userInput)
+                    return product;
+            }
+
+            return null;
+        }
+
+        public void RemoveProduct(Product product)
+        {
+            _products.Remove(product);
+        }
+
+        public void GetMoney(Product product)
+        {
+            ChangeMoneyQuantity(product.Price);
+        }
+    }
+
+    class Product
+    {
+        public Product(string nameProduct, DateTime expirationDate, int weight, int price)
+        {
+            NameProduct = nameProduct;
+            ExpirationDate = expirationDate;
+            Weight = weight;
+            Price = price;
+        }
+
+        public string NameProduct { get; private set; }
+        public DateTime ExpirationDate { get; private set; }
+        public int Weight { get; private set; }
+        public int Price { get; private set; }
+
+        public void ShowInfo()
+        {
+            Console.WriteLine($"Название: {NameProduct},\nсрок годности: {ExpirationDate},\nвес: {Weight},\nцена: {Price}.");
+        }
+    }
+
+    class Character
+    {
+        public List<Product> _products = new List<Product>();
+
+        public string Name;
+        public int Money;
 
         public void ShowProduct()
         {
@@ -251,43 +286,9 @@ namespace market
             }
         }
 
-        public Product GetProduct(string userInput)
+        public void ChangeMoneyQuantity(int difference)
         {
-           foreach (Product product in _products)
-            {
-                if (product.NameProduct == userInput)
-                    return product;
-            }
-
-           return null;
-        }
-
-        public void RemoveProduct(Product product)
-        {
-            _products.Remove(product);
-        }
-    }
-
-    class Product
-    {
-        public Product(string nameProduct, int numberProduct, DateTime expirationDate, int weight, int price)
-        {
-            NameProduct = nameProduct;
-            NumberProduct = numberProduct;
-            ExpirationDate = expirationDate;
-            Weight = weight;
-            Price = price;
-        }
-
-        public string NameProduct { get; private set; }
-        public int NumberProduct { get; private set; }
-        public DateTime ExpirationDate { get; private set; }
-        public int Weight { get; private set; }
-        public int Price { get; private set; }
-
-        public void ShowInfo()
-        {
-            Console.WriteLine($"Название: {NameProduct},\nсрок годности: {ExpirationDate},\nвес: {Weight},\nцена: {Price}.");
+            Money += difference;
         }
     }
 }

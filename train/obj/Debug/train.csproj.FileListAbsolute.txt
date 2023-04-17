@@ -1,0 +1,8 @@
+D:\home-work\train\bin\Debug\train.exe.config
+D:\home-work\train\bin\Debug\train.exe
+D:\home-work\train\bin\Debug\train.pdb
+D:\home-work\train\obj\Debug\train.csproj.AssemblyReference.cache
+D:\home-work\train\obj\Debug\train.csproj.SuggestedBindingRedirects.cache
+D:\home-work\train\obj\Debug\train.csproj.CoreCompileInputs.cache
+D:\home-work\train\obj\Debug\train.exe
+D:\home-work\train\obj\Debug\train.pdb
