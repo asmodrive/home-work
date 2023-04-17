@@ -1,0 +1,8 @@
+D:\home-work\terminal\bin\Debug\terminal.exe.config
+D:\home-work\terminal\bin\Debug\terminal.exe
+D:\home-work\terminal\bin\Debug\terminal.pdb
+D:\home-work\terminal\obj\Debug\terminal.csproj.AssemblyReference.cache
+D:\home-work\terminal\obj\Debug\terminal.csproj.SuggestedBindingRedirects.cache
+D:\home-work\terminal\obj\Debug\terminal.csproj.CoreCompileInputs.cache
+D:\home-work\terminal\obj\Debug\terminal.exe
+D:\home-work\terminal\obj\Debug\terminal.pdb
