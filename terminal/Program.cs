@@ -35,11 +35,6 @@ namespace ConsoleApp1
             }
         }
 
-        public void ShowInfo(Train train)
-        {
-            Console.WriteLine($"Поезд {train.StartingPoint} - {train.Destination} с {train.SeatsQuantity} вагонами");
-        }
-
         private void EnterToContinue()
         {
             bool isWorking = true;
@@ -59,8 +54,9 @@ namespace ConsoleApp1
             }
         }
 
-        private int SellTickets(int passengers)
+        private int SellTickets()
         {
+            int passengers = 0;
             int minPassengers = 20;
             int maxPassengers = 760;
             Random random = new Random();
@@ -76,7 +72,7 @@ namespace ConsoleApp1
         private void SendTrain(string startingPoint, string destination)
         {
             int passengers = 0;
-            passengers = SellTickets(passengers);
+            passengers = SellTickets();
             Train train = new Train(passengers, startingPoint, destination);
             _trains.Add(train);
             ShowPassengersInfo(train);
@@ -90,7 +86,7 @@ namespace ConsoleApp1
 
             for (int i = 0; i < _trains.Count; i++)
             {
-                ShowInfo(_trains[i]);
+                _trains[i].ShowInfo();
             }
 
             Console.WriteLine();
@@ -123,6 +119,11 @@ namespace ConsoleApp1
             }
 
             return needCountSeats;
+        }
+
+        public void ShowInfo()
+        {
+            Console.WriteLine($"Поезд {StartingPoint} - {Destination} с {SeatsQuantity} вагонами");
         }
     }
 
