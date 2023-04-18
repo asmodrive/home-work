@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Runtime.InteropServices;
 
 namespace market
 {
@@ -157,7 +155,7 @@ namespace market
         {
             Console.WriteLine("Введите ваше имя:");
             string userInput = Console.ReadLine();
-            Name = userInput;
+            _name = userInput;
         }
 
         public void SetCapacityBag()
@@ -178,8 +176,8 @@ namespace market
             int maxValue = 600;
             Random random = new Random();
             money = random.Next(minValue, maxValue);
-            Money = money;
-            Console.WriteLine($"У вас в кошельке: {Money} американских рублей.");
+            _money = money;
+            Console.WriteLine($"У вас в кошельке: {_money} американских рублей.");
         }
 
         public bool CanBuyProduct(Product product)
@@ -190,7 +188,7 @@ namespace market
                 return false;
             }
 
-            if (Money < product.Price)
+            if (_money < product.Price)
             {
                 Console.WriteLine("В вашем кошельке совсем нет грошей");
                 return false;
@@ -202,7 +200,8 @@ namespace market
         public void BuyProduct(Product product)
         {
             Bag -= product.Weight;
-            Money -= product.Price;
+
+            ReduceMoney(product.Price);
 
             if (product.ExpirationDate < DateTime.Now)
             {
@@ -214,7 +213,7 @@ namespace market
 
         public void GetMoney(Product product)
         {
-            ChangeMoneyQuantity(product.Price);
+            IncreaseMoney(product.Price);
         }
     }
 
@@ -246,7 +245,7 @@ namespace market
 
         public void GetMoney(Product product)
         {
-            ChangeMoneyQuantity(product.Price);
+            IncreaseMoney(product.Price);
         }
     }
 
@@ -271,12 +270,12 @@ namespace market
         }
     }
 
-    class Character
+    abstract class Character
     {
         public List<Product> _products = new List<Product>();
 
-        public string Name;
-        public int Money;
+        private protected string _name;
+        private protected int _money;
 
         public void ShowProduct()
         {
@@ -286,9 +285,15 @@ namespace market
             }
         }
 
-        public void ChangeMoneyQuantity(int difference)
+        public void IncreaseMoney(int difference)
         {
-            Money += difference;
+            _money += difference;
         }
+
+        public void ReduceMoney(int difference)
+        {
+            _money -= difference;
+        }
+
     }
 }
