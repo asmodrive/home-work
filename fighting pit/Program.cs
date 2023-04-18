@@ -21,7 +21,7 @@ namespace fighting_pit
 
             while (isWorking)
             {
-               Console.WriteLine($"Введите номер операции:\n{CommandChooseFighter} - выбрать бойца,\n{CommandShowFighters} - показать бойца,\n{Exit} - выйти из бойцовской ямы.");
+               Console.WriteLine($"Введите номер операции:\n{CommandChooseFighter} - выбрать бойца и начать поединок,\n{CommandShowFighters} - показать бойца,\n{Exit} - выйти из бойцовской ямы.");
 
                 switch (Console.ReadLine())
                 {
