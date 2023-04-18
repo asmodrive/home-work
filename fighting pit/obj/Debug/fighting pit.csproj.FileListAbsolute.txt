@@ -1,0 +1,8 @@
+D:\home-work\fighting pit\bin\Debug\fighting pit.exe.config
+D:\home-work\fighting pit\bin\Debug\fighting pit.exe
+D:\home-work\fighting pit\bin\Debug\fighting pit.pdb
+D:\home-work\fighting pit\obj\Debug\fighting pit.csproj.AssemblyReference.cache
+D:\home-work\fighting pit\obj\Debug\fighting pit.csproj.SuggestedBindingRedirects.cache
+D:\home-work\fighting pit\obj\Debug\fighting pit.csproj.CoreCompileInputs.cache
+D:\home-work\fighting pit\obj\Debug\fighting pit.exe
+D:\home-work\fighting pit\obj\Debug\fighting pit.pdb
