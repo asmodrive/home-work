@@ -7,8 +7,9 @@ namespace supermarket
     {
         static void Main(string[] args)
         {
+            Supermarket supermarket = new Supermarket();
 
-
+            supermarket.OpenStore();
         }
     }
 
@@ -27,11 +28,17 @@ namespace supermarket
             int numberBuyer = 1;
             CreateBuyers();
 
-            while(_buyers.Count > 0)
+            Console.ReadKey();
+
+            while (_buyers.Count > 0)
             {
                 Buyer buyer = _buyers.Peek();
                 Console.WriteLine($"В очереди стоит: {_buyers.Count} покупателей.");
                 buyer.ShowInfo(numberBuyer);
+
+                BuyProduct(buyer, ref numberBuyer);
+
+                Console.ReadKey();
             }
         }
 
@@ -58,12 +65,30 @@ namespace supermarket
                 _buyers.Enqueue(new Buyer(_products));
         }
 
-        private void CanBuyProduct(Buyer buyer, ref int numberBuyer)
+        private void BuyProduct(Buyer buyer, ref int numberBuyer)
         {
-            
+            while (buyer.SumBuy > buyer.Money)
+            {
+                if (buyer.PoructsCount == 0)
+                {
+                    Console.WriteLine("У вас закончились продукты.");
+                    _buyers.Dequeue();
+                    numberBuyer++;
+                }
+                else if (buyer.SumBuy > buyer.Money)
+                {
+                    Console.WriteLine("Вам не хватает денег, будем делать отмену.");
+                    buyer.RemoveRandomProduct();
+                }
+
+                Console.ReadKey();
+            }
+
+            Console.WriteLine("Спс за покупку, приходите снова.");
+            _buyers.Dequeue();
+            numberBuyer++;
         }
     }
-
 
     class Buyer
     {
