@@ -81,6 +81,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "terminal", "terminal\termin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fighting pit", "fighting pit\fighting pit.csproj", "{59C26BFF-7F2E-47E9-9032-A461D06E5D7F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "supermarket", "supermarket\supermarket.csproj", "{B5FC790D-9064-4937-8C87-6671EF596A0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -243,6 +245,10 @@ Global
 		{59C26BFF-7F2E-47E9-9032-A461D06E5D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59C26BFF-7F2E-47E9-9032-A461D06E5D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59C26BFF-7F2E-47E9-9032-A461D06E5D7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5FC790D-9064-4937-8C87-6671EF596A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5FC790D-9064-4937-8C87-6671EF596A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5FC790D-9064-4937-8C87-6671EF596A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5FC790D-9064-4937-8C87-6671EF596A0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

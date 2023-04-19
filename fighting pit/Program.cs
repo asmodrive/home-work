@@ -1,9 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+using System.Xml.Linq;
 
 namespace fighting_pit
 {
@@ -16,7 +14,9 @@ namespace fighting_pit
             const string Exit = "3";
 
             FightingPit fightingPit = new FightingPit();
+
             fightingPit.CreateListFighters();
+
             bool isWorking = true;
 
             while (isWorking)
@@ -30,7 +30,7 @@ namespace fighting_pit
                         break;
 
                     case CommandShowFighters:
-                        fightingPit.ShowInfo();
+                        fightingPit.ShowListFighters();
                         break;
 
                     case Exit:
@@ -41,7 +41,7 @@ namespace fighting_pit
         }
     }
 
-    class FightingPit
+    class FightingPit 
     {
         private List<Warrior> _warriors;
 
@@ -58,17 +58,16 @@ namespace fighting_pit
         }
         public void StartBattle()
         {
-            
             ChooseFighters(out Warrior firstWarrior, out Warrior secondWarrior);
 
             Console.WriteLine($"Вы выбрали бойцов, начинается схватка {firstWarrior.Name} и {secondWarrior.Name}.");
 
-            while (firstWarrior.Health >= 0 && secondWarrior.Health >= 0)
+            while (firstWarrior.Healph >= 0 && secondWarrior.Healph >= 0)
             {
                 firstWarrior.UseSkill();
                 secondWarrior.UseSkill();
-                firstWarrior.TakeDamage(secondWarrior.Attack);
-                secondWarrior.TakeDamage(firstWarrior.Attack);                
+                firstWarrior.GiveDamage(secondWarrior);
+                secondWarrior.GiveDamage(firstWarrior);                
             }
 
             ShowResultBattle(firstWarrior, secondWarrior);
@@ -82,8 +81,11 @@ namespace fighting_pit
             while (firstWarrior == null || secondWarrior == null)
             {
                 Console.WriteLine("Введите номер первого бойца:");
+
                 firstWarrior = GetFighter();
+
                 Console.WriteLine("Введите номер второго бойца:");
+
                 secondWarrior = GetFighter();
             }
         }
@@ -122,7 +124,7 @@ namespace fighting_pit
             }
         }
 
-        public void ShowInfo()
+        public void ShowListFighters()
         {
             Console.WriteLine("Список бойцов: ");
 
@@ -131,15 +133,15 @@ namespace fighting_pit
 
         private void ShowResultBattle(Warrior firstWarrior, Warrior secondWarrior)
         {
-            if (firstWarrior.Health <= 0 && secondWarrior.Health <= 0)
+            if (firstWarrior.Healph <= 0 && secondWarrior.Healph <= 0)
             {
                 Console.WriteLine("Ничья, оба бойца мертвы.");
             }
-            else if (firstWarrior.Health <= 0)
+            else if (firstWarrior.Healph <= 0)
             {
                 Console.WriteLine($"Победил: {secondWarrior.Name}.");
             }
-            else if (secondWarrior.Health <= 0)
+            else if (secondWarrior.Healph <= 0)
             {
                 Console.WriteLine($"Победил: {firstWarrior.Name}.");
             }
@@ -154,77 +156,93 @@ namespace fighting_pit
         {
             Name = name;
             Attack = attack;
-            Health = health;            
+            Healph = health;            
             Armor = armor;
         }
 
         public string Name { get; private set; }
-        public int Attack;
-        public int Health;
-        public int Armor;
-        public double AttackSpeed;
+        public int Attack { get; protected set; }
+        public int Healph { get; protected set; }
+        public int Armor { get; protected set; }
 
         public void ShowInfo()
         {
-            Console.WriteLine($"Имя бойца: {Name}, атака: {Attack}, здоровье: {Health}, броня: {Armor}.");
+            Console.WriteLine($"Имя бойца: {Name}, атака: {Attack}, здоровье: {Healph}, броня: {Armor}.");
         }
 
         public abstract void UseSkill();
 
         public void TakeDamage(int damage)
         {
-            Health -= damage - Armor;
-            Console.WriteLine($"{Name} получил {damage}, осталось {Health} и {Armor}.");
+            Healph -= damage - Armor;
+            Console.WriteLine($"{Name} получил {damage}, осталось {Healph} и {Armor}.");
+        }
+
+        public void GiveDamage(Warrior warrior)
+        {
+            warrior.TakeDamage(Attack);
         }
     }
 
     class Knight : Warrior
     {
+        private int _armorBuff = 2;
+
         public Knight() : base("Артур", 100, 100, 150) { }
 
         public override void UseSkill()
         {
-            Armor += 50;
+            Armor *= _armorBuff;
         }
     }
 
     class Barbarian : Warrior
     {
+        private int _damageBuff = 100;
+
         public Barbarian() : base("Тормунд", 200, 1200) { }
 
         public override void UseSkill()
         {
-            Attack += 100;
+            Attack += _damageBuff;
         }
     }
 
     class Archer : Warrior
     {
+        private int _damageBuff = 40;
+
         public Archer() : base("Людвик", 120, 700, 25) { }
 
         public override void UseSkill()
         {
-            Attack *= 2;
+            Attack += _damageBuff;
         }
     }
 
     class Gladiator : Warrior
     {
+        private int _damageBuff = 2;
+        private int _armorBuff = 20;
+
         public Gladiator() : base("Спартак", 220, 90, 30) { }
 
         public override void UseSkill()
         {
-            Armor -= 15;
+            Attack *= _damageBuff;
+            Armor -= _armorBuff;
         }
     }
 
     class Wizard : Warrior
     {
+        private int _healphBuff = 5;
+
         public Wizard() : base("Истари", 70, 290) { }
 
         public override void UseSkill()
         {
-            Health *= 5;
+            Healph *= _healphBuff;
         }
     }
 }

@@ -1,0 +1,8 @@
+D:\home-work\supermarket\bin\Debug\supermarket.exe.config
+D:\home-work\supermarket\bin\Debug\supermarket.exe
+D:\home-work\supermarket\bin\Debug\supermarket.pdb
+D:\home-work\supermarket\obj\Debug\supermarket.csproj.AssemblyReference.cache
+D:\home-work\supermarket\obj\Debug\supermarket.csproj.SuggestedBindingRedirects.cache
+D:\home-work\supermarket\obj\Debug\supermarket.csproj.CoreCompileInputs.cache
+D:\home-work\supermarket\obj\Debug\supermarket.exe
+D:\home-work\supermarket\obj\Debug\supermarket.pdb
