@@ -26,6 +26,7 @@ namespace supermarket
         public void OpenStore()
         {
             int numberBuyer = 1;
+
             CreateBuyers();
 
             Console.ReadKey();
@@ -36,7 +37,7 @@ namespace supermarket
                 Console.WriteLine($"В очереди стоит: {_buyers.Count} покупателей.");
                 buyer.ShowInfo(numberBuyer);
 
-                BuyProduct(buyer, ref numberBuyer);
+                BuyProduct(buyer);
 
                 Console.ReadKey();
             }
@@ -62,11 +63,16 @@ namespace supermarket
             int buyerInQueue = 7;
 
             for (int i = 0; i < buyerInQueue; i++)
-                _buyers.Enqueue(new Buyer(_products));
+            {
+                var products = new List<Product>(_products);
+                _buyers.Enqueue(new Buyer(products));
+            }
         }
 
-        private void BuyProduct(Buyer buyer, ref int numberBuyer)
+        private void BuyProduct(Buyer buyer)
         {
+            int numberBuyer = 1;
+
             while (buyer.SumBuy > buyer.Money)
             {
                 if (buyer.PoructsCount == 0)
@@ -92,7 +98,7 @@ namespace supermarket
 
     class Buyer
     {
-        private static Random _random = new Random();
+        private Random _random = new Random();
         private List<Product> _products = new List<Product>();
 
         public Buyer(List<Product> products)
@@ -133,10 +139,17 @@ namespace supermarket
             {
                 int indexProduct = _random.Next(products.Count);
                 _products.Add(products[indexProduct]);
-                SumBuy += products[indexProduct].Price;
+
+                ReceiveSumProduct(products, indexProduct);
             }
         }
+
+        private void ReceiveSumProduct(List<Product> products, int index)
+        {
+            SumBuy += products[index].Price;
+        }
     }
+
     class Product
     {
         public Product(string name, int price)

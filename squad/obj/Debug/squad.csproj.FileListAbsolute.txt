@@ -1,0 +1,8 @@
+D:\home-work\squad\bin\Debug\squad.exe.config
+D:\home-work\squad\bin\Debug\squad.exe
+D:\home-work\squad\bin\Debug\squad.pdb
+D:\home-work\squad\obj\Debug\squad.csproj.AssemblyReference.cache
+D:\home-work\squad\obj\Debug\squad.csproj.SuggestedBindingRedirects.cache
+D:\home-work\squad\obj\Debug\squad.csproj.CoreCompileInputs.cache
+D:\home-work\squad\obj\Debug\squad.exe
+D:\home-work\squad\obj\Debug\squad.pdb
