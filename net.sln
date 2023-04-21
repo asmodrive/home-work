@@ -85,6 +85,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "supermarket", "supermarket\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "squad", "squad\squad.csproj", "{FB3E52F0-E2CF-47C5-A3C5-4961EF541E6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aqvarium", "aqvarium\aqvarium.csproj", "{5AD37572-263F-4A82-B825-3FBFE280F02E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -255,6 +257,10 @@ Global
 		{FB3E52F0-E2CF-47C5-A3C5-4961EF541E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB3E52F0-E2CF-47C5-A3C5-4961EF541E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB3E52F0-E2CF-47C5-A3C5-4961EF541E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AD37572-263F-4A82-B825-3FBFE280F02E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AD37572-263F-4A82-B825-3FBFE280F02E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AD37572-263F-4A82-B825-3FBFE280F02E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AD37572-263F-4A82-B825-3FBFE280F02E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

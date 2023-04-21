@@ -23,6 +23,7 @@ namespace squad
                     case CommandStartBattle:
                         war.StartBattle();
                         break;
+
                     case CommandExit:
                         isWorking = false;
                         break;
@@ -32,73 +33,46 @@ namespace squad
     }
 
     class War
-    {                   
-        public void StartBattle()
-        {
-            var platoon = new Platoon();
-
-            while (platoon.CheckSoldiersCount())
-            {
-                platoon.ShowSoldiers();
-                var firstSoldier = platoon.GetFirstSquadSoldier();
-                var secondSoldier = platoon.GetSecondSquadSoldier();
-                firstSoldier.UseSkillAttack();
-                secondSoldier.UseSkillDefence();
-                firstSoldier.GiveDamage(secondSoldier);
-                secondSoldier.GiveDamage(firstSoldier);
-                platoon.RemoveDeadSoldiers();
-                Console.ReadKey();
-            }
-
-            Console.WriteLine("Битва окончена!");
-        }
-    }
-
-    class Platoon
     {
-        private List<Soldier> _firstPlatoon;
-        private List<Soldier> _secondPlatoon;
-
-        public Platoon()
+        private Platoon _firstPlatoon = new Platoon(new List<Soldier>
         {
-            CreateListSoldiers();
-        }
-
-        public void CreateListSoldiers()
-        {
-            _firstPlatoon = new List<Soldier>()
-            {
                 new Soldier("Сэм", 5, 100, 20),
                 new Soldier("Майкл", 15, 100, 20),
                 new Soldier("Джери", 10, 100, 20),
                 new Soldier("Том", 25, 100, 20),
                 new Soldier("Уолтер", 40, 100, 20),
                 new Soldier("Джейсон", 20, 100, 20)
-            };
+        }
+        );
 
-            _secondPlatoon = new List<Soldier>()
+        private Platoon _secondPlatoon = new Platoon(new List<Soldier>
             {
-                new Soldier("Робин", 7, 100, 20),
+               new Soldier("Робин", 7, 100, 20),
                 new Soldier("Гари", 60, 100, 20),
                 new Soldier("Алекс", 30, 100, 20),
                 new Soldier("Джордж", 10, 100, 20),
                 new Soldier("Уильям", 32, 100, 20),
                 new Soldier("Дуглас", 17, 100, 20)
-            };
-        }
+            }
+        );
 
-        public Soldier GetFirstSquadSoldier()
+        public void StartBattle()
         {
-            Random random = new Random();
+            while (_firstPlatoon.GetCountSoldiers() && _secondPlatoon.GetCountSoldiers())
+            {
+                _firstPlatoon.ShowPlatoon();
+                var firstSoldier = _firstPlatoon.GetSquadSoldier();
+                var secondSoldier = _secondPlatoon.GetSquadSoldier();
+                firstSoldier.UseSkillAttack();
+                secondSoldier.UseSkillDefence();
+                firstSoldier.GiveAttack(secondSoldier);
+                secondSoldier.GiveAttack(firstSoldier);
+                _firstPlatoon.RemoveDeadSoldiers();
+                _secondPlatoon.RemoveDeadSoldiers();
+                Console.ReadKey();
+            }
 
-            return _firstPlatoon[random.Next(0, _firstPlatoon.Count)];
-        }
-
-        public Soldier GetSecondSquadSoldier()
-        {
-            Random random = new Random();
-
-            return _secondPlatoon[random.Next(0, _secondPlatoon.Count)];
+            Console.WriteLine("Битва окончена!");
         }
 
         public void ShowPlatoon(List<Soldier> soldiers)
@@ -110,43 +84,49 @@ namespace squad
 
             Console.WriteLine();
         }
+    }
 
-        public void ShowSoldiers()
+    class Platoon
+    {
+        private List<Soldier> _soldiers = new List<Soldier>();
+
+        public Platoon(List<Soldier> soldiers)
         {
-            ShowPlatoon(_firstPlatoon);
-
-            ShowPlatoon(_secondPlatoon);
+            _soldiers = soldiers;
         }
 
-        public bool CheckSoldiersCount()
+        public bool GetCountSoldiers()
         {
-            if (_firstPlatoon.Count > 0 && _secondPlatoon.Count > 0)
-            {
-                return true;
-            }
-
-            return false;
+            return _soldiers.Count > 0;
         }
 
         public void RemoveDeadSoldiers()
         {
-            for (int i = _firstPlatoon.Count - 1; i >= 0; i--)
+            for (int i = _soldiers.Count - 1; i >= 0; i--)
             {
-                if (_firstPlatoon[i].Healph <= 0)
+                if (_soldiers[i].Healph <= 0)
                 {
-                    _firstPlatoon.RemoveAt(i);
-                    Console.WriteLine($"В первом отряде осталось {_firstPlatoon.Count} бойцов");
+                    _soldiers.RemoveAt(i);
+                    Console.WriteLine($"В отряде осталось {_soldiers.Count} бойцов");
                 }
+            }
+        }
+
+        public void ShowPlatoon()
+        {
+            foreach (var soldier in _soldiers)
+            {
+                soldier.ShowInfo();
             }
 
-            for (int i = _secondPlatoon.Count - 1; i >= 0; i--)
-            {
-                if (_secondPlatoon[i].Healph <= 0)
-                {
-                    _secondPlatoon.RemoveAt(i);
-                    Console.WriteLine($"Во втором отряде осталось {_secondPlatoon.Count} бойцов");
-                }
-            }
+            Console.WriteLine();
+        }
+
+        public Soldier GetSquadSoldier()
+        {
+            Random random = new Random();
+
+            return _soldiers[random.Next(0, _soldiers.Count)];
         }
     }
 
@@ -172,11 +152,18 @@ namespace squad
 
         public void TakeDamage(int damage)
         {
+            if (damage < Armor)
+            {
+                Armor = damage;
+            }
+
             Healph -= damage - Armor;
             Console.WriteLine($"{Name} получил {damage}, осталось {Healph} и {Armor}.");
+
+
         }
 
-        public void GiveDamage(Soldier soldier)
+        public void GiveAttack(Soldier soldier)
         {
             soldier.TakeDamage(Attack);
         }
