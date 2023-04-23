@@ -159,8 +159,6 @@ namespace squad
 
             Healph -= damage - Armor;
             Console.WriteLine($"{Name} получил {damage}, осталось {Healph} и {Armor}.");
-
-
         }
 
         public void GiveAttack(Soldier soldier)
