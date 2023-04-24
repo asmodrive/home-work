@@ -1,0 +1,8 @@
+D:\home-work\aqvarium\bin\Debug\aqvarium.exe.config
+D:\home-work\aqvarium\bin\Debug\aqvarium.exe
+D:\home-work\aqvarium\bin\Debug\aqvarium.pdb
+D:\home-work\aqvarium\obj\Debug\aqvarium.csproj.AssemblyReference.cache
+D:\home-work\aqvarium\obj\Debug\aqvarium.csproj.SuggestedBindingRedirects.cache
+D:\home-work\aqvarium\obj\Debug\aqvarium.csproj.CoreCompileInputs.cache
+D:\home-work\aqvarium\obj\Debug\aqvarium.exe
+D:\home-work\aqvarium\obj\Debug\aqvarium.pdb
