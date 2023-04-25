@@ -1,222 +1,158 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Program.cs
+namespace CSharpLight
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
-            const int AddPlayer = 1;
-            const int DeletePlayer = 2;
-            const int BanPlayer = 3;
-            const int UnBanPlayer = 4;
-            const int ShowDataBase = 5;
+            Zoo zoo = new Zoo();
+            zoo.StartExcursion();
+            Console.ReadLine();
+        }
+    }
 
-            bool isWorking = true;
-            DataBase dataProcessing = new DataBase();
+    class Zoo
+    {
+        private List<Aviary> _aviaries = new List<Aviary>();
 
-            while (isWorking)
+        public void StartExcursion()
+        {
+            CreativeAviary(5);
+            bool isWork = true;
+
+            while (isWork)
             {
-                Console.WriteLine($"Добро пожаловать в базу данных игроков.\nВам доступны слудующие функции работы с базой:\n{AddPlayer}- Добавить игрока\n{DeletePlayer}- Удалить игрока\n" +
-                              $"{BanPlayer}- Забанить игрока\n{UnBanPlayer}- Разбанить игрока\n{ShowDataBase}- Показать базу данных\nВыберите необходимый вариант:\n");
+                Console.WriteLine($"Добро пожаловать в зоопар. У нас есть {_aviaries.Count} вальеров с животными " +
+                    "\nДля налало экскурии, продолжения введите \"1\"" +
+                    ". Выход из зоопарка \"exit\"");
+                string userInput = Console.ReadLine();
 
-                bool isCorrect = int.TryParse(Console.ReadLine(), out int userInput);
-
-                if (isCorrect && userInput < 6)
+                switch (userInput)
                 {
-                    switch (userInput)
-                    {
-                        case AddPlayer:
-                            dataProcessing.CreatePlayer();
-                            break;
-
-                        case DeletePlayer:
-                            dataProcessing.DeletePlayer();
-                            break;
-
-                        case BanPlayer:
-                            dataProcessing.BanPlayer();
-                            break;
-
-                        case UnBanPlayer:
-                            dataProcessing.UnBanPlayer();
-                            break;
-
-                        case ShowDataBase:
-                            dataProcessing.ShowDataBase();
-                            break;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Неверно введена команда! Повторите запрос!");
+                    case "1":
+                        ShowAviary();
+                        break;
+                    case "exit":
+                        isWork = false;
+                        break;
+                    default:
+                        Console.WriteLine("Хм.. Такой команды нету.");
+                        break;
                 }
 
                 Console.ReadKey();
                 Console.Clear();
             }
         }
-    }
 
-    class Player
-    {
-        public Player(int playerId, string playerNickname, int playerLeavel, bool playerFlag)
+        private void CreativeAviary(int numberOfAviary)
         {
-            PlayerId = playerId;
-            PlayerIsBanned = playerFlag;
-            _playerNickname = playerNickname;
-            _playerLeavel = playerLeavel;
+            for (int i = 0; i < numberOfAviary; i++)
+            {
+                _aviaries.Add(new Aviary());
+            }
         }
 
-        public int PlayerId { get; private set; }
-        public bool PlayerIsBanned { get; private set; }
-        private int _playerLeavel;
-        private string _playerNickname;
-
-        public void ShowInfo()
+        private void ShowAviary()
         {
-            Console.WriteLine($"Уникальный номер: {PlayerId}\nИмя: {_playerNickname}\nУровень персонажа: {_playerLeavel}\nЗабанен: {PlayerIsBanned}\n");
-        }
+            Console.Write("На какой вольер вы хотите посмотреть?: ");
+            bool isNumber = int.TryParse(Console.ReadLine(), out int inputNumberAviary);
 
-        public void Ban()
-        {
-            PlayerIsBanned = true;
-        }
-
-        public void UnBan()
-        {
-            PlayerIsBanned = false;
+            if (isNumber == false)
+            {
+                Console.WriteLine("Ошибка! Вы ввели не коректные данные.");
+            }
+            else if (inputNumberAviary > 0 && inputNumberAviary < _aviaries.Count)
+            {
+                _aviaries[inputNumberAviary - 1].ShowAnimal();
+            }
+            else
+            {
+                Console.WriteLine("Вальера с таким номером в зоопарке нету.");
+            }
         }
     }
 
-    class DataBase
+    class Aviary
     {
-        private List<Player> _players = new List<Player>();
+        private Dictionary<int, Animal> _animals = new Dictionary<int, Animal>();
+        private Random _random = new Random();
+        private string[] _listAnimals = new string[] { "Tiger", "Sheep", "Giraffe", "Elephant", "Crocodile" };
 
-        public void CreatePlayer()
+        public Aviary()
         {
-            Console.WriteLine("Введите ник игрока:");
-            string nickName = Console.ReadLine();
-            bool playerFlag = false;
+            CreativeAnimal(5);
+        }
 
-            Console.WriteLine("Введите уровень игрока:");
-            bool isCorrect = int.TryParse(Console.ReadLine(), out int playerLeavel);
+        public void ShowAnimal()
+        {
+            Console.WriteLine($"\nКоличиство животных в вольере - {_animals.Count}");
 
-            if (isCorrect == false)
+            foreach (var animal in _animals)
             {
-                Console.WriteLine("Ошибка! Некорректный уровень игрока!");
-            }
-
-            Random random = new Random();
-            int minId = 1;
-            int maxId = 100;
-            int newId = random.Next(minId, maxId);
-
-            if (playerLeavel > 0)
-            {
-                _players.Add(new Player(newId, nickName, playerLeavel, playerFlag));
-                Console.WriteLine("Игрок добавлен.");
-            }
-            else
-            {
-                Console.WriteLine("Введены некоректные данные, игрок не добавлен! Повторите ввод данных!");
+                Console.WriteLine($"{animal.Value.Name}. Gender - {animal.Value.Gender}. Voce - {animal.Value.Voice}");
             }
         }
 
-        public void ShowDataBase()
+        private void CreativeAnimal(int numberOfAnimals)
         {
-            if (_players.Count > 0)
+            int animalId = _random.Next(0, _listAnimals.Length);
+
+            for (int i = 0; i < numberOfAnimals; i++)
             {
-                for (int i = 0; i < _players.Count; i++)
-                {
-                    _players[i].ShowInfo();
-                }
-            }
-            else
-            {
-                Console.WriteLine("В базе данных отсутствуют игроки.");
+                _animals.Add(i, GetAnimal(animalId));
             }
         }
 
-        public void BanPlayer()
+        private Animal GetAnimal(int animalId)
         {
-            Console.WriteLine("Введите номер игрока желаемого забанить:\n");
-            bool isCorrectUserInput = int.TryParse(Console.ReadLine(), out int userInput);
-
-            if (isCorrectUserInput)
+            switch (_listAnimals[animalId])
             {
-                foreach (var player in _players)
-                {
-                    if (player.PlayerId == userInput && player.PlayerIsBanned == false)
-                    {
-                        player.Ban();
-                        Console.WriteLine("Игрок забанен.\n");
-                    }
-                    else if (player.PlayerId != userInput)
-                    {
-                        Console.WriteLine("Некорректный номер игрока!\n");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Ошибка! Игрок уже забанен!\n");
-                    }
-                }
+                case "Tiger":
+                    return new Animal("Тигр", "Р-р-р");
+                case "Sheep":
+                    return new Animal("Овца", "Беее");
+                case "Giraffe":
+                    return new Animal("Жираф", "Хрум-хрум");
+                case "Elephant":
+                    return new Animal("Бегемот", "Хрю-хрю");
+                case "Crocodile":
+                    return new Animal("Крокодил", "Клоц-клоц");
+            }
+
+            return null;
+        }
+    }
+
+    class Animal
+    {
+        private Random _random = new Random();
+        public string Name { get; private set; }
+        public string Gender { get; private set; }
+        public string Voice { get; private set; }
+
+        public Animal(string name, string voice)
+        {
+            Name = name;
+            Gender = GetGenderAnimal();
+            Voice = voice;
+        }
+
+        private string GetGenderAnimal()
+        {
+            int minimumNumberGender = 0;
+            int maximumNumberGender = 2;
+            int gender = _random.Next(minimumNumberGender, maximumNumberGender);
+
+            if (gender == 1)
+            {
+                return "Мужской";
             }
             else
             {
-                Console.WriteLine("Некорректный номер игрока!\n");
-            }
-        }
-
-        public void UnBanPlayer()
-        {
-            Console.WriteLine("Введите номер игрока желаемого разбанить:\n");
-            bool isCorrectUserInput = int.TryParse(Console.ReadLine(), out int userInput);
-
-            if (isCorrectUserInput)
-            {
-                foreach (var player in _players)
-                {
-                    if (player.PlayerId == userInput && player.PlayerIsBanned == true)
-                    {
-                        player.UnBan();
-                        Console.WriteLine("Игрок разбанен.\n");
-                    }
-                    else if (player.PlayerId != userInput)
-                    {
-                        Console.WriteLine("Некорректный номер игрока!\n");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Ошибка! Игрок уже разбанен!\n");
-                    }
-                }
-            }
-            else
-            {
-                Console.WriteLine("Некорректный номер игрока!\n");
-            }
-        }
-
-        public void DeletePlayer()
-        {
-            Console.WriteLine("Введите номер игрока для его удаления:\n");
-            bool isCorrectUserImput = int.TryParse(Console.ReadLine(), out int userImput);
-
-            if (isCorrectUserImput && userImput > 0)
-            {
-                Player playerToRemove = _players.Find(p => p.PlayerId == userImput);
-
-                if (playerToRemove != null)
-                {
-                    _players.Remove(playerToRemove);
-                    Console.WriteLine("Игрок удален.\n");
-                }
-                else
-                {
-                    Console.WriteLine("Некорректный номер игрока!\n");
-                }
+                return "Женский";
             }
         }
     }

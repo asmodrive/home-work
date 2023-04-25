@@ -34,13 +34,11 @@ namespace squad
 
     class War
     {
-        private Platoon _firstPlatoon;
-        private Platoon _secondPlatoon;
+        private Platoon _firstPlatoon = new Platoon(CreateFirstPlatoon());
+        private Platoon _secondPlatoon = new Platoon(CreateSecondPlatoon());
 
         public void StartBattle()
         {
-            _firstPlatoon = new Platoon(true);
-            _secondPlatoon = new Platoon(false);
 
             while (_firstPlatoon.GetCountSoldiers() && _secondPlatoon.GetCountSoldiers())
             {
@@ -59,45 +57,45 @@ namespace squad
 
             Console.WriteLine("Битва окончена!");
         }
-    }
 
-    class Platoon
-    {
-        private List<Soldier> _soldiers = new List<Soldier>();
-        private Random _random = new Random();
-
-        public Platoon(bool even)
+        public static List<Soldier> CreateFirstPlatoon()
         {
-            var soldiers = ListFighters();
-
-            for (int i = 0; i < soldiers.Count; i++)
+            var firstPlatoon = new List<Soldier>()
             {
-                if (i % 2 == 0 && even || i % 2 != 0 && even == false)
-                {
-                    _soldiers.Add(soldiers[i]);
-                }
-            }
-        }
-
-        private List<Soldier> ListFighters()
-        {
-            var soldiers = new List<Soldier>()
-        {
                 new Soldier("Сэм", 5, 100, 20),
                 new Soldier("Майкл", 15, 100, 20),
                 new Soldier("Джери", 10, 100, 20),
                 new Soldier("Том", 25, 100, 20),
                 new Soldier("Уолтер", 40, 100, 20),
                 new Soldier("Джейсон", 20, 100, 20),
+            };
+
+            return firstPlatoon;
+        }
+
+        public static List<Soldier> CreateSecondPlatoon()
+        {
+            var secondPlatoon = new List<Soldier>()
+            {
                 new Soldier("Робин", 7, 100, 20),
                 new Soldier("Гари", 60, 100, 20),
                 new Soldier("Алекс", 30, 100, 20),
                 new Soldier("Джордж", 10, 100, 20),
                 new Soldier("Уильям", 32, 100, 20),
                 new Soldier("Дуглас", 17, 100, 20)
-        };
+            };
 
-            return soldiers;
+            return secondPlatoon;
+        }
+    }
+
+    class Platoon
+    {
+        private List<Soldier> _soldiers = new List<Soldier>();
+
+        public Platoon(List<Soldier> soldiers)
+        {
+            _soldiers = soldiers;
         }
 
         public bool GetCountSoldiers()
