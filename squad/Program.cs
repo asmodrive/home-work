@@ -34,24 +34,23 @@ namespace squad
 
     class War
     {
-        private Platoon _firstPlatoon = new Platoon(CreateFirstPlatoon());
-        private Platoon _secondPlatoon = new Platoon(CreateSecondPlatoon());
-
         public void StartBattle()
         {
+           Platoon firstPlatoon = new Platoon(CreateFirstPlatoon());
+           Platoon secondPlatoon = new Platoon(CreateSecondPlatoon());
 
-            while (_firstPlatoon.GetCountSoldiers() && _secondPlatoon.GetCountSoldiers())
+            while (firstPlatoon.GetCountSoldiers() && secondPlatoon.GetCountSoldiers())
             {
-                _firstPlatoon.ShowInfo();
-                _secondPlatoon.ShowInfo();
-                var firstSoldier = _firstPlatoon.GetSoldier();
-                var secondSoldier = _secondPlatoon.GetSoldier();
+                firstPlatoon.ShowInfo();
+                secondPlatoon.ShowInfo();
+                var firstSoldier = firstPlatoon.GetSoldier();
+                var secondSoldier = secondPlatoon.GetSoldier();
                 firstSoldier.UseSkillAttack();
                 secondSoldier.UseSkillDefence();
                 firstSoldier.Attack(secondSoldier);
                 secondSoldier.Attack(firstSoldier);
-                _firstPlatoon.RemoveDeadSoldiers();
-                _secondPlatoon.RemoveDeadSoldiers();
+                firstPlatoon.RemoveDeadSoldiers();
+                secondPlatoon.RemoveDeadSoldiers();
                 Console.ReadKey();
             }
 
