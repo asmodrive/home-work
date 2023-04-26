@@ -1,207 +1,220 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
+﻿using System.Collections.Generic;
+using System;
 
-namespace data_base
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            const string AddPlayerCommand = "1";
-            const string RemovePlayerCommand = "2";
-            const string BanPlayerCommand = "3";
-            const string UnbanPlayerCommand = "4";
-            const string ShowInfoPlayerCommand = "5";
-            const string ExitCommand = "6";
+        var zoo = new Zoo();
 
-            Database database = new Database();
+        zoo.FillEnclosures();
+        zoo.Work();
+    }
+}
 
-            bool isWorking = true;
-            Console.WriteLine($"Добавить игрока - {AddPlayerCommand},\nудалить игрока - {RemovePlayerCommand},\nзаблокировать игрока - {BanPlayerCommand},\nразблокировать игрока - {UnbanPlayerCommand}\n" +
-                $"показать инфо об игроке - {ShowInfoPlayerCommand},\nвыйти из программы - {ExitCommand}.");
-
-            while (isWorking)
+class Zoo
+{
+    public Zoo()
+    {
+        Enclosures = new List<Enclosure>()
             {
-                string userInput = Console.ReadLine();
+                new Enclosure("львы", 1),
+                new Enclosure("слоны", 2),
+                new Enclosure("обезьяны", 3),
+                new Enclosure("гиены", 4)
+            };
+    }
 
-                switch (userInput)
+    public List<Enclosure> Enclosures { get; private set; }
+    public Enclosure GetEnclosure(int index) =>
+        Enclosures[index];
+
+    public void FillEnclosures()
+    {
+        var allGenders = new List<string>()
+            {
+                "самец",
+                "самка"
+            };
+
+        Random random = new Random();
+
+        int maxAnimals = 6;
+
+        foreach (var enclosure in Enclosures)
+        {
+            Animal newAnimal;
+            string gender;
+            int quantityOfAnimals = random.Next(maxAnimals + 1);
+
+            for (int i = 0; i < quantityOfAnimals; i++)
+            {
+                gender = allGenders[random.Next(allGenders.Count)];
+                quantityOfAnimals = random.Next(maxAnimals + 1);
+
+                switch (enclosure.Name)
                 {
-                    case AddPlayerCommand:
-                        database.AddPlayer();
+                    case "львы":
+                        newAnimal = new Lion(gender);
                         break;
 
-                    case RemovePlayerCommand:
-                        database.DeletePlayer();
+                    case "слоны":
+                        newAnimal = new Elefant(gender);
                         break;
 
-                    case BanPlayerCommand:
-                        database.BanPlayer();
+                    case "обезьяны":
+                        newAnimal = new Monkey(gender);
                         break;
 
-                    case UnbanPlayerCommand:
-                        database.UnbanPlayer();
-                        break;
-
-                    case ShowInfoPlayerCommand:
-                        database.ShowPlayers();
-                        break;
-
-                    case ExitCommand:
-                        isWorking = false;
+                    default:
+                        newAnimal = new Hyena(gender);
                         break;
                 }
+
+                enclosure.AddNewAnimal(newAnimal);
             }
         }
     }
 
-    class Player
+    public void Work()
     {
-        public Player(string name, int id, float level, bool isBanned)
-        {
-            Name = name;
-            Id = id;
-            Level = level;
-            IsBanned = isBanned;
-        }
+        bool isWorking = true;
+        int userInput;
 
-        public string Name { get; private set; }
-        public int Id { get; private set; }
-        public float Level { get; private set; }
-        public bool IsBanned { get; private set; }
+        while (isWorking)
+        {
+            Console.Clear();
+            ShowCondition();
+            int.TryParse(Console.ReadLine(), out userInput);
 
-        public void ShowInfo()
-        {
-            Console.WriteLine($"Имя игрока: {Name},\nайди игрока: {Id},\nуровень игрока: {Level},\nпроверка на блокировку игрока: {IsBanned}.");
-        }
-
-        public void Ban()
-        {
-            IsBanned = true;
-        }
-        
-        public void Unban()
-        {
-            IsBanned = false;
+            if (userInput > 0 && userInput <= Enclosures.Count)
+            {
+                Enclosures[userInput - 1].Show();
+            }
+            else if (userInput == Enclosures.Count + 1)
+            {
+                isWorking = false;
+            }
         }
     }
 
-    class Database
+    private void ShowCondition()
     {
-        private List<Player> _players = new List<Player>()
+        for (int i = 0; i < Enclosures.Count; i++)
         {
-            new Player("ДА", 1, 12, false),
-            new Player("ty", 2, 12, false),
-            new Player("tt", 3, 12, false),
-            new Player("net", 4, 12, false),
-        };
-
-        public void AddPlayer()
-        {
-            bool isBanned = false;
-            Console.WriteLine("Введите никнейм игрока:");
-            string name = Console.ReadLine();
-            Console.WriteLine("Введите айди игрока начиная с единицы:");
-            bool isCorrect = int.TryParse(Console.ReadLine(), out int idInput);
-
-            Random random = new Random();
-            int minLevel = 0;
-            int maxLevel = 100;
-            int level = random.Next(minLevel, maxLevel);
-            
-            if (isCorrect == true && IsIdFree(idInput) == true)
-            {
-                _players.Add(new Player(name, idInput, level, isBanned));
-                Console.WriteLine("Игрок добавлен.");
-            }
-            else
-            {
-                Console.WriteLine("Попробуйте еще раз.");
-            }
+            Console.WriteLine($"Для выбора вольера \"{Enclosures[i].Name}\" ведите {Enclosures[i].Id} ");
         }
 
-        public void DeletePlayer()
-        {
-            Console.WriteLine("Введите id для удаления:");
+        Console.WriteLine($"Чтобы покинуть зоопарк введите {Enclosures.Count + 1}");
+    }
+}
 
-            if (TryGetPlayer(out Player player))
-            {
-                _players.Remove(player);
-                Console.WriteLine("Игрок удален.");
-            }
-            else
-            {
-                Console.WriteLine("Такого игрока нет.");
-            }
+class Enclosure
+{
+    private List<Animal> _animals;
+
+    public Enclosure(string name, int id)
+    {
+        Name = name;
+        Id = id;
+        _animals = new List<Animal>();
+    }
+
+    public int Id { get; private set; }
+    public string Name { get; private set; }
+
+    public void Show()
+    {
+        Console.Clear();
+
+        foreach (var animal in _animals)
+        {
+            animal.Show();
         }
 
-        public void BanPlayer()
-        {
-            if (TryGetPlayer(out Player player))
-            {
-                player.Ban();
-                Console.WriteLine("Игрок забанен.");
-            }
-            else
-            {
-                Console.WriteLine("Такого игрока нет.");
-            }
-        }
+        Console.ReadLine();
+    }
 
-        public void UnbanPlayer()
-        {
-            if (TryGetPlayer(out Player player))
-            {
-                player.Unban();
-                Console.WriteLine("Игрок разбанен.");
-            }
-            else
-            {
-                Console.WriteLine("Такого игрока нет.");
-            }
-        }
+    public void AddNewAnimal(Animal animal)
+    {
+        _animals.Add(animal);
+    }
+}
 
-        public void ShowPlayers()
-        {
-            for (int i = 0; i < _players.Count; i++)
-            {
-                _players[i].ShowInfo();
-            }
-        }
+abstract class Animal
+{
+    public Animal(string gender)
+    {
+        Gender = gender;
+    }
 
-        private bool TryGetPlayer(out Player player)
-        {
-            player = null;
+    public string Name { get; protected set; }
+    public string Gender { get; protected set; }
+    public string Sound { get; protected set; }
 
-            Console.WriteLine("Введите айди игрока:");
-            bool correctInput = int.TryParse(Console.ReadLine(), out int userInput);
+    public abstract void Show();
+}
 
-            if (correctInput)
-            {
-                for (int i = 0; i < _players.Count; i++)
-                {
-                    if (userInput == _players[i].Id)
-                    {
-                        player = _players[i];
-                        return true;
-                    }
-                }
-            }
+class Lion : Animal
+{
+    public Lion(string gender) : base(gender)
+    {
+        Name = "лев";
+        Sound = "Арррррр!";
+        Gender = gender;
+    }
 
-            return false;
-        }
+    public override void Show()
+    {
+        Console.WriteLine($"{Name} {Gender}\n" +
+                          $" {Sound}");
+    }
+}
 
-        private bool IsIdFree(int id)
-        {
-            for (int i = 0; i < _players.Count; i++)
-            {
-                if (_players[i].Id == id)
-                {
-                    return false;
-                }
-            }
+class Elefant : Animal
+{
+    public Elefant(string gender) : base(gender)
+    {
+        Name = "слон";
+        Sound = "Уууууу!";
+        Gender = gender;
+    }
 
-            return true;
-        }
+    public override void Show()
+    {
+        Console.WriteLine($"{Name} {Gender}\n" +
+                          $" {Sound}");
+    }
+}
+
+class Monkey : Animal
+{
+    public Monkey(string gender) : base(gender)
+    {
+        Name = "обезьяна";
+        Sound = "Уу-аа!";
+        Gender = gender;
+    }
+
+    public override void Show()
+    {
+        Console.WriteLine($"{Name} {Gender}\n" +
+                          $" {Sound}");
+    }
+}
+
+class Hyena : Animal
+{
+    public Hyena(string gender) : base(gender)
+    {
+        Name = "гиена";
+        Sound = "Хи-хи-хи!";
+        Gender = gender;
+    }
+
+    public override void Show()
+    {
+        Console.WriteLine($"{Name} {Gender}\n" +
+                          $" {Sound}");
     }
 }
