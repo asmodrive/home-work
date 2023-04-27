@@ -1,184 +1,261 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace squad
+namespace Автомагазин
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            const string CommandStartBattle = "1";
-            const string CommandExit = "2";
-
-            War war = new War();
-
-            bool isWorking = true;
-
-            while (isWorking)
-            {
-                Console.WriteLine($"Введите номер операции:\n{CommandStartBattle} - начать сражение,\n{CommandExit} - выйти из программы.");
-
-                switch (Console.ReadLine())
-                {
-                    case CommandStartBattle:
-                        war.StartBattle();
-                        break;
-
-                    case CommandExit:
-                        isWorking = false;
-                        break;
-                }
-            }
+            CarService carService = new CarService();
+            carService.Start();
         }
     }
 
-    class War
+    class Detail
     {
-        public void StartBattle()
-        {
-           Platoon firstPlatoon = new Platoon(CreateFirstPlatoon());
-           Platoon secondPlatoon = new Platoon(CreateSecondPlatoon());
-
-            while (firstPlatoon.GetCountSoldiers() && secondPlatoon.GetCountSoldiers())
-            {
-                firstPlatoon.ShowInfo();
-                secondPlatoon.ShowInfo();
-                var firstSoldier = firstPlatoon.GetSoldier();
-                var secondSoldier = secondPlatoon.GetSoldier();
-                firstSoldier.UseSkillAttack();
-                secondSoldier.UseSkillDefence();
-                firstSoldier.Attack(secondSoldier);
-                secondSoldier.Attack(firstSoldier);
-                firstPlatoon.RemoveDeadSoldiers();
-                secondPlatoon.RemoveDeadSoldiers();
-                Console.ReadKey();
-            }
-
-            Console.WriteLine("Битва окончена!");
-        }
-
-        public static List<Soldier> CreateFirstPlatoon()
-        {
-            var firstPlatoon = new List<Soldier>()
-            {
-                new Soldier("Сэм", 5, 100, 20),
-                new Soldier("Майкл", 15, 100, 20),
-                new Soldier("Джери", 10, 100, 20),
-                new Soldier("Том", 25, 100, 20),
-                new Soldier("Уолтер", 40, 100, 20),
-                new Soldier("Джейсон", 20, 100, 20),
-            };
-
-            return firstPlatoon;
-        }
-
-        public static List<Soldier> CreateSecondPlatoon()
-        {
-            var secondPlatoon = new List<Soldier>()
-            {
-                new Soldier("Робин", 7, 100, 20),
-                new Soldier("Гари", 60, 100, 20),
-                new Soldier("Алекс", 30, 100, 20),
-                new Soldier("Джордж", 10, 100, 20),
-                new Soldier("Уильям", 32, 100, 20),
-                new Soldier("Дуглас", 17, 100, 20)
-            };
-
-            return secondPlatoon;
-        }
-    }
-
-    class Platoon
-    {
-        private List<Soldier> _soldiers = new List<Soldier>();
-
-        public Platoon(List<Soldier> soldiers)
-        {
-            _soldiers = soldiers;
-        }
-
-        public bool GetCountSoldiers()
-        {
-            return _soldiers.Count > 0;
-        }
-
-        public void RemoveDeadSoldiers()
-        {
-            for (int i = _soldiers.Count - 1; i >= 0; i--)
-            {
-                if (_soldiers[i].Healph <= 0)
-                {
-                    _soldiers.RemoveAt(i);
-                    Console.WriteLine($"В отряде осталось {_soldiers.Count} бойцов");
-                }
-            }
-        }
-
-        public void ShowInfo()
-        {
-            foreach (var soldier in _soldiers)
-            {
-                soldier.ShowInfo();
-            }
-
-            Console.WriteLine();
-        }
-
-        public Soldier GetSoldier()
-        {
-            Random random = new Random();
-
-            return _soldiers[random.Next(0, _soldiers.Count)];
-        }
-    }
-
-    class Soldier
-    {
-        public Soldier(string name, int attack, int healph, int armor)
+        public Detail(string name, int price)
         {
             Name = name;
-            Damage = attack;
-            Healph = healph;
-            Armor = armor;
+            Price = price;
         }
 
         public string Name { get; private set; }
-        public int Damage { get; protected set; }
-        public int Healph { get; protected set; }
-        public int Armor { get; protected set; }
+        public int Price { get; private set; }
+    }
 
-        public void ShowInfo()
+    class Car
+    {
+        private static Random _random = new Random();
+        private List<Detail> _details = new List<Detail>();
+
+        public Car()
         {
-            Console.WriteLine($"Имя бойца: {Name}, атака: {Damage}, здоровье: {Healph}, броня: {Armor}.");
+            CreateDetailsList();
+            CreateBrokenPart();
         }
 
-        public void TakeDamage(int damage)
+        public Detail BrokenPart { get; private set; }
+
+        private void CreateDetailsList()
         {
-            if (damage > Armor)
+            _details.Add(new Detail("Двигатель", 5000));
+            _details.Add(new Detail("Лобовое стекло", 1000));
+            _details.Add(new Detail("Аудиосистема", 800));
+            _details.Add(new Detail("Фара", 500));
+            _details.Add(new Detail("Колесо", 1000));
+            _details.Add(new Detail("Бампер", 300));
+            _details.Add(new Detail("Сигнализация", 2000));
+        }
+
+        private void CreateBrokenPart()
+        {
+            BrokenPart = _details[_random.Next(_details.Count)];
+        }
+    }
+
+    class Storage
+    {
+        private List<Detail> _allDetailTypes = new List<Detail>();
+        private List<Detail> _generatedDetails = new List<Detail>();
+        private Random _random = new Random();
+        private int _size = 15;
+
+        public Storage()
+        {
+            Fill();
+        }
+
+        public bool ReturnFoundedDetail(Detail requiredDetail)
+        {
+            if (IsDetailFounded(requiredDetail) == true)
             {
-                Healph -= damage - Armor;
+                _generatedDetails.Remove(requiredDetail);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void ShowAvailableDetails()
+        {
+            Console.WriteLine("На складе остались следующие детали:");
+
+            foreach (Detail detail in _generatedDetails)
+            {
+                Console.WriteLine($"Деталь - {detail.Name}, цена - {detail.Price}");
+            }
+        }
+
+        private void Fill()
+        {
+            CreateDetailsList();
+
+            for (int i = 0; i < _size; i++)
+            {
+                _generatedDetails.Add(_allDetailTypes[_random.Next(_allDetailTypes.Count)]);
+            }
+        }
+
+        private void CreateDetailsList()
+        {
+            _allDetailTypes.Add(new Detail("Двигатель", 5000));
+            _allDetailTypes.Add(new Detail("Лобовое стекло", 1000));
+            _allDetailTypes.Add(new Detail("Аудиосистема", 800));
+            _allDetailTypes.Add(new Detail("Фара", 500));
+            _allDetailTypes.Add(new Detail("Колесо", 1000));
+            _allDetailTypes.Add(new Detail("Бампер", 300));
+            _allDetailTypes.Add(new Detail("Сигнализация", 2000));
+        }
+
+        private bool IsDetailFounded(Detail requiredDetail)
+        {
+            foreach (Detail detail in _generatedDetails)
+            {
+                if (requiredDetail.Name == detail.Name)
+                {
+                    return true;
+                }
             }
 
-            Console.WriteLine($"{Name} получил {damage}, осталось {Healph} и {Armor}.");
+            return false;
+        }
+    }
+
+    class CarService
+    {
+        private const string ExitCommand = "exit";
+        private const string StartCommand = "start";
+        private const string RepairCommand = "repair";
+        private const string DenyCommand = "deny";
+
+        private Storage _storage = new Storage();
+        private Queue<Car> _cars = new Queue<Car>();
+        private int _carsQueueSize = 7;
+        private int _totalMoney = 1500;
+
+        public void Start()
+        {
+            bool isWorking = true;
+            CreateCars();
+
+            while (isWorking && _cars.Count > 0)
+            {
+                _storage.ShowAvailableDetails();
+                Console.WriteLine();
+                Console.WriteLine($"На балансе автосервиса {_totalMoney} рублей.\n");
+                Console.WriteLine($"В очереди на ремонт стоят {_cars.Count} машин.\n");
+                Console.WriteLine($"{StartCommand} - начать работу автосервиса\n" +
+                    $"{ExitCommand} - завершить работу автосервиса");
+                Console.WriteLine("Ваш выбор: ");
+                string userInput = Console.ReadLine();
+
+                switch (userInput)
+                {
+                    case StartCommand:
+                        ServiceCar();
+                        break;
+                    case ExitCommand:
+                        isWorking = false;
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Ошибка при вводе!\n");
+                        break;
+                }
+            }
         }
 
-        public void Attack(Soldier soldier)
+        private int GetRepairPrice(Detail brokenPart)
         {
-            soldier.TakeDamage(Damage);
+            int totalRepairPrice = 0;
+            int serviceCost = 300;
+            totalRepairPrice += brokenPart.Price + serviceCost;
+
+            return totalRepairPrice;
         }
 
-        public void UseSkillAttack()
+        private int GetPenalty(Detail brokenPart)
         {
-            int damageBuff = 5;
-
-            Damage *= damageBuff;
+            return brokenPart.Price;
         }
 
-        public void UseSkillDefence()
+        private bool TryToRepair(Car car)
         {
-            int healphBuff = 150;
+            _storage.ShowAvailableDetails();
+            Console.WriteLine("Какую деталь вы хотите отремонтировать?");
+            string userInput = Console.ReadLine();
+            Detail requiredDetail = new Detail(userInput, 0);
 
-            Healph += healphBuff;
+            return _storage.ReturnFoundedDetail(requiredDetail) == true && car.BrokenPart.Name == userInput;
+        }
+
+        private void CreateCars()
+        {
+            for (int i = 0; i < _carsQueueSize; i++)
+            {
+                _cars.Enqueue(new Car());
+            }
+        }
+
+        private void ShowBrokenPart(Car car)
+        {
+            Console.WriteLine($"В машине сломалось: {car.BrokenPart.Name}");
+            Console.WriteLine($"Стоимость замены детали с работой {GetRepairPrice(car.BrokenPart)} рублей.");
+        }
+
+        private void ServiceCar()
+        {
+            _storage.ShowAvailableDetails();
+            Console.WriteLine();
+            Car currentCar = _cars.Dequeue();
+            ShowBrokenPart(currentCar);
+            Console.WriteLine();
+            Console.WriteLine($"{RepairCommand} - отремонтировать машину\n{DenyCommand} - отказать в ремонте\nЧто будем делать:");
+            string userInput = Console.ReadLine();
+
+            switch (userInput)
+            {
+                case RepairCommand:
+                    RepairCar(currentCar);
+                    break;
+                case DenyCommand:
+                    DenyRepair();
+                    break;
+                default:
+                    Console.WriteLine("Ошибка при вводе!");
+                    DenyRepair();
+                    break;
+            }
+        }
+
+        private void RepairCar(Car car)
+        {
+            Console.Clear();
+
+            if (TryToRepair(car))
+            {
+                Console.WriteLine("Автомобиль отромонтирован успешно!");
+                Console.WriteLine($"Вы заработали: {GetRepairPrice(car.BrokenPart)} рублей.");
+                _totalMoney += GetRepairPrice(car.BrokenPart);
+            }
+            else
+            {
+                Console.WriteLine("Была установлена неправильная деталь!");
+                Console.WriteLine($"Вы возместили ущерб водителю в размере: {GetPenalty(car.BrokenPart)} рублей.");
+                _totalMoney -= GetPenalty(car.BrokenPart);
+            }
+        }
+
+        private void DenyRepair()
+        {
+            int fine = 300;
+            Console.Clear();
+            Console.WriteLine($"Вы не отремонтировали машину, с вас списан штраф в размере {fine} рублей!\n");
+            _totalMoney -= fine;
         }
     }
 }

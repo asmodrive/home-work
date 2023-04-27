@@ -294,6 +294,5 @@ namespace market
         {
             _money -= difference;
         }
-
     }
 }
