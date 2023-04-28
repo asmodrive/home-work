@@ -1,0 +1,8 @@
+D:\home-work\amnistiya\bin\Debug\amnistiya.exe.config
+D:\home-work\amnistiya\bin\Debug\amnistiya.exe
+D:\home-work\amnistiya\bin\Debug\amnistiya.pdb
+D:\home-work\amnistiya\obj\Debug\amnistiya.csproj.AssemblyReference.cache
+D:\home-work\amnistiya\obj\Debug\amnistiya.csproj.SuggestedBindingRedirects.cache
+D:\home-work\amnistiya\obj\Debug\amnistiya.csproj.CoreCompileInputs.cache
+D:\home-work\amnistiya\obj\Debug\amnistiya.exe
+D:\home-work\amnistiya\obj\Debug\amnistiya.pdb
