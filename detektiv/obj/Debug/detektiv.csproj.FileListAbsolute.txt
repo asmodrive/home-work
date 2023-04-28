@@ -1,0 +1,8 @@
+D:\home-work\detektiv\bin\Debug\detektiv.exe.config
+D:\home-work\detektiv\bin\Debug\detektiv.exe
+D:\home-work\detektiv\bin\Debug\detektiv.pdb
+D:\home-work\detektiv\obj\Debug\detektiv.csproj.AssemblyReference.cache
+D:\home-work\detektiv\obj\Debug\detektiv.csproj.SuggestedBindingRedirects.cache
+D:\home-work\detektiv\obj\Debug\detektiv.csproj.CoreCompileInputs.cache
+D:\home-work\detektiv\obj\Debug\detektiv.exe
+D:\home-work\detektiv\obj\Debug\detektiv.pdb

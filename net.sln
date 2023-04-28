@@ -91,6 +91,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zoo", "zoo\zoo.csproj", "{D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tehcenter", "Tehcenter\Tehcenter.csproj", "{88EB8F7A-C402-4266-BCDD-DC874C320CB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "detektiv", "detektiv\detektiv.csproj", "{51DA2914-6F65-4BB5-913B-410386617F7A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -273,6 +275,10 @@ Global
 		{88EB8F7A-C402-4266-BCDD-DC874C320CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88EB8F7A-C402-4266-BCDD-DC874C320CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88EB8F7A-C402-4266-BCDD-DC874C320CB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51DA2914-6F65-4BB5-913B-410386617F7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51DA2914-6F65-4BB5-913B-410386617F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51DA2914-6F65-4BB5-913B-410386617F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51DA2914-6F65-4BB5-913B-410386617F7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

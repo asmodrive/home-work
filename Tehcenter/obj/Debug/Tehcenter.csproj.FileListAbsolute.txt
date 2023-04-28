@@ -1,0 +1,8 @@
+D:\home-work\Tehcenter\bin\Debug\Tehcenter.exe.config
+D:\home-work\Tehcenter\bin\Debug\Tehcenter.exe
+D:\home-work\Tehcenter\bin\Debug\Tehcenter.pdb
+D:\home-work\Tehcenter\obj\Debug\Tehcenter.csproj.AssemblyReference.cache
+D:\home-work\Tehcenter\obj\Debug\Tehcenter.csproj.SuggestedBindingRedirects.cache
+D:\home-work\Tehcenter\obj\Debug\Tehcenter.csproj.CoreCompileInputs.cache
+D:\home-work\Tehcenter\obj\Debug\Tehcenter.exe
+D:\home-work\Tehcenter\obj\Debug\Tehcenter.pdb
