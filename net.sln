@@ -97,6 +97,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "amnistiya", "amnistiya\amni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bolnitsa", "bolnitsa\bolnitsa.csproj", "{DC8A45BC-2526-49A2-9B66-9DC622ACA39F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zaprosi", "zaprosi\zaprosi.csproj", "{0F9A2904-88BE-4671-8A66-924F34A34A95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -291,6 +293,10 @@ Global
 		{DC8A45BC-2526-49A2-9B66-9DC622ACA39F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC8A45BC-2526-49A2-9B66-9DC622ACA39F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC8A45BC-2526-49A2-9B66-9DC622ACA39F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F9A2904-88BE-4671-8A66-924F34A34A95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F9A2904-88BE-4671-8A66-924F34A34A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F9A2904-88BE-4671-8A66-924F34A34A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F9A2904-88BE-4671-8A66-924F34A34A95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,8 @@
+D:\home-work\zaprosi\bin\Debug\zaprosi.exe.config
+D:\home-work\zaprosi\bin\Debug\zaprosi.exe
+D:\home-work\zaprosi\bin\Debug\zaprosi.pdb
+D:\home-work\zaprosi\obj\Debug\zaprosi.csproj.AssemblyReference.cache
+D:\home-work\zaprosi\obj\Debug\zaprosi.csproj.SuggestedBindingRedirects.cache
+D:\home-work\zaprosi\obj\Debug\zaprosi.csproj.CoreCompileInputs.cache
+D:\home-work\zaprosi\obj\Debug\zaprosi.exe
+D:\home-work\zaprosi\obj\Debug\zaprosi.pdb
