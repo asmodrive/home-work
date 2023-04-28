@@ -71,6 +71,10 @@ namespace bolnitsa
                 new Patient("Джек-потрошитель", 140, "опухоль мозга"),
                 new Patient("Дик Турпин", 89, "covid"),
                 new Patient("Чарльз Бронсон", 14, "бактериоз"),
+                new Patient("Собачка Квака", 8, "перелом"),
+                new Patient("Джейсон Стэтхем", 38, "опухоль мозга"),
+                new Patient("Ник Ковач", 25, "психоз"),
+                new Patient("Джек Хантер", 29, "covid")
             };
 
             return _patients;
