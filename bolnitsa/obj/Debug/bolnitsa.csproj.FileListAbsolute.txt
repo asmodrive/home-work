@@ -1,0 +1,8 @@
+D:\home-work\bolnitsa\bin\Debug\bolnitsa.exe.config
+D:\home-work\bolnitsa\bin\Debug\bolnitsa.exe
+D:\home-work\bolnitsa\bin\Debug\bolnitsa.pdb
+D:\home-work\bolnitsa\obj\Debug\bolnitsa.csproj.AssemblyReference.cache
+D:\home-work\bolnitsa\obj\Debug\bolnitsa.csproj.SuggestedBindingRedirects.cache
+D:\home-work\bolnitsa\obj\Debug\bolnitsa.csproj.CoreCompileInputs.cache
+D:\home-work\bolnitsa\obj\Debug\bolnitsa.exe
+D:\home-work\bolnitsa\obj\Debug\bolnitsa.pdb

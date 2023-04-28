@@ -95,6 +95,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "detektiv", "detektiv\detekt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "amnistiya", "amnistiya\amnistiya.csproj", "{62F122BB-2AFF-4443-BBB5-A451895BBF89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bolnitsa", "bolnitsa\bolnitsa.csproj", "{DC8A45BC-2526-49A2-9B66-9DC622ACA39F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -285,6 +287,10 @@ Global
 		{62F122BB-2AFF-4443-BBB5-A451895BBF89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62F122BB-2AFF-4443-BBB5-A451895BBF89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62F122BB-2AFF-4443-BBB5-A451895BBF89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC8A45BC-2526-49A2-9B66-9DC622ACA39F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC8A45BC-2526-49A2-9B66-9DC622ACA39F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC8A45BC-2526-49A2-9B66-9DC622ACA39F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC8A45BC-2526-49A2-9B66-9DC622ACA39F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
