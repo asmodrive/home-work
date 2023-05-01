@@ -1,0 +1,8 @@
+D:\home-work\tyshenka\bin\Debug\tyshenka.exe.config
+D:\home-work\tyshenka\bin\Debug\tyshenka.exe
+D:\home-work\tyshenka\bin\Debug\tyshenka.pdb
+D:\home-work\tyshenka\obj\Debug\tyshenka.csproj.AssemblyReference.cache
+D:\home-work\tyshenka\obj\Debug\tyshenka.csproj.SuggestedBindingRedirects.cache
+D:\home-work\tyshenka\obj\Debug\tyshenka.csproj.CoreCompileInputs.cache
+D:\home-work\tyshenka\obj\Debug\tyshenka.exe
+D:\home-work\tyshenka\obj\Debug\tyshenka.pdb
