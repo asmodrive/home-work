@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Media;
 
 namespace tyshenka
 {
@@ -48,7 +47,7 @@ namespace tyshenka
             }
         }
 
-        public void GetExpiredStew()
+        private void GetExpiredStew()
         {
             var foundStew = _stews.Where(stew => stew.ExpirationDate < DateTime.Now);
 
@@ -58,7 +57,7 @@ namespace tyshenka
             }
         }
 
-        public List<Stew> Create()
+        private List<Stew> Create()
         {
             _stews = new List<Stew>
             {

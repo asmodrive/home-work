@@ -52,7 +52,7 @@ namespace amnistiya
             }
         }
 
-        public void StartAmnesty()
+        private void StartAmnesty()
         {
             string amnestiedCrime = "Антиправительственное";
             var foundCriminal = _criminals.Where(criminal => criminal.Crime != amnestiedCrime);
@@ -64,7 +64,7 @@ namespace amnistiya
             }
         }
 
-        public void ShowInfo()
+        private void ShowInfo()
         {
             foreach (var criminal in _criminals)
             {

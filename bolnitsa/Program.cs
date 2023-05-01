@@ -77,7 +77,7 @@ namespace bolnitsa
             return _patients;
         }
 
-        public void SortingName()
+        private void SortingName()
         {
             var foundPatients = _patients.OrderBy(patient => patient.Name);
 
@@ -87,7 +87,7 @@ namespace bolnitsa
             }
         }
 
-        public void SortingAge()
+        private void SortingAge()
         {
             var foundPatients = _patients.OrderBy(patient => patient.Age);
 
@@ -97,7 +97,7 @@ namespace bolnitsa
             }
         }
 
-        public void ShowSelectedDisease()
+        private void ShowSelectedDisease()
         {
             Console.WriteLine("Введите болезнь:");
             string userInput = Console.ReadLine();

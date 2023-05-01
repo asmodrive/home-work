@@ -1,0 +1,8 @@
+D:\home-work\soldat\bin\Debug\soldat.exe.config
+D:\home-work\soldat\bin\Debug\soldat.exe
+D:\home-work\soldat\bin\Debug\soldat.pdb
+D:\home-work\soldat\obj\Debug\soldat.csproj.AssemblyReference.cache
+D:\home-work\soldat\obj\Debug\soldat.csproj.SuggestedBindingRedirects.cache
+D:\home-work\soldat\obj\Debug\soldat.csproj.CoreCompileInputs.cache
+D:\home-work\soldat\obj\Debug\soldat.exe
+D:\home-work\soldat\obj\Debug\soldat.pdb

@@ -101,6 +101,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zaprosi", "zaprosi\zaprosi.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tyshenka", "tyshenka\tyshenka.csproj", "{33AA80A7-87C9-4ECC-AF9C-8963B5C7218E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soldat", "soldat\soldat.csproj", "{35D72268-19F5-4C61-BA55-98CD46C661B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -303,6 +305,10 @@ Global
 		{33AA80A7-87C9-4ECC-AF9C-8963B5C7218E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33AA80A7-87C9-4ECC-AF9C-8963B5C7218E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33AA80A7-87C9-4ECC-AF9C-8963B5C7218E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35D72268-19F5-4C61-BA55-98CD46C661B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35D72268-19F5-4C61-BA55-98CD46C661B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35D72268-19F5-4C61-BA55-98CD46C661B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35D72268-19F5-4C61-BA55-98CD46C661B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

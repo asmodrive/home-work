@@ -52,7 +52,7 @@ namespace zaprosi
             }
         }
 
-        public List<Player> Create()
+        private List<Player> Create()
         {
             _players = new List<Player>
             {
@@ -71,7 +71,7 @@ namespace zaprosi
             return _players;
         }
 
-        public void GetOutputLevel()
+        private void GetOutputLevel()
         {
             var foundPlayer = _players.OrderByDescending(patient => patient.Level).Take(3);
 
@@ -81,7 +81,7 @@ namespace zaprosi
             }
         }
 
-        public void GetOutputPower()
+        private void GetOutputPower()
         {
             var foundPlayer = _players.OrderByDescending(patient => patient.Power).Take(3);
 
