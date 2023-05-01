@@ -1,0 +1,8 @@
+D:\home-work\spisolSoldat\bin\Debug\spisolSoldat.exe.config
+D:\home-work\spisolSoldat\bin\Debug\spisolSoldat.exe
+D:\home-work\spisolSoldat\bin\Debug\spisolSoldat.pdb
+D:\home-work\spisolSoldat\obj\Debug\spisolSoldat.csproj.AssemblyReference.cache
+D:\home-work\spisolSoldat\obj\Debug\spisolSoldat.csproj.SuggestedBindingRedirects.cache
+D:\home-work\spisolSoldat\obj\Debug\spisolSoldat.csproj.CoreCompileInputs.cache
+D:\home-work\spisolSoldat\obj\Debug\spisolSoldat.exe
+D:\home-work\spisolSoldat\obj\Debug\spisolSoldat.pdb

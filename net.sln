@@ -103,6 +103,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tyshenka", "tyshenka\tyshen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soldat", "soldat\soldat.csproj", "{35D72268-19F5-4C61-BA55-98CD46C661B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spisolSoldat", "spisolSoldat\spisolSoldat.csproj", "{65EDC415-3D9B-423A-9664-BC61CEE5DB89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -309,6 +311,10 @@ Global
 		{35D72268-19F5-4C61-BA55-98CD46C661B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35D72268-19F5-4C61-BA55-98CD46C661B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35D72268-19F5-4C61-BA55-98CD46C661B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65EDC415-3D9B-423A-9664-BC61CEE5DB89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65EDC415-3D9B-423A-9664-BC61CEE5DB89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65EDC415-3D9B-423A-9664-BC61CEE5DB89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65EDC415-3D9B-423A-9664-BC61CEE5DB89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
