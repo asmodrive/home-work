@@ -71,16 +71,11 @@ namespace soldat
 
         private void GetData()
         {
-            Console.WriteLine("Введите звание:");
-            string title = Console.ReadLine();
-            Console.WriteLine("Введите имя:");
-            string name = Console.ReadLine();
+            var foundSoldiers = _soldiers.Select(soldier => new { soldier.Name, soldier.Title });
 
-            var foundSoldier = _soldiers.Where(soldier => soldier.Title == title && soldier.Name == name);
-
-            foreach (var soldier in foundSoldier)
+            foreach (var soldier in foundSoldiers)
             {
-                Console.WriteLine($"{soldier.Name} {soldier.Title}");
+                Console.WriteLine($"Имя: {soldier.Name}, звание: {soldier.Title}|");
             }
         }
     }

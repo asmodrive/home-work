@@ -40,11 +40,11 @@ namespace bolnitsa
                 switch (Console.ReadLine())
                 {
                     case CommandSortingByname:
-                        SortingName();
+                        SortingPatientName();
                         break;
 
                     case CommandSortingByAge:
-                        SortingAge();
+                        SortingPatientAge();
                         break;
 
                     case CommandConclusionDisease:
@@ -77,23 +77,26 @@ namespace bolnitsa
             return _patients;
         }
 
-        private void SortingName()
+        private void SortingPatientName()
         {
-            var foundPatients = _patients.OrderBy(patient => patient.Name);
+            _patients = _patients.OrderBy(patient => patient.Name).ToList();
 
-            foreach (var patient in foundPatients)
-            {
-                patient.ShowInfo();
-            }
+            ShowPatientsInfo(_patients);
         }
 
-        private void SortingAge()
+        private void SortingPatientAge()
         {
-            var foundPatients = _patients.OrderBy(patient => patient.Age);
+            _patients = _patients.OrderBy(patient => patient.Age).ToList();
 
-            foreach (var patient in foundPatients)
+            ShowPatientsInfo(_patients);
+        }
+
+        private void ShowPatientsInfo(List<Patient> patients)
+        {
+            for (int i = 0; i < patients.Count; i++)
             {
-                patient.ShowInfo();
+                Console.Write($"{i + 1}. ");
+                patients[i].ShowInfo();
             }
         }
 
@@ -102,12 +105,9 @@ namespace bolnitsa
             Console.WriteLine("Введите болезнь:");
             string userInput = Console.ReadLine();
 
-            var foundPatients = _patients.Where(criminal => criminal.Disease == userInput);
+            _patients = _patients.Where(criminal => criminal.Disease == userInput).ToList();
 
-            foreach (var patient in foundPatients)
-            {
-                patient.ShowInfo();
-            }
+            ShowPatientsInfo(_patients);
         }
     }
 

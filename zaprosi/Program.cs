@@ -38,11 +38,11 @@ namespace zaprosi
                 switch (Console.ReadLine())
                 {
                     case CommandLevelOutput:
-                        GetOutputLevel();
+                        SortingPlayerLevel();
                         break;
 
                     case CommandPowerOutput:
-                        GetOutputPower();
+                        SortingPlayerPower();
                         break;
 
                     case CommandExit:
@@ -71,23 +71,30 @@ namespace zaprosi
             return _players;
         }
 
-        private void GetOutputLevel()
+        private void SortingPlayerLevel()
         {
-            var foundPlayer = _players.OrderByDescending(patient => patient.Level).Take(3);
+            int quantityPlayers = 3;
 
-            foreach (var player in foundPlayer)
-            {
-                player.ShowInfo();
-            }
+            _players = _players.OrderByDescending(player => player.Level).Take(quantityPlayers).ToList();
+
+            ShowPlayersInfo(_players);
         }
 
-        private void GetOutputPower()
+        private void SortingPlayerPower()
         {
-            var foundPlayer = _players.OrderByDescending(patient => patient.Power).Take(3);
+            int quantityPlayers = 3;
 
-            foreach (var player in foundPlayer)
+            _players = _players.OrderByDescending(player => player.Power).Take(quantityPlayers).ToList();
+
+            ShowPlayersInfo(_players);
+        }
+
+        private void ShowPlayersInfo(List<Player> players)
+        {
+            for (int i = 0; i < players.Count; i++)
             {
-                player.ShowInfo();
+                Console.Write($"{i + 1}. ");
+                players[i].ShowInfo();
             }
         }
     }

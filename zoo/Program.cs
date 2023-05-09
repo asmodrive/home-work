@@ -7,29 +7,36 @@ internal class Program
     {
         var zoo = new Zoo();
 
-        zoo.FillEnclosures();
+        zoo.FillAviary();
         zoo.Work();
     }
 }
 
 class Zoo
 {
+    private List<Aviary> _aviaries;
+    const string CommandAviaryLions = "львы";
+    const string CommandAviaryElephants = "слоны";
+    const string CommandAviaryMonkeys = "обезьяны";
+    const string CommandAviaryHyenes = "гиены";
+
     public Zoo()
     {
-        Aviaries = new List<Aviary>()
+        _aviaries = new List<Aviary>()
             {
-                new Aviary("львы", 1),
-                new Aviary("слоны", 2),
-                new Aviary("обезьяны", 3),
-                new Aviary("гиены", 4)
+                new Aviary(CommandAviaryLions, 1),
+                new Aviary(CommandAviaryElephants, 2),
+                new Aviary(CommandAviaryMonkeys, 3),
+                new Aviary(CommandAviaryHyenes, 4)
             };
     }
 
-    public List<Aviary> Aviaries { get; private set; }
-    public Aviary GetEnclosure(int index) => Aviaries[index];
+    public Aviary GetAviary(int index) => _aviaries[index];
 
-    public void FillEnclosures()
+    public void FillAviary()
     {
+        
+
         var allGenders = new List<string>()
             {
                 "самец",
@@ -40,9 +47,9 @@ class Zoo
 
         int maxAnimals = 6;
 
-        foreach (var enclosure in Aviaries)
+        foreach (var aviary in _aviaries)
         {
-            Animal newAnimal;
+            Animal newAnimal = null;
             string gender;
             int quantityOfAnimals = random.Next(maxAnimals + 1);
 
@@ -51,26 +58,28 @@ class Zoo
                 gender = allGenders[random.Next(allGenders.Count)];
                 quantityOfAnimals = random.Next(maxAnimals + 1);
 
-                switch (enclosure.Name)
+                switch (aviary.Name)
                 {
-                    case "Лев":
+                    case CommandAviaryLions:
                         newAnimal = new Lion(gender);
                         break;
 
-                    case "Слон":
+                    case CommandAviaryElephants:
                         newAnimal = new Elefant(gender);
                         break;
 
-                    case "Обезьяна":
+                    case CommandAviaryMonkeys:                        
                         newAnimal = new Monkey(gender);
                         break;
 
-                    default:
+                    case CommandAviaryHyenes:
                         newAnimal = new Hyena(gender);
-                        break;
+                        break;                       
+                   
                 }
 
-                enclosure.AddNewAnimal(newAnimal);
+                if (newAnimal != null)
+                    aviary.AddNewAnimal(newAnimal);
             }
         }
     }
@@ -86,11 +95,11 @@ class Zoo
             ShowAviaries();
             int.TryParse(Console.ReadLine(), out userInput);
 
-            if (userInput > 0 && userInput <= Aviaries.Count)
+            if (userInput > 0 && userInput <= _aviaries.Count)
             {
-                Aviaries[userInput - 1].ShowInfo();
+                _aviaries[userInput - 1].ShowInfo();
             }
-            else if (userInput == Aviaries.Count + 1)
+            else if (userInput == _aviaries.Count + 1)
             {
                 isWorking = false;
             }
@@ -99,12 +108,12 @@ class Zoo
 
     private void ShowAviaries()
     {
-        for (int i = 0; i < Aviaries.Count; i++)
+        for (int i = 0; i < _aviaries.Count; i++)
         {
-            Console.WriteLine($"Для выбора вольера \"{Aviaries[i].Name}\" ведите {Aviaries[i].Numbers} ");
+            Console.WriteLine($"Для выбора вольера \"{_aviaries[i].Name}\" ведите {_aviaries[i].ID} ");
         }
 
-        Console.WriteLine($"Чтобы покинуть зоопарк введите {Aviaries.Count + 1}");
+        Console.WriteLine($"Чтобы покинуть зоопарк введите {_aviaries.Count + 1}");
     }
 }
 
@@ -115,19 +124,28 @@ class Aviary
     public Aviary(string name, int id)
     {
         Name = name;
-        Numbers = id;
+        ID = id;
         _animals = new List<Animal>();
     }
 
-    public int Numbers { get; private set; }
+    public int ID { get; private set; }
     public string Name { get; private set; }
 
     public void ShowInfo()
     {
-        foreach (var animal in _animals)
+        if (_animals.Count > 0)
         {
-            animal.ShowInfo();
+            foreach (var animal in _animals)
+            {
+                animal.ShowInfo();
+            }
         }
+        else
+        {
+            Console.WriteLine("Вольер пуст!");
+        }
+
+        Console.ReadKey();
     }
 
     public void AddNewAnimal(Animal animal)
