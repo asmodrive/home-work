@@ -75,7 +75,7 @@ namespace soldat
 
             foreach (var soldier in foundSoldiers)
             {
-                Console.WriteLine($"Имя: {soldier.Name}, звание: {soldier.Title}|");
+                Console.WriteLine($"Имя: {soldier.Name}, звание: {soldier.Title}.");
             }
         }
     }
