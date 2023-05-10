@@ -7,151 +7,19 @@ namespace Tehcenter
     {
         static void Main(string[] args)
         {
-            CarService carService = new CarService();
-
-            carService.StartWork();
+           
         }
     }
 
-    class CarService
+    class Service
     {
-        private const string ExitCommand = "exit";
-        private const string StartCommand = "start";
-        private const string RepairCommand = "repair";
-        private const string DenyCommand = "deny";
-
         private Warehouse _warehouse = new Warehouse();
         private Queue<Car> _cars = new Queue<Car>();
-        private int _carsQueueSize = 7;
-        private int _totalMoney = 1500;
-
-        public void StartWork()
-        {
-            bool isWorking = true;
-            CreateCars();
-
-            while (isWorking && _cars.Count > 0)
-            {
-                _warehouse.ShowAvailableDetails();
-                Console.WriteLine();
-                Console.WriteLine($"На балансе автосервиса {_totalMoney} рублей.\n");
-                Console.WriteLine($"В очереди на ремонт стоят {_cars.Count} машин.\n");
-                Console.WriteLine($"{StartCommand} - начать работу автосервиса\n" +
-                    $"{ExitCommand} - завершить работу автосервиса");
-                Console.WriteLine("Ваш выбор: ");
-                string userInput = Console.ReadLine();
-
-                switch (userInput)
-                {
-                    case StartCommand:
-                        ServiceCar();
-                        break;
-                    case ExitCommand:
-                        isWorking = false;
-                        break;
-                    default:
-                        Console.Clear();
-                        Console.WriteLine("Ошибка при вводе!\n");
-                        break;
-                }
-            }
-        }
-
-        private int GetRepairPrice(Detail brokenPart)
-        {
-            int totalRepairPrice = 0;
-            int serviceCost = 300;
-            totalRepairPrice += brokenPart.Price + serviceCost;
-
-            return totalRepairPrice;
-        }
-
-        private int GetPenalty(Detail brokenPart)
-        {
-            return brokenPart.Price;
-        }
-
-        private bool TryToRepair(Car car)
-        {
-            _warehouse.ShowAvailableDetails();
-            Console.WriteLine("Какую деталь вы хотите отремонтировать?");
-            string userInput = Console.ReadLine();
-            Detail requiredDetail = new Detail(userInput, 0);
-
-            return _warehouse.ReturnFoundedDetail(requiredDetail) == true && car.BrokenDetail.Name == userInput;
-        }
-
-        private void CreateCars()
-        {
-            for (int i = 0; i < _carsQueueSize; i++)
-            {
-                _cars.Enqueue(new Car());
-            }
-        }
-
-        private void ShowBrokenPart(Car car)
-        {
-            Console.WriteLine($"В машине сломалось: {car.BrokenDetail.Name}");
-            Console.WriteLine($"Стоимость замены детали с работой {GetRepairPrice(car.BrokenDetail)} рублей.");
-        }
-
-        private void ServiceCar()
-        {
-            _warehouse.ShowAvailableDetails();
-            Console.WriteLine();
-            Car currentCar = _cars.Dequeue();
-            ShowBrokenPart(currentCar);
-            Console.WriteLine();
-            Console.WriteLine($"{RepairCommand} - отремонтировать машину\n{DenyCommand} - отказать в ремонте\nЧто будем делать:");
-            string userInput = Console.ReadLine();
-
-            switch (userInput)
-            {
-                case RepairCommand:
-                    RepairCar(currentCar);
-                    break;
-                case DenyCommand:
-                    DenyRepair();
-                    break;
-                default:
-                    Console.WriteLine("Ошибка при вводе!");
-                    DenyRepair();
-                    break;
-            }
-        }
-
-        private void RepairCar(Car car)
-        {
-            Console.Clear();
-
-            if (TryToRepair(car))
-            {
-                Console.WriteLine("Автомобиль отромонтирован успешно!");
-                Console.WriteLine($"Вы заработали: {GetRepairPrice(car.BrokenDetail)} рублей.");
-                _totalMoney += GetRepairPrice(car.BrokenDetail);
-            }
-            else
-            {
-                Console.WriteLine("Была установлена неправильная деталь!");
-                Console.WriteLine($"Вы возместили ущерб водителю в размере: {GetPenalty(car.BrokenDetail)} рублей.");
-                _totalMoney -= GetPenalty(car.BrokenDetail);
-            }
-        }
-
-        private void DenyRepair()
-        {
-            int fine = 300;
-            Console.Clear();
-            Console.WriteLine($"Вы не отремонтировали машину, с вас списан штраф в размере {fine} рублей!\n");
-            _totalMoney -= fine;
-        }
     }
-}
 
     class Car
     {
         private List<Detail> _details = new List<Detail>();
-
 
         public Car()
         {
@@ -225,7 +93,7 @@ namespace Tehcenter
 
             foreach (Detail detail in _generatedDetails)
             {
-                Console.WriteLine($"Деталь - {detail.Name}, цена - {detail.Price}");
+                detail.ShowInfo();
             }
         }
     }
@@ -246,3 +114,4 @@ namespace Tehcenter
             Console.WriteLine($"Название детали: {Name}, цена: {Price}.");
         }
     }
+}

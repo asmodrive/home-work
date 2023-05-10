@@ -40,15 +40,15 @@ namespace bolnitsa
                 switch (Console.ReadLine())
                 {
                     case CommandSortingByname:
-                        SortingPatientName();
+                        ShowPatientByName();
                         break;
 
                     case CommandSortingByAge:
-                        SortingPatientAge();
+                        ShowPatientByAge();
                         break;
 
                     case CommandConclusionDisease:
-                        ShowSelectedDisease();
+                        ShowPatientsByDisease();
                         break;
 
                     case CommandExit:
@@ -77,14 +77,14 @@ namespace bolnitsa
             return _patients;
         }
 
-        private void SortingPatientName()
+        private void ShowPatientByName()
         {
             _patients = _patients.OrderBy(patient => patient.Name).ToList();
 
             ShowPatientsInfo(_patients);
         }
 
-        private void SortingPatientAge()
+        private void ShowPatientByAge()
         {
             _patients = _patients.OrderBy(patient => patient.Age).ToList();
 
@@ -100,14 +100,14 @@ namespace bolnitsa
             }
         }
 
-        private void ShowSelectedDisease()
+        private void ShowPatientsByDisease()
         {
             Console.WriteLine("Введите болезнь:");
             string userInput = Console.ReadLine();
 
-            _patients = _patients.Where(criminal => criminal.Disease == userInput).ToList();
+            var patients = _patients.Where(patient => patient.Disease == userInput).ToList();
 
-            ShowPatientsInfo(_patients);
+            ShowPatientsInfo(patients);
         }
     }
 
